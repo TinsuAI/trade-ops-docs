@@ -1,9 +1,9 @@
 # Project Status
 
 ## Currently Working On
-- Establishing the proposal workspace and initial framing for `TradeOps`
-- Turning a BOM/CO-specific problem into a broader multi-client trade-compliance platform proposal
-- Preparing early documents that can support a client-facing proposal deck or solution brief
+- Hardening the proposal narrative for `TradeOps` as the portfolio + operations platform for customs brokers
+- Aligning proposal with the three adjacent apps (Siafu, Barry-CO, Barry-BCQT) and the broker pilot at Trọng Tín
+- Preparing artifacts that can later become a proposal deck or solution brief
 
 ## Recent Changes
 - Created a dedicated project separate from the Growatt case workspace
@@ -11,19 +11,35 @@
 - Added a Vietnamese proposal outline in `proposal/client-proposal-outline-vi.md`
 - Initialized git and AI context
 - Chose a working product name: `TradeOps`
+- [2026-04-26] Resolved the first round of architectural decisions: tenant model, data center of gravity, system role
+- [2026-04-26] Tightened the Vietnamese proposal: measurable benefit indicators, per-phase goals, Phase-1 out-of-scope, Phase-1 expected outcomes; softened binding language across the document
+- [2026-04-26] Major reframe after customer brief — TradeOps positioned as backbone for Siafu / Barry-CO / Barry-BCQT, not a competing app. Tenant model simplified to per-broker independent deployment with multi-end-client tenancy inside. Added two new backbone modules: multi-view inventory (reconciled, not converged) and item master + HQ↔ERP code translation. Problem framing rewritten at broker-strategic level. New `docs/architecture-positioning.md` documents the four-component topology.
+- [2026-04-26] Domain-fact pass via web-research review (Nghị định 134/2016+18/2021, Thông tư 38/2015 / 39/2018, Thông tư 33/2023, Thông tư 05/2018/TT-BCT). Corrections applied: Phụ lục X is a C/O dossier form per Bộ Công Thương, NOT a TKXK appendix; SXXK is tax-exempt (miễn thuế), not "duty deferral"; DNCX has heavier reporting burden (XNK tại chỗ), not "simplified customs"; BOM (định mức kỹ thuật) and Định mức Mẫu 16 are distinct artifacts (Mẫu 16 is computed from actuals at year-end, NOT a flattening of BOM); BCCT is a line-level extract pulled on demand from the HQ system; BCQT mẫu 15+15a+16 are largely regime-agnostic (15b/15c only for outward processing); since 5/5/2025 all C/O issuance moved from VCCI to Bộ Công Thương via eCoSys; Tồn CO framing softened to "origin-rules-driven divergence" instead of "made submittable"; Mã hàng vs mã HS distinction added; XNK tại chỗ and kiểm tra sau thông quan added as glossary + concrete-pain references; origin criteria broadened (RVC / CTC / PSR).
+- [2026-04-26] Final reframe wave (after critic check): TradeOps positioned as the **daily operations platform** of the broker, NOT 'shared backbone for the three workflow apps'. The earlier 'shared backbone' framing invited the customer objection 'why didn't your three apps include this?'. The new framing makes TradeOps a different category of system from the three apps: TradeOps is where the ops team works every day; the three apps are workflow accelerators that fire on specific business triggers. Updated proposal §1+§3, problem-framing System Boundary, solution-outline Working Product Definition + Position Relative, architecture-positioning Overview, and DECISIONS.md System Role.
+- [2026-04-26] Deeper reframe wave (after second critic + general-purpose review): "daily ops platform" was still too generic — it did not name the categorically distinct work that lives only in TradeOps. Refined to **"broker's portfolio and operations platform"** with explicit two-group module structure: daily-ops modules (Dossier & client mgmt, Document control, Audit trail) as headline; per-end-client master-data modules (Item master + code translation, BOM + period-flow data, Multi-view inventory) holding master data both groups read. Phase 1 goal refocused to "pilot end-client portfolio + master data + audit trail; one CO end-to-end as integration demonstration" rather than "Barry-CO end-to-end runs on new platform". Stack diagram redrawn. proposal §2 line referring to "nền dữ liệu và quy trình chung mà cả ba hệ thống cùng dựa vào" rewritten to "tầng vận hành portfolio và lịch sử của đại lý".
+- [2026-04-26] D2 polish wave (after third critic review): critic flagged that even after the portfolio reframe, "tier" / "phía trên / phía dưới" / "supporting capabilities" vocabulary still carried backbone-style hierarchy implications, and the proposal did not explicitly answer the natural customer question "why can't your three apps just absorb this work?". Surgical fixes applied: (a) added an explicit "Vì sao Siafu, Barry-CO, Barry-BCQT không thể tự đảm nhận phần này" section in proposal §3 + parallel section in `architecture-positioning.md` ("Why the three workflow apps cannot do this work") naming exactly what the apps do hold and what they don't; (b) replaced tier vocabulary throughout — "Operations modules / Supporting capabilities" became "daily-ops modules / per-end-client master-data modules" with no upper/lower hierarchy; (c) Vietnamese §4 "TradeOps được chia làm hai tầng" + "phục vụ tầng vận hành phía trên" rewritten without "tầng" or "phục vụ phía trên" vocabulary; (d) ASCII stack diagram redrawn — 3 apps now sit alongside TradeOps in the broker deployment, not nested inside the TradeOps box, with bidirectional arrows labeled "API contracts"; (e) explicit clarification that integration is via published API contracts, not shared-database direct access (architecture-positioning Why This Split Works + Deployment Model + proposal §4 closing); (f) Phase 1 added "Standalone usability before Barry-CO integration" note showing what ops staff can do before the workflow-app integration milestone; (g) audit defense gap made explicit — three apps each retain their own 5-year dossiers per regulation, but post-clearance audit reconstruction needs the cross-app + outside-app chain that lives only in TradeOps; (h) Vietnamese flow: "lệch một mắt là cả chuỗi sai" tightened to "chỉ một mắt xích lệch là cả chuỗi sai", "không gian portfolio" replaced by natural "không gian làm việc cho khách hàng cuối", repeated "đứng vững độc lập" assertions reduced; (i) the rhetorical "Test logic" Q&A removed from §3 body in favor of the substantive "Vì sao 3 app không thể tự làm" answer.
 
 ## Next Steps
-- Refine system scope and module boundaries
-- Draft a tighter proposal structure: problem, solution, phases, investment logic
-- Decide whether the next artifact should be a proposal memo, slide deck outline, or lightweight proposal site
-- Clarify tenant model and the expected relationship to any client ERP/accounting systems
+- Walk Trọng Tín through the new framing in person; capture pushback into a discovery note
+- Decide whether the next artifact should be a proposal memo, a slide deck outline, or a lightweight proposal site
+- Add a pricing/effort framing once a workshop fixes pilot end-client and document volume
+- Optional: produce an English internal-facing version of the proposal for project-team alignment
 
 ## Blockers
 - No blocker yet
-- Product scope may broaden further depending on how strongly the client wants customs settlement and declaration workflows in phase 1
+- Phase-1 effort and timeline ranges remain unsettled until a client workshop fixes pilot end-client and document volume
 
 ## Notes for Next AI Session
 - This repo is intentionally separate from `/home/vp/workspace/client/barry-CO`
 - It should stay focused on proposal and product framing, not case-specific data processing
-- The current recommended framing is: a trade-compliance operations platform with strong document control and structured operational data
-- BOM is not the whole system; it is one gateway module
+- **TradeOps is the broker's portfolio + operations platform** — manages the entire portfolio of end-clients across years (who they are, what dossiers exist, who is working on what, what the history is, what is defensible under audit). NOT a "shared backbone for the three workflow apps" and NOT a generic "daily operations platform" — both are weaker framings that have been rejected.
+- The categorically distinct work that ONLY TradeOps does (and the three apps cannot): portfolio management of N end-clients, audit defense over years (post-clearance audit 5-year reopen window), staff-knowledge continuity across turnover.
+- The three apps (Siafu, Barry-CO, Barry-BCQT) are specialized workflow accelerators triggered by specific events. They plug into TradeOps for shared data; TradeOps stands independent of them.
+- Even without the three apps, TradeOps would still be needed by the broker. The three apps are additive, not constitutive.
+- Modules organized in two groups: **daily-ops modules** (Dossier & client mgmt, Document control, Audit trail) as headline; **per-end-client master-data modules** (Item master + code translation, BOM + period-flow data, Multi-view inventory) holding master data both groups read. Avoid "tier" / "phía trên / phía dưới" / "supporting" hierarchy vocabulary — it carries backbone-style implications.
+- Multi-broker capability lives at the deployment layer (Tinsu AI internal). Do not mention it in client-facing proposal language.
+- Multi-view inventory must be framed as reconciled, not converged.
+- BOM (định mức kỹ thuật, point-in-time) and Định mức Mẫu 16 (annual computed from actuals) are distinct artifacts. Mẫu 16 is NOT a flattening of BOM.
+- Avoid the words "backbone", "shared backbone", "infrastructure layer", "tầng nền cho 3 hệ thống", "tier" / "phía trên / phía dưới", "supporting capabilities" in any client-facing or internal-document framing of TradeOps. These all carry hierarchy / infrastructure-for-the-3-apps implications.
+- When the natural customer question "why can't the three apps just absorb this work?" comes up, answer it with the **specific** list of things the three apps don't hold: cross-client portfolio, documents arriving outside any compliance trigger, cross-workflow data continuity, operational work outside compliance scopes, cross-year reconstruction. The answer is now spelled out in proposal §3 ("Vì sao Siafu, Barry-CO, Barry-BCQT không thể tự đảm nhận phần này") and architecture-positioning ("Why the three workflow apps cannot do this work"). Don't rely on generic "categorical distinction" assertions.
+- Integration is via **published API contracts**, not shared-database direct access. Each component has its own codebase and data store inside the broker deployment.
