@@ -1,7 +1,7 @@
 # Project Status
 
 ## Currently Working On
-- Establishing the proposal workspace and initial framing for `Origin Ops Platform`
+- Establishing the proposal workspace and initial framing for `TradeOps`
 - Turning a BOM/CO-specific problem into a broader multi-client trade-compliance platform proposal
 - Preparing early documents that can support a client-facing proposal deck or solution brief
 
@@ -10,7 +10,7 @@
 - Added initial framing docs in `docs/`
 - Added a Vietnamese proposal outline in `proposal/client-proposal-outline-vi.md`
 - Initialized git and AI context
-- Chose a working product name: `Origin Ops Platform`
+- Chose a working product name: `TradeOps`
 
 ## Next Steps
 - Refine system scope and module boundaries

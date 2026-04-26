@@ -1,4 +1,4 @@
-# Project: origin-ops-platform
+# Project: tradeops
 
 ## Overview
 Proposal and discovery workspace for a client-facing platform that manages trade-compliance operations across multiple clients.

@@ -2,7 +2,7 @@
 
 ## [2026-04-24] Separate Proposal Workspace From Case Analysis
 **Context:** The Growatt case repository contains deep case-specific analysis, local data artifacts, and execution outputs. A broader product proposal for a multi-client operational platform would become noisy and hard to maintain if it stayed in that repo.
-**Decision:** Create a separate docs-first project at `/home/vp/workspace/client/origin-ops-platform`.
+**Decision:** Create a separate docs-first project at `/home/vp/workspace/client/tradeops`.
 **Alternatives:** Keep proposal notes inside the Growatt case repo; create only a subfolder inside the existing repo.
 **Consequences:** Proposal framing stays clean, client-facing documents can evolve independently, and raw case artifacts remain isolated.
 

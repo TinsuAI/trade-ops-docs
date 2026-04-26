@@ -1,4 +1,4 @@
-# Origin Ops Platform
+# TradeOps
 
 Proposal workspace for a client-facing system that manages operational data and dossiers for trade compliance work.
 
@@ -16,7 +16,7 @@ This project is a separate workspace for shaping that larger proposal without mi
 
 ## Name
 
-`Origin Ops Platform`
+`TradeOps`
 
 Reasoning:
 
@@ -59,4 +59,3 @@ Phase-1 scope should likely cover:
 - `docs/` - internal framing, scope, decisions, architecture notes
 - `proposal/` - client-facing drafts
 - `notes/` - workshop notes and raw idea capture
-

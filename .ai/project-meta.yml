@@ -1,5 +1,5 @@
-project_name: origin-ops-platform
-project_root: /home/vp/workspace/client/origin-ops-platform
+project_name: tradeops
+project_root: /home/vp/workspace/client/tradeops
 project_type: default
 template_name: default
 initialized_by: ai-init
