@@ -140,6 +140,16 @@ async function loadView() {
         if (!res.ok) throw new Error(`status ${res.status}`);
         const html = await res.text();
         target.innerHTML = html;
+        /* innerHTML does not execute <script> tags — re-create them so per-screen
+         * inline scripts (sub-tab toggles, view switchers) run. */
+        target.querySelectorAll("script").forEach((oldScript) => {
+            const newScript = document.createElement("script");
+            Array.from(oldScript.attributes).forEach((attr) =>
+                newScript.setAttribute(attr.name, attr.value)
+            );
+            newScript.textContent = oldScript.textContent;
+            oldScript.replaceWith(newScript);
+        });
     } catch (err) {
         target.innerHTML = `<div class="zone"><h2>Không tải được màn</h2><p class="muted">${err.message}. File <code>screens/${entry.file}.html</code> chưa tồn tại.</p></div>`;
     }
