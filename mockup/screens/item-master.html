@@ -1,6 +1,6 @@
 <div class="page-bar">
-    <h1>Mã hàng + dịch mã HQ↔ERP</h1>
-    <span class="page-tagline">285 mã · 47 SP · 238 NVL · 12 mã có drift HQ qua năm · 3 chưa ánh xạ</span>
+    <h1>Mã hàng &amp; dịch mã HQ ↔ ERP</h1>
+    <span class="page-tagline">285 mã · 47 SP · 238 NVL · 12 BTP · 12 NVL có mã HQ thay đổi qua năm · 3 chưa ánh xạ</span>
     <div class="page-actions">
         <a class="btn-secondary">+ Mã mới</a>
     </div>
@@ -9,19 +9,86 @@
 <nav class="tabs" aria-label="Tab dữ liệu nền">
     <a href="#/item-master" class="tab-link tab-link-active">Mã hàng</a>
     <a href="#/bom" class="tab-link">BOM master</a>
-    <a href="#/inventory" class="tab-link">Tồn 4 view</a>
+    <a href="#/inventory" class="tab-link">Tồn 3 góc nhìn</a>
 </nav>
 
 <section class="zone">
     <div class="zone-head">
         <div>
-            <h2>Danh mục NVL</h2>
-            <p class="meta">238 dòng · sắp xếp theo lần dùng gần nhất. Cột "Mã HQ" thể hiện lịch sử khai báo nhiều năm.</p>
+            <h2>Sản phẩm xuất khẩu (SP) · 47 mã</h2>
+            <p class="meta">SP có HS xuất khẩu cố định và liên kết BOM kỹ thuật phiên bản hoá.</p>
         </div>
-        <div class="chip-row">
-            <button class="chip">SP</button>
-            <button class="chip chip-active">NVL</button>
-            <button class="chip">BTP</button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mã ERP</th>
+                <th>Tên SP</th>
+                <th>HS xuất khẩu</th>
+                <th>BOM</th>
+                <th>Lần dùng</th>
+                <th>Trạng thái</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="mono">SP-DM-1042</td>
+                <td>Áo polo nam Premium cotton</td>
+                <td class="mono">6105.1000</td>
+                <td><a class="mono" href="#/bom">v3 đề xuất</a></td>
+                <td class="mono">22/04/2026</td>
+                <td><span class="badge badge-success">Hoạt động</span></td>
+            </tr>
+            <tr>
+                <td class="mono">SP-DM-1043</td>
+                <td>Áo sơ mi nam dài tay business</td>
+                <td class="mono">6205.2000</td>
+                <td><a class="mono" href="#/bom">v2</a></td>
+                <td class="mono">18/04/2026</td>
+                <td><span class="badge badge-success">Hoạt động</span></td>
+            </tr>
+            <tr>
+                <td class="mono">SP-DM-1051</td>
+                <td>Quần kaki nam slim fit</td>
+                <td class="mono">6203.4200</td>
+                <td><a class="mono" href="#/bom">v1</a></td>
+                <td class="mono">15/04/2026</td>
+                <td><span class="badge badge-success">Hoạt động</span></td>
+            </tr>
+            <tr>
+                <td class="mono">SP-DM-1067</td>
+                <td>Áo khoác gió nữ light weight</td>
+                <td class="mono">6202.9200</td>
+                <td><a class="mono" href="#/bom">v2</a></td>
+                <td class="mono">10/04/2026</td>
+                <td><span class="badge badge-success">Hoạt động</span></td>
+            </tr>
+            <tr>
+                <td class="mono">SP-DM-1102</td>
+                <td>Áo blazer nam wool blend</td>
+                <td class="mono">6203.3100</td>
+                <td><a class="mono" href="#/bom">v1</a></td>
+                <td class="mono">02/04/2026</td>
+                <td><span class="badge badge-success">Hoạt động</span></td>
+            </tr>
+            <tr>
+                <td class="mono">SP-DM-1124</td>
+                <td>Áo gile nam trifit</td>
+                <td class="mono">6211.3200</td>
+                <td><a class="mono" href="#/bom">v2</a></td>
+                <td class="mono">28/03/2026</td>
+                <td><span class="badge badge-success">Hoạt động</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="empty">+ 41 SP khác · scroll hoặc lọc.</p>
+</section>
+
+<section class="zone">
+    <div class="zone-head">
+        <div>
+            <h2>Nguyên vật liệu (NVL) · 238 mã</h2>
+            <p class="meta">Cột "Mã HQ" thể hiện lịch sử khai báo qua nhiều năm. Mã thay đổi giữa các năm là dữ liệu, không phải lỗi.</p>
         </div>
     </div>
     <table class="table">
@@ -113,6 +180,71 @@
             </tr>
         </tbody>
     </table>
+    <p class="empty">+ 230 NVL khác · scroll hoặc lọc.</p>
+</section>
+
+<section class="zone">
+    <div class="zone-head">
+        <div>
+            <h2>Bán thành phẩm (BTP) · 12 mã</h2>
+            <p class="meta">Sản phẩm trung gian trong dây chuyền — đầu vào là NVL, đầu ra là SP hoặc BTP khác.</p>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mã ERP</th>
+                <th>Tên BTP</th>
+                <th>ĐVT</th>
+                <th>Đầu vào chính</th>
+                <th>Phục vụ SP</th>
+                <th>Trạng thái</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="mono">BTP-DM-001</td>
+                <td>Vải cắt rập áo polo size M</td>
+                <td>cái</td>
+                <td class="mono">NVL-001245</td>
+                <td class="mono">SP-DM-1042</td>
+                <td><span class="badge badge-success">Hoạt động</span></td>
+            </tr>
+            <tr>
+                <td class="mono">BTP-DM-002</td>
+                <td>Vải cắt rập áo sơ mi size L</td>
+                <td>cái</td>
+                <td class="mono">NVL-001246</td>
+                <td class="mono">SP-DM-1043</td>
+                <td><span class="badge badge-success">Hoạt động</span></td>
+            </tr>
+            <tr>
+                <td class="mono">BTP-DM-003</td>
+                <td>Áo polo bán thành phẩm chưa kết hoàn</td>
+                <td>cái</td>
+                <td class="mono">BTP-DM-001 + chỉ may</td>
+                <td class="mono">SP-DM-1042</td>
+                <td><span class="badge badge-success">Hoạt động</span></td>
+            </tr>
+            <tr>
+                <td class="mono">BTP-DM-004</td>
+                <td>Quần kaki bán thành phẩm chưa may khoá kéo</td>
+                <td>cái</td>
+                <td class="mono">NVL-001245 + chỉ may</td>
+                <td class="mono">SP-DM-1051</td>
+                <td><span class="badge badge-success">Hoạt động</span></td>
+            </tr>
+            <tr>
+                <td class="mono">BTP-DM-005</td>
+                <td>Vải nhuộm semi-finished màu navy</td>
+                <td>kg</td>
+                <td class="mono">NVL-001246</td>
+                <td>SP-DM-1067, SP-DM-1102</td>
+                <td><span class="badge badge-success">Hoạt động</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="empty">+ 7 BTP khác · scroll hoặc lọc.</p>
 </section>
 
 <section class="zone zone-muted">
@@ -161,9 +293,9 @@
     <div class="callout callout-warning" style="margin-top: 0.7rem;">
         <span class="callout-icon">!</span>
         <div>
-            <div class="callout-title">Khi đối chiếu BCQT 2024 vs 2025</div>
+            <div class="callout-title">Khi đối chiếu BCQT năm 2024 với năm 2025</div>
             Hệ thống dùng <strong>lịch sử mã HQ này</strong> để tính tồn đầu kỳ — không lấy mã HQ hiện hành áp dụng cho năm cũ.
-            Đây là cơ chế bảo vệ tránh sai số do drift.
+            Đây là cơ chế bảo vệ tránh sai số khi mã HQ thay đổi qua năm.
         </div>
     </div>
 </section>
@@ -171,9 +303,10 @@
 <aside class="questions-panel">
     <h3>Trạm 3a · Mã hàng</h3>
     <ol>
-        <li>Số NVL điển hình mỗi end-client là bao nhiêu? 100? 500? 5,000?</li>
-        <li>Cách tổ chức mã hàng hôm nay của TT-HN — file Excel chia theo end-client, master chung, hay không có cấu trúc cố định?</li>
-        <li>"Đa nhóm HQ" — TT-HN có gặp tình huống cùng NVL khai 3+ mã HQ trong cùng 1 năm, hay drift chỉ qua nhiều năm?</li>
-        <li>Khi đặt mã ERP nội bộ — đại lý đặt, end-client đặt, hay đại lý lấy nguyên mã ERP của end-client?</li>
+        <li>Số NVL điển hình mỗi khách hàng là bao nhiêu? 100? 500? 5,000?</li>
+        <li>Khách hàng dệt may có thực sự cần BTP layer riêng, hay TT-HN chỉ quản SP + NVL? BTP có cần phiên bản hoá như BOM không?</li>
+        <li>Cách tổ chức mã hàng hôm nay của TT-HN — file Excel chia theo khách hàng, master chung, hay không có cấu trúc cố định?</li>
+        <li>"Đa nhóm HQ" — TT-HN có gặp tình huống cùng NVL khai 3+ mã HQ trong cùng 1 năm, hay thay đổi chỉ qua nhiều năm?</li>
+        <li>Khi đặt mã ERP nội bộ — đại lý đặt, khách hàng đặt, hay đại lý lấy nguyên mã ERP của khách hàng?</li>
     </ol>
 </aside>

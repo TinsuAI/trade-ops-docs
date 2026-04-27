@@ -1,6 +1,6 @@
 <div class="page-bar">
     <h1>BOM master · Định mức kỹ thuật</h1>
-    <span class="page-tagline">47 SP · 56 phiên bản · point-in-time, snapshot vào hồ sơ C/O</span>
+    <span class="page-tagline">47 SP · 56 phiên bản · tại thời điểm cụ thể, lưu chụp vào hồ sơ C/O</span>
     <div class="page-actions">
         <a class="btn-cta" id="bom-simulate">Mô phỏng: file có NVL trùng</a>
     </div>
@@ -9,7 +9,7 @@
 <nav class="tabs" aria-label="Tab dữ liệu nền">
     <a href="#/item-master" class="tab-link">Mã hàng</a>
     <a href="#/bom" class="tab-link tab-link-active">BOM master</a>
-    <a href="#/inventory" class="tab-link">Tồn 4 view</a>
+    <a href="#/inventory" class="tab-link">Tồn 3 góc nhìn</a>
 </nav>
 
 <div class="callout callout-info">
@@ -17,7 +17,7 @@
     <div>
         <div class="callout-title">BOM ≠ Mẫu 16</div>
         BOM kỹ thuật là điểm-thời-điểm, dùng cho C/O. Mẫu 16 là định mức thực tế bình quân năm tính từ
-        nhập + xuất + consumption — dùng cho BCQT. Hai khái niệm khác nhau, không phải nhân-quả.
+        nhập + xuất + tiêu hao thực tế — dùng cho BCQT. Hai khái niệm khác nhau, không phải nhân-quả.
     </div>
 </div>
 
@@ -47,7 +47,7 @@
                     <td class="num">14</td>
                     <td class="mono">v3 đề xuất</td>
                     <td class="mono">22/04/2026</td>
-                    <td><span class="badge badge-warning">Chờ end-client</span></td>
+                    <td><span class="badge badge-warning">Chờ khách hàng</span></td>
                 </tr>
                 <tr>
                     <td class="mono">SP-DM-1043</td>
@@ -102,8 +102,8 @@
         </div>
         <dl class="kv">
             <dt>Phiên bản</dt><dd class="mono">v3 đề xuất</dd>
-            <dt>Trạng thái</dt><dd><span class="badge badge-warning">Chờ end-client xác nhận</span></dd>
-            <dt>Đề xuất bởi</dt><dd>Đại diện kỹ thuật end-client</dd>
+            <dt>Trạng thái</dt><dd><span class="badge badge-warning">Chờ khách hàng xác nhận</span></dd>
+            <dt>Đề xuất bởi</dt><dd>Đại diện kỹ thuật khách hàng</dd>
             <dt>Ngày đề xuất</dt><dd class="mono">22/04/2026</dd>
             <dt>So với v2</dt><dd>+1 NVL chỉ may · ↻ 1 NVL cúc</dd>
         </dl>
@@ -202,7 +202,7 @@
     <ol>
         <li>BOM thay đổi mức độ nào trong 1 năm? Bao nhiêu % SP có version mới? Trigger thay đổi?</li>
         <li>"Định mức gross" hay "định mức net + phế liệu riêng" — TT-HN nhận BOM theo định dạng nào?</li>
-        <li>Mẫu 16 ĐMTT bình quân năm — TT-HN tính ra bằng gì hôm nay (tay, Excel, end-client gửi)?</li>
-        <li>Khi BOM v3 chờ end-client xác nhận — quy trình xác nhận là email PDF, ký số, hay biên bản?</li>
+        <li>Mẫu 16 ĐMTT bình quân năm — TT-HN tính ra bằng gì hôm nay (tay, Excel, khách hàng gửi)?</li>
+        <li>Khi BOM v3 chờ khách hàng xác nhận — quy trình xác nhận là email PDF, ký số, hay biên bản?</li>
     </ol>
 </aside>

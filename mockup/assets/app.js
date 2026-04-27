@@ -146,7 +146,7 @@ async function loadView() {
     if (entry.next) {
         const footer = document.createElement("div");
         footer.className = "next-station";
-        footer.innerHTML = `<span class="muted">Theo demo script:</span><a class="next-station-link" href="#/${entry.next.route}">${entry.next.label} <span class="arrow">→</span></a>`;
+        footer.innerHTML = `<span class="muted">Theo kịch bản:</span><a class="next-station-link" href="#/${entry.next.route}">${entry.next.label} <span class="arrow">→</span></a>`;
         target.appendChild(footer);
     }
 
