@@ -1,64 +1,43 @@
-<div class="mockup-banner">
-    <strong>Mockup</strong>
-    BOM kỹ thuật là điểm-thời-điểm (point-in-time) — KHÔNG phải Mẫu 16 ĐMTT bình quân năm. BOM phục vụ C/O; Mẫu 16 phục vụ BCQT. Hai khái niệm khác nhau, không phải nhân-quả.
+<div class="page-bar">
+    <h1>BOM master · Định mức kỹ thuật</h1>
+    <span class="page-tagline">47 SP · 56 phiên bản · point-in-time, snapshot vào hồ sơ C/O</span>
+    <div class="page-actions">
+        <a class="btn-cta" id="bom-simulate">Mô phỏng: file có NVL trùng</a>
+    </div>
 </div>
 
-<section class="page-header">
+<nav class="tabs" aria-label="Tab dữ liệu nền">
+    <a href="#/item-master" class="tab-link">Mã hàng</a>
+    <a href="#/bom" class="tab-link tab-link-active">BOM master</a>
+    <a href="#/inventory" class="tab-link">Tồn 4 view</a>
+</nav>
+
+<div class="callout callout-info">
+    <span class="callout-icon">i</span>
     <div>
-        <div class="eyebrow">Trạm 3b — Dữ liệu nền · BOM</div>
-        <h1>BOM master — Định mức kỹ thuật</h1>
-        <p class="page-subtitle">
-            Định mức kỹ thuật (BOM) tại thời điểm cấp C/O — phiên bản hoá theo ngày hiệu lực.
-            Khi C/O được cấp, hệ thống snapshot BOM tại thời điểm đó vào hồ sơ — sửa BOM sau này không ảnh hưởng C/O cũ.
-        </p>
+        <div class="callout-title">BOM ≠ Mẫu 16</div>
+        BOM kỹ thuật là điểm-thời-điểm, dùng cho C/O. Mẫu 16 là định mức thực tế bình quân năm tính từ
+        nhập + xuất + consumption — dùng cho BCQT. Hai khái niệm khác nhau, không phải nhân-quả.
     </div>
-    <div class="page-actions">
-        <a href="#/item-master" class="btn-secondary">← Mã hàng</a>
-        <a href="#/inventory" class="btn-primary">Sang Tồn 4 view →</a>
-    </div>
-</section>
+</div>
 
-<section class="metric-strip">
-    <article class="metric-cell">
-        <span class="stat-label">SP có BOM</span>
-        <strong class="stat-value">47</strong>
-        <span class="metric-note">/ 47 SP đang xuất khẩu</span>
-    </article>
-    <article class="metric-cell">
-        <span class="stat-label">Phiên bản đang hiệu lực</span>
-        <strong class="stat-value">47</strong>
-        <span class="metric-note">9 SP đã có v2 trong năm</span>
-    </article>
-    <article class="metric-cell">
-        <span class="stat-label">Phiên bản lịch sử</span>
-        <strong class="stat-value">56</strong>
-        <span class="metric-note">snapshot vào 23 hồ sơ C/O</span>
-    </article>
-    <article class="metric-cell">
-        <span class="stat-label">Đối chiếu Mẫu 16</span>
-        <strong class="stat-value">3</strong>
-        <span class="metric-note">SP chênh &gt;8% — cần làm rõ</span>
-    </article>
-</section>
-
-<div class="split-layout">
-    <section class="workspace-panel">
-        <div class="section-heading">
+<div class="split">
+    <section class="zone">
+        <div class="zone-head">
             <div>
                 <h2>BOM theo SP</h2>
-                <p class="meta">47 SP · click để mở chi tiết phiên bản.</p>
+                <p class="meta">Click để mở chi tiết phiên bản.</p>
             </div>
-            <a class="btn-secondary">+ BOM mới</a>
         </div>
-        <table class="data-table">
+        <table class="table">
             <thead>
                 <tr>
                     <th>Mã SP</th>
                     <th>Tên SP</th>
-                    <th>Số NVL</th>
-                    <th>Phiên bản hiệu lực</th>
-                    <th>Hiệu lực từ</th>
-                    <th>Đối chiếu Mẫu 16</th>
+                    <th>NVL</th>
+                    <th>Phiên bản</th>
+                    <th>Hiệu lực</th>
+                    <th>Mẫu 16</th>
                 </tr>
             </thead>
             <tbody>
@@ -66,7 +45,7 @@
                     <td class="mono">SP-DM-1042</td>
                     <td>Áo polo nam Premium cotton</td>
                     <td class="num">14</td>
-                    <td class="mono">v3 (đề xuất)</td>
+                    <td class="mono">v3 đề xuất</td>
                     <td class="mono">22/04/2026</td>
                     <td><span class="badge badge-warning">Chờ end-client</span></td>
                 </tr>
@@ -92,15 +71,7 @@
                     <td class="num">22</td>
                     <td class="mono">v2</td>
                     <td class="mono">12/03/2026</td>
-                    <td><span class="badge badge-warning">Chênh 8.4%</span></td>
-                </tr>
-                <tr>
-                    <td class="mono">SP-DM-1089</td>
-                    <td>Đầm midi cotton thân vải họa tiết</td>
-                    <td class="num">9</td>
-                    <td class="mono">v1</td>
-                    <td class="mono">10/02/2026</td>
-                    <td><span class="badge badge-success">Khớp</span></td>
+                    <td><span class="badge badge-warning">Chênh 8,4%</span></td>
                 </tr>
                 <tr>
                     <td class="mono">SP-DM-1102</td>
@@ -108,15 +79,7 @@
                     <td class="num">26</td>
                     <td class="mono">v1</td>
                     <td class="mono">28/11/2025</td>
-                    <td><span class="badge badge-warning">Chênh 11.2%</span></td>
-                </tr>
-                <tr>
-                    <td class="mono">SP-DM-1118</td>
-                    <td>Áo thun trẻ em cotton in chuyển nhiệt</td>
-                    <td class="num">7</td>
-                    <td class="mono">v1</td>
-                    <td class="mono">05/09/2025</td>
-                    <td><span class="badge badge-success">Khớp</span></td>
+                    <td><span class="badge badge-warning">Chênh 11,2%</span></td>
                 </tr>
                 <tr>
                     <td class="mono">SP-DM-1124</td>
@@ -124,51 +87,37 @@
                     <td class="num">15</td>
                     <td class="mono">v2</td>
                     <td class="mono">21/01/2026</td>
-                    <td><span class="badge badge-warning">Chênh 9.7%</span></td>
+                    <td><span class="badge badge-warning">Chênh 9,7%</span></td>
                 </tr>
             </tbody>
         </table>
     </section>
 
-    <section class="workspace-panel workspace-panel-muted">
-        <div class="section-heading">
+    <section class="zone zone-muted">
+        <div class="zone-head">
             <div>
-                <h2>Phiên bản đã chọn</h2>
-                <p class="meta mono">SP-DM-1042 · v3 (đề xuất)</p>
+                <h2>SP-DM-1042 · v3 đề xuất</h2>
+                <p class="meta">Áo polo nam Premium cotton</p>
             </div>
         </div>
-        <dl class="kv-grid">
-            <dt>SP</dt><dd>Áo polo nam Premium cotton</dd>
-            <dt>Mã SP</dt><dd class="mono">SP-DM-1042</dd>
-            <dt>Phiên bản</dt><dd class="mono">v3</dd>
+        <dl class="kv">
+            <dt>Phiên bản</dt><dd class="mono">v3 đề xuất</dd>
             <dt>Trạng thái</dt><dd><span class="badge badge-warning">Chờ end-client xác nhận</span></dd>
             <dt>Đề xuất bởi</dt><dd>Đại diện kỹ thuật end-client</dd>
             <dt>Ngày đề xuất</dt><dd class="mono">22/04/2026</dd>
-            <dt>So với v2</dt><dd>+1 NVL (chỉ may polyester thêm) · −1 NVL (cúc cũ thay loại mới)</dd>
+            <dt>So với v2</dt><dd>+1 NVL chỉ may · ↻ 1 NVL cúc</dd>
         </dl>
-        <div class="callout callout-info" style="margin-top: 0.9rem;">
-            <span class="callout-icon">i</span>
-            <div>
-                <div class="callout-title">Snapshot khi cấp C/O</div>
-                Khi một bộ C/O được cấp với SP này, BOM phiên bản đang hiệu lực sẽ được copy snapshot
-                vào hồ sơ C/O đó. Sau này nếu BOM thay đổi, C/O cũ vẫn giữ snapshot — phục vụ KTSTQ.
-            </div>
-        </div>
     </section>
 </div>
 
-<section class="workspace-panel">
-    <div class="section-heading">
+<section class="zone">
+    <div class="zone-head">
         <div>
-            <h2>NVL của <span class="mono">SP-DM-1042</span> · phiên bản v3 (đề xuất)</h2>
-            <p class="meta">14 NVL · định mức gross (đã bao gồm phế liệu kỹ thuật) · click NVL để sang chi tiết.</p>
-        </div>
-        <div class="hstack">
-            <a class="btn-ghost compact-ghost">So sánh với v2</a>
-            <a class="btn-secondary">Mô phỏng: nhập file có NVL trùng</a>
+            <h2>NVL của SP-DM-1042 · v3</h2>
+            <p class="meta">14 NVL · định mức gross (đã bao gồm phế liệu kỹ thuật).</p>
         </div>
     </div>
-    <table class="data-table">
+    <table class="table">
         <thead>
             <tr>
                 <th>STT</th>
@@ -177,18 +126,18 @@
                 <th>ĐVT</th>
                 <th>Định mức</th>
                 <th>% phế</th>
-                <th>Diễn biến v2 → v3</th>
+                <th>v2 → v3</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td class="num">1</td>
                 <td class="mono"><a href="#/item-master">NVL-001245</a></td>
-                <td>Vải cotton 30s 100% màu trắng</td>
+                <td>Vải cotton 30s 100% trắng</td>
                 <td>kg</td>
                 <td class="num">0,2850</td>
                 <td class="num">2,5%</td>
-                <td><span class="badge badge-neutral">Không đổi</span></td>
+                <td><span class="muted">Không đổi</span></td>
             </tr>
             <tr>
                 <td class="num">2</td>
@@ -206,7 +155,7 @@
                 <td>cái</td>
                 <td class="num">1,0000</td>
                 <td class="num">0,5%</td>
-                <td><span class="badge badge-neutral">Không đổi</span></td>
+                <td><span class="muted">Không đổi</span></td>
             </tr>
             <tr>
                 <td class="num">4</td>
@@ -215,7 +164,7 @@
                 <td>cái</td>
                 <td class="num">8,0000</td>
                 <td class="num">2,0%</td>
-                <td><span class="badge badge-warning">Thay loại mới</span></td>
+                <td><span class="badge badge-warning">Thay loại</span></td>
             </tr>
             <tr>
                 <td class="num">5</td>
@@ -224,7 +173,7 @@
                 <td>m</td>
                 <td class="num">2,2000</td>
                 <td class="num">3,0%</td>
-                <td><span class="badge badge-neutral">Không đổi</span></td>
+                <td><span class="muted">Không đổi</span></td>
             </tr>
             <tr>
                 <td class="num">6</td>
@@ -233,7 +182,7 @@
                 <td>cái</td>
                 <td class="num">2,0000</td>
                 <td class="num">1,0%</td>
-                <td><span class="badge badge-error">NVL chưa ánh xạ HQ</span></td>
+                <td><span class="badge badge-error">Chưa ánh xạ HQ</span></td>
             </tr>
             <tr>
                 <td class="num">7</td>
@@ -242,26 +191,18 @@
                 <td>cái</td>
                 <td class="num">1,0000</td>
                 <td class="num">0,5%</td>
-                <td><span class="badge badge-neutral">Không đổi</span></td>
+                <td><span class="muted">Không đổi</span></td>
             </tr>
         </tbody>
     </table>
-
-    <div class="callout callout-warning" style="margin-top: 0.9rem;">
-        <span class="callout-icon">!</span>
-        <div>
-            <div class="callout-title">Mô phỏng lỗi: file BOM upload có NVL trùng</div>
-            Nếu cần xem hệ thống xử lý ra sao khi end-client gửi file BOM có 1 NVL liệt kê 2 dòng (do gộp dữ liệu nhiều xưởng), nhấn nút "Mô phỏng" ở trên — màn sẽ chuyển sang trạng thái lỗi có khả năng phục hồi (giữ file gốc, hiển thị diff, cho phép merge thủ công).
-        </div>
-    </div>
 </section>
 
 <aside class="questions-panel">
-    <h3>Câu hỏi mở cho phiên này — Trạm 3b</h3>
+    <h3>Trạm 3b · BOM</h3>
     <ol>
-        <li>BOM thay đổi mức độ nào trong 1 năm? Bao nhiêu % SP có version mới? Trigger thay đổi (cải tiến SP, đổi nhà cung, đổi quy cách)?</li>
-        <li>"Định mức gross" hay "định mức net + phế liệu riêng" — TT-HN nhận BOM từ end-client theo định dạng nào?</li>
-        <li>Mẫu 16 ĐMTT bình quân năm — TT-HN tính ra bằng gì hôm nay (tay, Excel, hay end-client tự gửi)? Đối chiếu Mẫu 16 vs BOM kỹ thuật là pain riêng?</li>
-        <li>Khi BOM v3 chờ end-client xác nhận — quy trình xác nhận là gì (email PDF, ký số, biên bản)?</li>
+        <li>BOM thay đổi mức độ nào trong 1 năm? Bao nhiêu % SP có version mới? Trigger thay đổi?</li>
+        <li>"Định mức gross" hay "định mức net + phế liệu riêng" — TT-HN nhận BOM theo định dạng nào?</li>
+        <li>Mẫu 16 ĐMTT bình quân năm — TT-HN tính ra bằng gì hôm nay (tay, Excel, end-client gửi)?</li>
+        <li>Khi BOM v3 chờ end-client xác nhận — quy trình xác nhận là email PDF, ký số, hay biên bản?</li>
     </ol>
 </aside>

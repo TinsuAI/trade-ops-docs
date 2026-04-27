@@ -1,142 +1,99 @@
-<div class="mockup-banner">
-    <strong>Mockup</strong>
-    Quản lý tài liệu — version, phân loại, link ngược về hồ sơ. Tài liệu KHÔNG mất khi staff đại lý nghỉ — và mỗi tài liệu có thể link đến nhiều hồ sơ (1 hoá đơn input có thể là evidence cho 1 C/O và 1 BCQT).
-</div>
-
-<section class="page-header">
-    <div>
-        <div class="eyebrow">Quản lý tài liệu</div>
-        <h1>Tài liệu · Thiên Hà Dệt May · 1.842 file</h1>
-        <p class="page-subtitle">
-            Mọi tài liệu liên quan đến khách hàng cuối — BOM, hoá đơn, packing list, tờ khai, C/O, biên bản — versioned và phân loại.
-        </p>
-    </div>
+<div class="page-bar">
+    <h1>Tài liệu · Thiên Hà Dệt May</h1>
+    <span class="page-tagline">1.842 file · 96% đã linked vào hồ sơ · 4,2 GB · object storage VN</span>
     <div class="page-actions">
         <a class="btn-secondary">+ Tải lên</a>
-        <a class="btn-primary">Tìm kiếm</a>
+        <a class="btn-cta">Tìm kiếm</a>
     </div>
-</section>
+</div>
 
-<section class="metric-strip">
-    <article class="metric-cell">
-        <span class="stat-label">Tổng tài liệu</span>
-        <strong class="stat-value">1.842</strong>
-        <span class="metric-note">đã phân loại 97,7%</span>
-    </article>
-    <article class="metric-cell">
-        <span class="stat-label">Chưa phân loại</span>
-        <strong class="stat-value">42</strong>
-        <span class="metric-note">cần xử lý trong tuần</span>
-    </article>
-    <article class="metric-cell">
-        <span class="stat-label">Linked vào hồ sơ</span>
-        <strong class="stat-value">96%</strong>
-        <span class="metric-note">/ 1.800 đã phân loại</span>
-    </article>
-    <article class="metric-cell">
-        <span class="stat-label">Lưu trữ</span>
-        <strong class="stat-value">4,2</strong>
-        <span class="metric-note">GB · object storage VN</span>
-    </article>
-</section>
+<div class="callout callout-warning">
+    <span class="callout-icon">!</span>
+    <div>
+        <div class="callout-title">42 file chưa phân loại</div>
+        Upload mới hoặc tự động pull về từ inbox · cần phân loại + link vào hồ sơ trước khi search được.
+        <a href="#/document-control" class="bold" style="color: var(--warning); text-decoration: underline; margin-left: 0.4rem;">Xử lý bây giờ →</a>
+    </div>
+</div>
 
-<section class="workspace-panel">
-    <div class="section-heading">
+<section class="zone">
+    <div class="zone-head">
         <div>
             <h2>Tài liệu mới nhất</h2>
             <p class="meta">12 lần upload trong 7 ngày qua.</p>
         </div>
-        <div class="hstack">
-            <a class="btn-ghost compact-ghost">Tất cả loại</a>
-            <a class="btn-ghost compact-ghost">7 ngày qua</a>
-            <a class="btn-ghost compact-ghost">Liên kết hồ sơ</a>
+        <div class="chip-row">
+            <button class="chip chip-active">Tất cả loại</button>
+            <button class="chip">BOM</button>
+            <button class="chip">Hoá đơn</button>
+            <button class="chip">Tờ khai</button>
+            <button class="chip">C/O</button>
+            <button class="chip">BCQT</button>
         </div>
     </div>
-    <table class="data-table">
+    <table class="table">
         <thead>
-            <tr>
-                <th>Tên file</th>
-                <th>Loại</th>
-                <th>Phân loại</th>
-                <th>Phiên bản</th>
-                <th>Ngày upload</th>
-                <th>Liên kết</th>
-            </tr>
+            <tr><th>Tên file</th><th>Loại</th><th>Phiên bản</th><th>Ngày upload</th><th>Liên kết</th></tr>
         </thead>
         <tbody>
             <tr>
                 <td class="mono">BOM_SP-DM-1042_v3_22042026.xlsx</td>
-                <td>BOM</td>
-                <td><span class="badge badge-info">BOM kỹ thuật</span></td>
-                <td class="mono">v3 (đề xuất)</td>
-                <td class="mono">22/04/2026 09:42</td>
+                <td>BOM kỹ thuật</td>
+                <td class="mono">v3 đề xuất</td>
+                <td class="mono">22/04 09:42</td>
                 <td><a class="mono" href="#/bom">SP-DM-1042</a></td>
             </tr>
             <tr>
                 <td class="mono">INV-2026-04-187.pdf</td>
-                <td>Hoá đơn</td>
-                <td><span class="badge badge-info">Hoá đơn nhập NVL</span></td>
+                <td>Hoá đơn nhập NVL</td>
                 <td class="mono">v1</td>
-                <td class="mono">22/04/2026 11:15</td>
+                <td class="mono">22/04 11:15</td>
                 <td><a class="mono" href="#/inventory">NVL-001687</a></td>
             </tr>
             <tr>
                 <td class="mono">PL_EU-2026-04.pdf</td>
-                <td>Packing list</td>
-                <td><span class="badge badge-info">Lô xuất khẩu</span></td>
+                <td>Lô xuất khẩu</td>
                 <td class="mono">v1</td>
-                <td class="mono">21/04/2026 14:20</td>
-                <td><a class="mono" href="#/co-dossier/co-2026-q1-001">CO-2026-Q1-001</a></td>
+                <td class="mono">21/04 14:20</td>
+                <td><a class="mono" href="#/co-dossier/eu-2026-04">EU-2026-04</a></td>
             </tr>
             <tr>
                 <td class="mono">TKXK_103456789.xml</td>
-                <td>Tờ khai XK</td>
-                <td><span class="badge badge-info">Tờ khai xuất khẩu</span></td>
+                <td>Tờ khai xuất khẩu</td>
                 <td class="mono">v1</td>
-                <td class="mono">20/04/2026 16:08</td>
-                <td><a class="mono" href="#/co-dossier/co-2026-q1-001">CO-2026-Q1-001</a></td>
+                <td class="mono">20/04 16:08</td>
+                <td><a class="mono" href="#/co-dossier/eu-2026-04">EU-2026-04</a></td>
             </tr>
             <tr>
                 <td class="mono">CO_VN-26-EUR-0432.pdf</td>
-                <td>C/O</td>
-                <td><span class="badge badge-info">C/O đã cấp</span></td>
+                <td>C/O đã cấp</td>
                 <td class="mono">v1</td>
-                <td class="mono">19/04/2026 11:42</td>
-                <td><a class="mono" href="#/co-dossier/co-2026-q1-005">CO-2026-Q1-005</a></td>
+                <td class="mono">19/04 11:42</td>
+                <td><a class="mono" href="#/co-dossier/eu-2026-03">EU-2026-03</a></td>
             </tr>
             <tr>
                 <td class="mono">BB-KS-CSSX_15042026.pdf</td>
-                <td>Biên bản</td>
-                <td><span class="badge badge-info">Kiểm tra cơ sở SX</span></td>
+                <td>Biên bản kiểm tra cơ sở SX</td>
                 <td class="mono">v1</td>
-                <td class="mono">15/04/2026 10:12</td>
+                <td class="mono">15/04 10:12</td>
                 <td><a class="mono" href="#/end-client/dn-det-may-01">Hồ sơ thương nhân</a></td>
             </tr>
             <tr>
                 <td class="mono">M15a_BCQT-SP_2025_draft.xlsx</td>
-                <td>BCQT</td>
-                <td><span class="badge badge-info">Mẫu 15a/BCQT-SP/GSQL</span></td>
+                <td>Mẫu 15a/BCQT-SP/GSQL</td>
                 <td class="mono">draft v3</td>
-                <td class="mono">12/04/2026 17:30</td>
-                <td><a class="mono" href="#/bcqt-cycle/dn-det-may-01-2025">BCQT-DM-2025</a></td>
-            </tr>
-            <tr style="background: var(--warning-soft);">
-                <td class="mono">scan_unknown_20042026.pdf</td>
-                <td>—</td>
-                <td><span class="badge badge-warning">Chưa phân loại</span></td>
-                <td class="mono">—</td>
-                <td class="mono">20/04/2026 09:18</td>
-                <td>—</td>
+                <td class="mono">12/04 17:30</td>
+                <td><a class="mono" href="#/bcqt-cycle/dn-det-may-01-2025">BCQT-2025</a></td>
             </tr>
         </tbody>
     </table>
 </section>
 
 <aside class="questions-panel">
-    <h3>Câu hỏi mở · Tài liệu</h3>
+    <h3>Tài liệu</h3>
     <ol>
-        <li>Cách phân loại tài liệu hôm nay TT-HN dùng — folder Drive theo end-client × năm × loại, hay theo logic khác?</li>
-        <li>Có cần tự động phân loại bằng OCR không (chấp nhận tăng độ phức tạp), hay phân loại tay là OK?</li>
+        <li>Cách phân loại tài liệu hôm nay TT-HN dùng — folder Drive theo end-client × năm × loại, hay logic khác?</li>
+        <li>Có cần tự động phân loại bằng OCR (chấp nhận tăng độ phức tạp) hay phân loại tay là OK?</li>
         <li>Lưu trữ — TT-HN có yêu cầu lưu tại VN cụ thể (data residency) hay chấp nhận cloud quốc tế?</li>
     </ol>
 </aside>
