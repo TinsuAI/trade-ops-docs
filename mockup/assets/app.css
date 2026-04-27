@@ -1,0 +1,734 @@
+/* TradeOps mockup — layout primitives.
+ * Patterns adapted from BCQT-System (page-header, metric-strip, workspace-panel,
+ * data-table, badge, phase-pill, deadline-row). Vietnamese labels throughout. */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    background:
+        radial-gradient(circle at top left, var(--background-accent), transparent 28%),
+        radial-gradient(circle at 78% 18%, var(--background-accent-2), transparent 26%),
+        linear-gradient(180deg, var(--background-top) 0%, var(--background) 100%);
+    color: var(--foreground);
+    line-height: 1.55;
+    overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+.shell-noise {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(circle at center, black 55%, transparent 100%);
+    opacity: 0.34;
+    z-index: 0;
+}
+
+/* ---------- Top navigation ---------- */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    background: color-mix(in srgb, var(--surface-overlay) 94%, transparent);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+}
+
+.topnav-primary {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.7rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+}
+
+.topnav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.topnav-brand-mark {
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    background: var(--surface-subtle);
+    color: var(--foreground);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.topnav-brand-label { font-size: 0.95rem; }
+
+.topnav-links {
+    display: flex;
+    gap: 0.2rem;
+    flex: 1 1 auto;
+}
+
+.topnav-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 0.9rem;
+    border-radius: 10px;
+    color: var(--foreground-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+}
+
+.topnav-link:hover {
+    background: var(--surface-hover);
+    color: var(--foreground);
+}
+
+.topnav-link-active {
+    background: var(--primary-soft);
+    color: var(--primary);
+}
+
+.topnav-primary-end {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.topnav-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface-subtle);
+    color: var(--foreground-soft);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.topnav-secondary {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.45rem 1.2rem 0.65rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.84rem;
+    color: var(--foreground-muted);
+    border-top: 1px solid var(--border);
+}
+
+.topnav-secondary-crumb {
+    color: var(--foreground-soft);
+    font-weight: 600;
+}
+
+/* ---------- Main shell ---------- */
+.app-main {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+    padding: 1.4rem 1.2rem 4rem;
+}
+
+.shell-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* ---------- Page header ---------- */
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.4rem;
+    padding: 0.4rem 0 0.2rem;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--foreground-muted);
+    margin-bottom: 0.4rem;
+}
+
+.page-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.18;
+}
+
+.page-subtitle {
+    margin-top: 0.4rem;
+    color: var(--foreground-muted);
+    max-width: 70ch;
+    font-size: 0.95rem;
+}
+
+.page-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* ---------- Metric strip ---------- */
+.metric-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.8rem;
+}
+
+.metric-cell {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.1rem;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--foreground-muted);
+    font-weight: 600;
+}
+
+.stat-value {
+    font-size: 1.95rem;
+    font-weight: 700;
+    color: var(--foreground);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+}
+
+.metric-note {
+    font-size: 0.78rem;
+    color: var(--foreground-muted);
+}
+
+.metric-cell-action { cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+.metric-cell-action:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+
+/* ---------- Workspace panel ---------- */
+.workspace-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 1.2rem 1.3rem 1.3rem;
+    box-shadow: var(--shadow-md);
+}
+
+.workspace-panel-muted { background: var(--card-muted); }
+
+.section-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+}
+
+.section-heading h2 {
+    font-size: 1.08rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.section-heading .meta { font-size: 0.84rem; color: var(--foreground-muted); }
+
+/* ---------- Buttons ---------- */
+.btn-primary, .btn-secondary, .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.95rem;
+    border-radius: 10px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    transition: all 0.15s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+.btn-primary:hover { background: var(--primary-hover); }
+
+.btn-secondary {
+    background: var(--surface-subtle);
+    color: var(--foreground-soft);
+    border-color: var(--border);
+}
+.btn-secondary:hover { background: var(--surface-hover); color: var(--foreground); }
+
+.btn-ghost {
+    background: transparent;
+    color: var(--foreground-muted);
+}
+.btn-ghost:hover { background: var(--surface-hover); color: var(--foreground); }
+
+.compact-ghost { padding: 0.35rem 0.6rem; font-size: 0.82rem; }
+
+/* ---------- Badges ---------- */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.badge::before {
+    content: "";
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 999px;
+    background: currentColor;
+    flex-shrink: 0;
+}
+
+.badge-success { background: var(--success-soft); color: var(--success); }
+.badge-warning { background: var(--warning-soft); color: var(--warning); }
+.badge-error   { background: var(--error-soft);   color: var(--error); }
+.badge-info    { background: var(--info-soft);    color: var(--info); }
+.badge-neutral { background: var(--surface-subtle); color: var(--foreground-muted); border-color: var(--border); }
+
+/* ---------- Data tables ---------- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.data-table thead th {
+    text-align: left;
+    padding: 0.55rem 0.7rem;
+    background: var(--surface-subtle);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--foreground-muted);
+}
+
+.data-table tbody td {
+    padding: 0.7rem 0.7rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.data-table tbody tr:hover { background: var(--surface-subtle); }
+
+.data-table tbody tr:last-child td { border-bottom: 0; }
+
+.data-table .num { font-variant-numeric: tabular-nums; text-align: right; font-family: var(--font-mono); }
+.mono, .data-table .mono { font-family: var(--font-mono); font-size: 0.88em; }
+
+.empty {
+    text-align: center;
+    padding: 1.4rem;
+    color: var(--foreground-muted);
+    font-size: 0.9rem;
+}
+
+/* ---------- Phase pill (workflow stepper) ---------- */
+.phase-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.phase-pill-bar {
+    display: inline-flex;
+    gap: 2px;
+    list-style: none;
+    padding: 0;
+}
+
+.phase-pill-seg {
+    width: 14px;
+    height: 8px;
+    border-radius: 3px;
+    background: var(--surface-strong);
+    border: 1px solid var(--border);
+}
+
+.phase-pill-seg-done { background: var(--success); border-color: var(--success); }
+.phase-pill-seg-current { background: var(--primary); border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary-soft); }
+.phase-pill-seg-blocked { background: var(--warning); border-color: var(--warning); }
+.phase-pill-seg-error { background: var(--error); border-color: var(--error); }
+
+.phase-pill-inline-label {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+}
+
+.phase-pill-inline-label strong {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.phase-pill-inline-label span { color: var(--foreground-muted); }
+
+/* ---------- Workflow stepper (large, vertical for detail screens) ---------- */
+.workflow-stepper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.workflow-step {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.9rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px dashed var(--border);
+    align-items: flex-start;
+}
+
+.workflow-step:last-child { border-bottom: 0; }
+
+.workflow-step-marker {
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 999px;
+    border: 2px solid var(--border);
+    background: var(--card-strong);
+    color: var(--foreground-muted);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.workflow-step-done .workflow-step-marker {
+    background: var(--success);
+    color: white;
+    border-color: var(--success);
+}
+
+.workflow-step-current .workflow-step-marker {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-soft);
+}
+
+.workflow-step-blocked .workflow-step-marker {
+    background: var(--warning-soft);
+    color: var(--warning);
+    border-color: var(--warning);
+}
+
+.workflow-step-body { min-width: 0; }
+.workflow-step-title { font-weight: 600; font-size: 0.95rem; }
+.workflow-step-meta { color: var(--foreground-muted); font-size: 0.84rem; margin-top: 0.15rem; }
+
+.workflow-step-side {
+    color: var(--foreground-muted);
+    font-size: 0.78rem;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* ---------- Deadline rows ---------- */
+.deadline-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.deadline-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 0.9rem;
+    border-radius: var(--radius-md);
+    background: var(--surface-subtle);
+    border: 1px solid var(--border);
+    transition: background 0.15s;
+}
+
+.deadline-row:hover { background: var(--surface-hover); }
+
+.deadline-amber { background: var(--warning-soft); border-color: var(--warning); }
+.deadline-red { background: var(--error-soft); border-color: var(--error); }
+.deadline-overdue { background: var(--error-soft); border-color: var(--error); }
+
+.deadline-main { display: flex; flex-direction: column; gap: 0.15rem; }
+.deadline-main strong { font-size: 0.9rem; }
+.deadline-main .meta { font-size: 0.78rem; color: var(--foreground-muted); }
+
+.deadline-count {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1.1;
+}
+
+.deadline-count strong { font-size: 1.4rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.deadline-count span { font-size: 0.74rem; color: var(--foreground-muted); }
+
+/* ---------- Record stack ---------- */
+.record-stack { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.record-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding: 0.7rem 0.85rem;
+    border-radius: var(--radius-md);
+    background: var(--surface-subtle);
+    border: 1px solid var(--border);
+    transition: background 0.15s;
+}
+
+.record-row:hover { background: var(--surface-hover); }
+.record-row strong { font-size: 0.92rem; }
+.record-row .meta { font-size: 0.78rem; color: var(--foreground-muted); margin-top: 0.1rem; }
+
+.record-row-side { display: flex; gap: 0.4rem; align-items: center; }
+
+/* ---------- Tabs ---------- */
+.tabs {
+    display: flex;
+    gap: 0.2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1rem;
+}
+
+.tab-link {
+    padding: 0.55rem 0.9rem;
+    border-bottom: 2px solid transparent;
+    color: var(--foreground-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: -1px;
+}
+
+.tab-link:hover { color: var(--foreground); }
+.tab-link-active { color: var(--primary); border-bottom-color: var(--primary); }
+
+/* ---------- Two-column dashboard / split layout ---------- */
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.2rem;
+}
+
+.split-layout {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-layout, .split-layout { grid-template-columns: 1fr; }
+}
+
+/* ---------- Callout (workshop instrumentation) ---------- */
+.callout {
+    border-radius: var(--radius-md);
+    padding: 0.7rem 0.95rem;
+    border: 1px solid var(--border);
+    background: var(--card-muted);
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    font-size: 0.86rem;
+    color: var(--foreground-soft);
+}
+
+.callout-warning {
+    background: var(--warning-soft);
+    border-color: var(--warning);
+    color: var(--foreground);
+}
+
+.callout-info { background: var(--info-soft); border-color: var(--info); }
+
+.callout-icon {
+    font-weight: 800;
+    flex-shrink: 0;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: var(--warning);
+    color: white;
+    font-size: 0.78rem;
+}
+
+.callout-info .callout-icon { background: var(--info); }
+
+.callout-title { font-weight: 700; margin-bottom: 0.15rem; }
+
+/* Mockup banner — global "this is a mockup" reminder */
+.mockup-banner {
+    background: linear-gradient(90deg, var(--warning-soft), transparent);
+    border: 1px solid var(--warning);
+    border-left-width: 3px;
+    border-radius: var(--radius-md);
+    padding: 0.45rem 0.85rem;
+    font-size: 0.82rem;
+    color: var(--foreground-soft);
+    margin-bottom: 0.4rem;
+}
+
+.mockup-banner strong { color: var(--warning); margin-right: 0.35rem; }
+
+/* ---------- Workshop questions panel ---------- */
+.questions-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--info);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.2rem;
+    box-shadow: var(--shadow-md);
+    margin-top: 0.6rem;
+}
+
+.questions-panel h3 {
+    font-size: 0.94rem;
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+    color: var(--info);
+}
+
+.questions-panel ol {
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.88rem;
+    color: var(--foreground-soft);
+}
+
+.questions-panel li::marker { color: var(--info); font-weight: 700; }
+
+/* ---------- Helpers ---------- */
+.hstack { display: flex; gap: 0.6rem; align-items: center; }
+.vstack { display: flex; flex-direction: column; gap: 0.5rem; }
+.spacer { flex: 1 1 auto; }
+.muted { color: var(--foreground-muted); }
+.tiny { font-size: 0.78rem; }
+.bold { font-weight: 700; }
+
+.kv-grid {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.45rem 1.2rem;
+    font-size: 0.88rem;
+}
+
+.kv-grid dt { color: var(--foreground-muted); font-weight: 600; }
+.kv-grid dd { color: var(--foreground); }
+
+.divider { border-top: 1px solid var(--border); margin: 0.8rem 0; }
+
+/* ---------- Inline diff cells (for inventory reconciliation) ---------- */
+.diff-cell {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    line-height: 1.2;
+}
+
+.diff-cell .num { font-size: 0.95rem; font-weight: 600; }
+.diff-cell .meta { font-size: 0.7rem; color: var(--foreground-muted); }
+
+.diff-positive { color: var(--success); }
+.diff-negative { color: var(--error); }
+.diff-stale { color: var(--stale); }
+
+/* ---------- Audit timeline (for audit-defense screen) ---------- */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border);
+}
+
+.timeline-event {
+    position: relative;
+    padding: 0.6rem 0 0.6rem 0.9rem;
+}
+
+.timeline-event::before {
+    content: "";
+    position: absolute;
+    left: -1.45rem;
+    top: 0.85rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 999px;
+    background: var(--card);
+    border: 2px solid var(--info);
+}
+
+.timeline-event-strong::before { background: var(--info); }
+.timeline-event-warn::before { border-color: var(--warning); }
+
+.timeline-event-time { font-size: 0.78rem; color: var(--foreground-muted); font-family: var(--font-mono); }
+.timeline-event-title { font-weight: 600; margin-top: 0.05rem; }
+.timeline-event-detail { font-size: 0.84rem; color: var(--foreground-muted); margin-top: 0.15rem; }
+
+/* ---------- Loading ---------- */
+.view-loading {
+    display: grid;
+    place-items: center;
+    padding: 4rem 1rem;
+    color: var(--foreground-muted);
+    font-size: 0.9rem;
+}

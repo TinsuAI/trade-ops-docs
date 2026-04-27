@@ -1,0 +1,268 @@
+<div class="mockup-banner">
+    <strong>Mockup</strong>
+    Workflow C/O 8 bước + 1 bước lưu evidence sau cấp. Lưu ý: bước "đối chiếu xuất xứ" KHÔNG đứng trước bước "khảo sát BOM + lot" — tiêu chí RVC/CTC/PSR tính TỪ lot đã gán. Đây là phát hiện đã được sửa trong workflow design.
+</div>
+
+<section class="page-header">
+    <div>
+        <div class="eyebrow">Trạm 5 — Hồ sơ C/O</div>
+        <h1>CO-2026-Q1-001 · C/O EUR.1 · Lô EU-2026-04</h1>
+        <p class="page-subtitle">
+            Khách hàng cuối: <a href="#/end-client/dn-det-may-01">Thiên Hà Dệt May</a> ·
+            SP: <span class="mono">SP-DM-1043</span> Áo sơ mi nam dài tay business · Lô xuất khẩu sang Pháp ·
+            FOB <span class="mono">EUR 24.500</span>
+        </p>
+    </div>
+    <div class="page-actions">
+        <a href="#/dossier-list" class="btn-secondary">← Tất cả hồ sơ</a>
+        <a class="btn-secondary">Biến thể</a>
+        <a class="btn-primary">Hành động kế tiếp →</a>
+    </div>
+</section>
+
+<section class="metric-strip">
+    <article class="metric-cell">
+        <span class="stat-label">Bước hiện tại</span>
+        <strong class="stat-value">5/8</strong>
+        <span class="metric-note">Đối chiếu xuất xứ</span>
+    </article>
+    <article class="metric-cell">
+        <span class="stat-label">Loại C/O</span>
+        <strong class="stat-value" style="font-size: 1.4rem;">EUR.1</strong>
+        <span class="metric-note">Ưu đãi · EVFTA · qua eCoSys</span>
+    </article>
+    <article class="metric-cell">
+        <span class="stat-label">Tiêu chí xuất xứ</span>
+        <strong class="stat-value" style="font-size: 1.4rem;">PSR</strong>
+        <span class="metric-note">CTH áp dụng cho 6203.42</span>
+    </article>
+    <article class="metric-cell">
+        <span class="stat-label">Hạn nộp eCoSys</span>
+        <strong class="stat-value">5</strong>
+        <span class="metric-note">ngày · 02/05/2026</span>
+    </article>
+</section>
+
+<section class="workspace-panel">
+    <div class="section-heading">
+        <div>
+            <h2>Tiến độ workflow</h2>
+            <p class="meta">8 bước chính + 1 bước lưu evidence. Nhánh kiểm tra cơ sở SX (Điều 28 NĐ 31/2018) được kích hoạt nếu hồ sơ thương nhân yêu cầu.</p>
+        </div>
+    </div>
+
+    <ol class="workflow-stepper">
+        <li class="workflow-step workflow-step-done">
+            <div class="workflow-step-marker">1</div>
+            <div class="workflow-step-body">
+                <div class="workflow-step-title">Tiếp nhận yêu cầu cấp C/O</div>
+                <div class="workflow-step-meta">End-client gửi lô xuất khẩu, hợp đồng và packing list · 18/04/2026 · staff Nguyễn Quang</div>
+            </div>
+            <div class="workflow-step-side mono">18/04 · 30 phút</div>
+        </li>
+
+        <li class="workflow-step workflow-step-done">
+            <div class="workflow-step-marker">2</div>
+            <div class="workflow-step-body">
+                <div class="workflow-step-title">Xác định loại C/O</div>
+                <div class="workflow-step-meta">EVFTA · EUR.1 (FOB &gt; 6.000 EUR, không tự chứng nhận) · cơ quan cấp: Phòng QLXNK qua eCoSys</div>
+            </div>
+            <div class="workflow-step-side mono">18/04 · 15 phút</div>
+        </li>
+
+        <li class="workflow-step workflow-step-done">
+            <div class="workflow-step-marker">3</div>
+            <div class="workflow-step-body">
+                <div class="workflow-step-title">Khảo sát BOM + Tồn CO</div>
+                <div class="workflow-step-meta">Snapshot BOM <span class="mono">SP-DM-1043 v2</span> tại thời điểm 19/04 · 18 NVL · checked Tồn CO khả dụng</div>
+            </div>
+            <div class="workflow-step-side mono">19/04 · 1h20</div>
+        </li>
+
+        <li class="workflow-step workflow-step-done">
+            <div class="workflow-step-marker">4</div>
+            <div class="workflow-step-body">
+                <div class="workflow-step-title">Phân lot NVL cho lô xuất khẩu</div>
+                <div class="workflow-step-meta">18 NVL gán vào 14 lot import (FIFO ưu tiên + ràng buộc xuất xứ) · 2 NVL có xuất xứ EU (cumulation hợp lệ)</div>
+            </div>
+            <div class="workflow-step-side mono">20/04 · 2h45</div>
+        </li>
+
+        <li class="workflow-step workflow-step-current">
+            <div class="workflow-step-marker">5</div>
+            <div class="workflow-step-body">
+                <div class="workflow-step-title">Đối chiếu tiêu chí xuất xứ (PSR governs)</div>
+                <div class="workflow-step-meta">
+                    HS 6203.42 (áo sơ mi nam dệt thoi từ bông) — PSR EVFTA: <strong>CTH</strong> (chuyển nhóm 4 chữ số) ·
+                    Đang verify từng NVL theo HS gốc và HS sau gia công
+                </div>
+            </div>
+            <div class="workflow-step-side mono">22/04 · đang xử lý</div>
+        </li>
+
+        <li class="workflow-step">
+            <div class="workflow-step-marker">6</div>
+            <div class="workflow-step-body">
+                <div class="workflow-step-title">Soạn hồ sơ + nhập eCoSys</div>
+                <div class="workflow-step-meta">Phụ lục X (BCT) · TKXK · hoá đơn · packing list · BL · ký số</div>
+            </div>
+            <div class="workflow-step-side">—</div>
+        </li>
+
+        <li class="workflow-step">
+            <div class="workflow-step-marker">7</div>
+            <div class="workflow-step-body">
+                <div class="workflow-step-title">Nộp + theo dõi</div>
+                <div class="workflow-step-meta">Nộp eCoSys · theo dõi phản hồi từ Phòng QLXNK · phản hồi yêu cầu giải trình nếu có</div>
+            </div>
+            <div class="workflow-step-side">—</div>
+        </li>
+
+        <li class="workflow-step">
+            <div class="workflow-step-marker">8</div>
+            <div class="workflow-step-body">
+                <div class="workflow-step-title">Cấp C/O + bàn giao</div>
+                <div class="workflow-step-meta">Nhận EUR.1 đã ký · gửi end-client · cập nhật trạng thái hồ sơ</div>
+            </div>
+            <div class="workflow-step-side">—</div>
+        </li>
+
+        <li class="workflow-step">
+            <div class="workflow-step-marker">+</div>
+            <div class="workflow-step-body">
+                <div class="workflow-step-title">Lưu evidence cho audit-defense</div>
+                <div class="workflow-step-meta">Snapshot BOM · lot assignment immutable · tài liệu nguồn · evidence tiêu chí xuất xứ — phục vụ KTSTQ trong 5 năm</div>
+            </div>
+            <div class="workflow-step-side">—</div>
+        </li>
+    </ol>
+</section>
+
+<div class="split-layout">
+    <section class="workspace-panel">
+        <div class="section-heading">
+            <div>
+                <h2>Đối chiếu tiêu chí xuất xứ — bước 5</h2>
+                <p class="meta">PSR cho HS 6203.42 EVFTA: CTH (chuyển nhóm 4 chữ số). Mỗi NVL phải kiểm xem HS gốc &lt; HS gia công 4 chữ số đầu khác nhau.</p>
+            </div>
+        </div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>NVL</th>
+                    <th>HS gốc</th>
+                    <th>HS SP (6203)</th>
+                    <th>4 ký số đầu khác?</th>
+                    <th>Kết quả</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="mono">NVL-001245 vải cotton</td>
+                    <td class="mono">5208.22</td>
+                    <td class="mono">6203.42</td>
+                    <td class="mono">5208 ≠ 6203</td>
+                    <td><span class="badge badge-success">CTH OK</span></td>
+                </tr>
+                <tr>
+                    <td class="mono">NVL-001302 chỉ may</td>
+                    <td class="mono">5402.33</td>
+                    <td class="mono">6203.42</td>
+                    <td class="mono">5402 ≠ 6203</td>
+                    <td><span class="badge badge-success">CTH OK</span></td>
+                </tr>
+                <tr>
+                    <td class="mono">NVL-001478 khoá kéo</td>
+                    <td class="mono">9607.11</td>
+                    <td class="mono">6203.42</td>
+                    <td class="mono">9607 ≠ 6203</td>
+                    <td><span class="badge badge-success">CTH OK</span></td>
+                </tr>
+                <tr>
+                    <td class="mono">NVL-001501 cúc nhựa</td>
+                    <td class="mono">9606.22</td>
+                    <td class="mono">6203.42</td>
+                    <td class="mono">9606 ≠ 6203</td>
+                    <td><span class="badge badge-success">CTH OK</span></td>
+                </tr>
+                <tr style="background: var(--warning-soft);">
+                    <td class="mono">NVL-001712 nhãn cotton</td>
+                    <td class="mono"><span class="muted">— chưa xác định</span></td>
+                    <td class="mono">6203.42</td>
+                    <td>—</td>
+                    <td><span class="badge badge-warning">Cần xử lý</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="callout callout-warning" style="margin-top: 0.9rem;">
+            <span class="callout-icon">!</span>
+            <div>
+                <div class="callout-title">NVL-001712 chưa có HS gốc</div>
+                Nhãn cotton in lụa — chưa được ánh xạ HS trong item master.
+                Lựa chọn: (a) yêu cầu end-client cung cấp HS từ tờ khai NK gốc, (b) nếu xuất xứ Việt Nam (de minimis &lt;10%) có thể bỏ qua, (c) áp dụng tolerance theo Điều 9 Phụ lục VII EVFTA.
+            </div>
+        </div>
+    </section>
+
+    <section class="workspace-panel workspace-panel-muted">
+        <div class="section-heading">
+            <div>
+                <h2>Biến thể C/O</h2>
+                <p class="meta">Hồ sơ này có thể chuyển sang biến thể nào.</p>
+            </div>
+        </div>
+        <div class="record-stack">
+            <div class="record-row">
+                <div>
+                    <strong>Cấp lại (replacement)</strong>
+                    <div class="meta">C/O cũ bị hỏng/mất · không thay đổi nội dung · cần văn bản end-client</div>
+                </div>
+                <span class="badge badge-neutral">Không áp dụng</span>
+            </div>
+            <div class="record-row">
+                <div>
+                    <strong>Cấp sau (retroactive · Box 13)</strong>
+                    <div class="meta">Hàng đã xuất nhưng chưa có C/O · TKXK gốc &gt; 1 năm: cần giải trình</div>
+                </div>
+                <span class="badge badge-neutral">Không áp dụng</span>
+            </div>
+            <div class="record-row">
+                <div>
+                    <strong>Back-to-back (Form D)</strong>
+                    <div class="meta">Hàng quá cảnh ASEAN · không áp dụng EVFTA</div>
+                </div>
+                <span class="badge badge-neutral">Không áp dụng</span>
+            </div>
+            <div class="record-row">
+                <div>
+                    <strong>Movement Certificate (Form E)</strong>
+                    <div class="meta">ACFTA quá cảnh · không áp dụng EVFTA</div>
+                </div>
+                <span class="badge badge-neutral">Không áp dụng</span>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="callout callout-info">
+            <span class="callout-icon">i</span>
+            <div>
+                <div class="callout-title">Nhánh kiểm tra cơ sở SX</div>
+                Theo Điều 28 NĐ 31/2018 + TT 39/2018/TT-BCT, Phòng QLXNK có thể yêu cầu kiểm tra cơ sở SX
+                (kích hoạt theo rủi ro hoặc lần đầu cấp). Hồ sơ thương nhân hiện <strong>đã đăng ký cơ sở SX</strong> — không cần kiểm tra ngẫu nhiên cho lô này.
+                Thêm ~2 ngày làm việc nếu được kích hoạt.
+            </div>
+        </div>
+    </section>
+</div>
+
+<aside class="questions-panel">
+    <h3>Câu hỏi mở cho phiên này — Trạm 5</h3>
+    <ol>
+        <li>Bước nào trong 8+1 bước CHƯA đúng cách TT-HN làm trong thực tế?</li>
+        <li>Tỷ lệ hồ sơ phải chạy nhánh kiểm tra cơ sở SX hôm nay là bao nhiêu?</li>
+        <li>"Cấp sau" với Box 13 — TT-HN gặp tần suất nào? Thường vì lý do gì (xuất hàng gấp, end-client quên, hợp đồng đổi điều khoản)?</li>
+        <li>Form D có bao nhiêu % portfolio so với CPTPP/RCEP/EVFTA? PSR dày hay thưa khi áp dụng?</li>
+        <li>Khi NVL chưa có HS gốc — TT-HN xử lý ra sao trong thực tế?</li>
+    </ol>
+</aside>

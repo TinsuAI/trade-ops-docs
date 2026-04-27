@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradeOps — Mockup workshop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/tokens.css">
+    <link rel="stylesheet" href="assets/app.css">
+</head>
+<body class="app-body">
+    <div class="shell-noise"></div>
+
+    <header class="topnav">
+        <div class="topnav-primary">
+            <a href="#/dashboard" class="topnav-brand">
+                <span class="topnav-brand-mark">TO</span>
+                <span class="topnav-brand-label">TradeOps</span>
+            </a>
+            <nav class="topnav-links" aria-label="Điều hướng chính">
+                <a href="#/dashboard" class="topnav-link" data-nav="dashboard">Tổng quan</a>
+                <a href="#/end-client/dn-det-may-01" class="topnav-link" data-nav="clients">Khách hàng cuối</a>
+                <a href="#/dossier-list" class="topnav-link" data-nav="dossiers">Hồ sơ</a>
+                <a href="#/item-master" class="topnav-link" data-nav="data">Dữ liệu nền</a>
+                <a href="#/document-control" class="topnav-link" data-nav="documents">Tài liệu</a>
+                <a href="#/audit-trail" class="topnav-link" data-nav="log">Nhật ký</a>
+            </nav>
+            <div class="topnav-primary-end">
+                <span class="topnav-chip" title="Đại lý đang đăng nhập">Đại lý ABC</span>
+                <span class="topnav-chip" title="Vai trò">Trưởng nhóm</span>
+            </div>
+        </div>
+        <div class="topnav-secondary">
+            <span class="topnav-secondary-crumb" id="crumb">Tổng quan danh mục</span>
+            <span class="spacer"></span>
+            <span class="tiny muted">Mockup phục vụ workshop — số liệu giả lập</span>
+        </div>
+    </header>
+
+    <div class="app-main">
+        <main class="container shell-container" id="view">
+            <div class="view-loading">Đang tải…</div>
+        </main>
+    </div>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>

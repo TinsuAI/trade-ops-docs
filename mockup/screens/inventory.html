@@ -1,0 +1,298 @@
+<div class="mockup-banner">
+    <strong>Mockup</strong>
+    4 góc nhìn cùng tồn tại — không cố ép về 1 con số duy nhất. Sự lệch giữa các view chính là dữ liệu cần ghi nhận, không phải sai số cần xóa. KHÔNG có khái niệm "tồn hải quan" — view "theo dữ liệu hải quan" là số dư SUY RA TỪ BCCT.
+</div>
+
+<section class="page-header">
+    <div>
+        <div class="eyebrow">Trạm 4 — Dữ liệu nền · Tồn 4 view</div>
+        <h1>Tồn nhiều góc nhìn</h1>
+        <p class="page-subtitle">
+            Cùng một NVL — 4 góc nhìn hợp lệ tồn tại song song:
+            tồn kho vật lý (warehouse), tồn NXT kế toán, tồn suy ra từ dữ liệu hải quan (BCCT-derived),
+            và Tồn CO theo phân lot xuất xứ. Tồn CO khác kho vật lý là chuyện bình thường — origin rules
+            ràng buộc lot nào được phép feed lô xuất khẩu nào.
+        </p>
+    </div>
+    <div class="page-actions">
+        <a href="#/bom" class="btn-secondary">← BOM master</a>
+        <a href="#/audit-trail" class="btn-ghost compact-ghost">Lịch sử reconcile</a>
+    </div>
+</section>
+
+<section class="metric-strip">
+    <article class="metric-cell">
+        <span class="stat-label">NVL trong danh mục</span>
+        <strong class="stat-value">238</strong>
+        <span class="metric-note">Thiên Hà Dệt May</span>
+    </article>
+    <article class="metric-cell">
+        <span class="stat-label">Lệch &lt;1%</span>
+        <strong class="stat-value">189</strong>
+        <span class="metric-note">4 view hội tụ tốt</span>
+    </article>
+    <article class="metric-cell">
+        <span class="stat-label">Lệch 1-5%</span>
+        <strong class="stat-value">32</strong>
+        <span class="metric-note">trong tolerance vận hành</span>
+    </article>
+    <article class="metric-cell">
+        <span class="stat-label">Lệch &gt;5%</span>
+        <strong class="stat-value">17</strong>
+        <span class="metric-note">cần làm rõ trước BCQT</span>
+    </article>
+</section>
+
+<section class="workspace-panel">
+    <div class="section-heading">
+        <div>
+            <h2>Bảng đối chiếu 4 view</h2>
+            <p class="meta">Click một dòng để mở provenance chi tiết — nguồn, ngày, tờ khai gốc.</p>
+        </div>
+        <div class="hstack">
+            <a class="btn-ghost compact-ghost">Tất cả</a>
+            <a class="btn-ghost compact-ghost">Lệch &gt;5%</a>
+            <a class="btn-secondary compact-ghost">Xuất Excel</a>
+        </div>
+    </div>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th rowspan="2" style="vertical-align: bottom;">Mã NVL</th>
+                <th rowspan="2" style="vertical-align: bottom;">Tên</th>
+                <th rowspan="2" style="vertical-align: bottom;">ĐVT</th>
+                <th>Tồn kho vật lý</th>
+                <th>NXT kế toán</th>
+                <th>Theo dữ liệu hải quan</th>
+                <th>Tồn CO</th>
+                <th rowspan="2" style="vertical-align: bottom;">Trạng thái</th>
+            </tr>
+            <tr>
+                <th class="tiny muted" style="text-transform: none; letter-spacing: 0;">nguồn: WMS</th>
+                <th class="tiny muted" style="text-transform: none; letter-spacing: 0;">nguồn: ERP</th>
+                <th class="tiny muted" style="text-transform: none; letter-spacing: 0;">suy ra từ BCCT</th>
+                <th class="tiny muted" style="text-transform: none; letter-spacing: 0;">phân lot xuất xứ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="mono"><a href="#/item-master">NVL-001245</a></td>
+                <td>Vải cotton 30s 100% trắng</td>
+                <td>kg</td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">2.450,00</span>
+                        <span class="meta">22/04/2026</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">2.448,50</span>
+                        <span class="meta diff-stale">23/04 · −1,5</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">2.452,00</span>
+                        <span class="meta diff-stale">BCCT 31/03 · +2,0</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">1.890,00</span>
+                        <span class="meta diff-negative">−560 dành lot EU</span>
+                    </div>
+                </td>
+                <td><span class="badge badge-success">Hội tụ</span></td>
+            </tr>
+            <tr>
+                <td class="mono"><a href="#/item-master">NVL-001246</a></td>
+                <td>Vải polyester pha 35/65</td>
+                <td>kg</td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">1.820,00</span>
+                        <span class="meta">22/04/2026</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">1.820,00</span>
+                        <span class="meta">22/04</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">1.815,00</span>
+                        <span class="meta diff-stale">BCCT 31/03 · −5,0</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">1.350,00</span>
+                        <span class="meta diff-negative">−470 dành lot CPTPP</span>
+                    </div>
+                </td>
+                <td><span class="badge badge-success">Hội tụ</span></td>
+            </tr>
+            <tr style="background: var(--warning-soft);">
+                <td class="mono"><a href="#/item-master">NVL-001478</a></td>
+                <td>Khoá kéo nylon 18cm</td>
+                <td>cái</td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">12.450</span>
+                        <span class="meta">22/04/2026</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">12.890</span>
+                        <span class="meta diff-positive">+440 (+3,5%)</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">13.020</span>
+                        <span class="meta diff-positive">+570 (+4,6%)</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">8.200</span>
+                        <span class="meta diff-negative">−4.250 dành lot EU</span>
+                    </div>
+                </td>
+                <td><span class="badge badge-warning">Lệch 4,6%</span></td>
+            </tr>
+            <tr style="background: var(--error-soft);">
+                <td class="mono"><a href="#/item-master">NVL-001687</a></td>
+                <td>Băng dính nẹp viền 1.5cm</td>
+                <td>m</td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">8.420,00</span>
+                        <span class="meta">22/04/2026</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">9.840,00</span>
+                        <span class="meta diff-positive">+1.420 (+16,9%)</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">9.200,00</span>
+                        <span class="meta diff-positive">+780 (+9,3%)</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">5.100,00</span>
+                        <span class="meta diff-negative">−3.320 dành lot</span>
+                    </div>
+                </td>
+                <td><span class="badge badge-error">Lệch 16,9%</span></td>
+            </tr>
+            <tr>
+                <td class="mono"><a href="#/item-master">NVL-001501</a></td>
+                <td>Cúc nhựa 4 lỗ ø15mm</td>
+                <td>cái</td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">42.300</span>
+                        <span class="meta">22/04/2026</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">42.300</span>
+                        <span class="meta">22/04</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">42.480</span>
+                        <span class="meta diff-stale">BCCT 31/03 · +180</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="diff-cell">
+                        <span class="num">28.500</span>
+                        <span class="meta diff-negative">−13.800 dành lot</span>
+                    </div>
+                </td>
+                <td><span class="badge badge-success">Hội tụ</span></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<div class="split-layout">
+    <section class="workspace-panel">
+        <div class="section-heading">
+            <div>
+                <h2>Provenance — <span class="mono">NVL-001687</span></h2>
+                <p class="meta">Băng dính nẹp viền 1.5cm · lệch 16,9% — vì sao?</p>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-event timeline-event-warn">
+                <div class="timeline-event-time">2026-03-15 09:42</div>
+                <div class="timeline-event-title">NXT kế toán ghi nhận nhập 1.500m</div>
+                <div class="timeline-event-detail">Hoá đơn từ nhà cung TNHH An Phát · chứng từ <span class="mono">HD-2026-03-189</span></div>
+            </div>
+            <div class="timeline-event">
+                <div class="timeline-event-time">2026-03-18 11:20</div>
+                <div class="timeline-event-title">Tờ khai nhập <span class="mono">102345678</span> đã thông quan</div>
+                <div class="timeline-event-detail">Khai 800m thay vì 1.500m thực tế — phần còn lại khai bổ sung tờ khai sau · BCCT lệch tạm thời</div>
+            </div>
+            <div class="timeline-event">
+                <div class="timeline-event-time">2026-03-20 14:05</div>
+                <div class="timeline-event-title">Tờ khai bổ sung <span class="mono">102345701</span> · 700m</div>
+                <div class="timeline-event-detail">BCCT chưa cập nhật về kết quả pull mới</div>
+            </div>
+            <div class="timeline-event timeline-event-warn">
+                <div class="timeline-event-time">2026-04-22 10:10</div>
+                <div class="timeline-event-title">WMS check-in: thiếu 280m so với chứng từ kế toán</div>
+                <div class="timeline-event-detail">Phát hiện tại lần kiểm kê quý — đang chờ end-client xác nhận hao hụt SX vs lỗi ghi nhận</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="workspace-panel workspace-panel-muted">
+        <div class="section-heading">
+            <div>
+                <h2>Quy ước phân loại lệch</h2>
+                <p class="meta">Tolerance vận hành cho từng loại NVL.</p>
+            </div>
+        </div>
+        <dl class="kv-grid">
+            <dt>Lệch &lt;1%</dt><dd><span class="badge badge-success">Hội tụ</span> — chấp nhận như không lệch</dd>
+            <dt>Lệch 1-5%</dt><dd><span class="badge badge-info">Trong tolerance</span> — ghi nhận, không hành động</dd>
+            <dt>Lệch 5-10%</dt><dd><span class="badge badge-warning">Cần xem xét</span> — gắn vướng mắc, hỏi end-client</dd>
+            <dt>Lệch &gt;10%</dt><dd><span class="badge badge-error">Cần làm rõ</span> — chặn ký BCQT cho đến khi giải thích được</dd>
+        </dl>
+        <div class="callout callout-info" style="margin-top: 0.9rem;">
+            <span class="callout-icon">i</span>
+            <div>
+                <div class="callout-title">Tồn CO khác kho vật lý là bình thường</div>
+                Tồn CO chỉ tính các lot có hồ sơ xuất xứ hợp lệ và chưa được dùng cho C/O nào.
+                NVL có thể tồn vật lý trong kho nhưng "không khả dụng" cho lô xuất khẩu kế tiếp
+                vì lot đó chưa được kiểm tra xuất xứ. Đây là origin rules, không phải lỗi đếm.
+            </div>
+        </div>
+    </section>
+</div>
+
+<aside class="questions-panel">
+    <h3>Câu hỏi mở cho phiên này — Trạm 4</h3>
+    <ol>
+        <li>4 view này có đủ chưa, hay TT-HN còn 1 view nữa chúng tôi miss (ví dụ: tồn theo lô SX, theo kho từng nhà máy)?</li>
+        <li>Sự lệch giữa Tồn CO và NXT kế toán — luôn là divergence hợp lệ, hay đôi khi là dấu hiệu sai cần báo end-client?</li>
+        <li>Tolerance 5% / 10% — TT-HN dùng ngưỡng nào trong thực tế? Theo NVL hay theo nhóm sản phẩm?</li>
+        <li>Khi nào TT-HN thực sự kiểm tra view này — chỉ khi chuẩn bị BCQT, hay theo dõi xuyên năm?</li>
+    </ol>
+</aside>

@@ -1,0 +1,184 @@
+<div class="mockup-banner">
+    <strong>Mockup</strong>
+    Một khách hàng cuối — không gian làm việc của đại lý đối với DN này. Tabs phân biệt rõ phần thực thi (hồ sơ đang xử lý) và phần dữ liệu nền (mã hàng, BOM, tồn).
+</div>
+
+<section class="page-header">
+    <div>
+        <div class="eyebrow">Trạm 2 — Chi tiết khách hàng cuối</div>
+        <h1>Công ty TNHH Thiên Hà Dệt May</h1>
+        <p class="page-subtitle">
+            DNCX · Dệt may xuất khẩu sang EU/JP · MST <span class="mono">0301234567</span> · KCN Tân Bình, TP.HCM ·
+            Hợp tác với đại lý từ tháng 03/2022.
+        </p>
+    </div>
+    <div class="page-actions">
+        <a href="#/dossier-list" class="btn-secondary">Tất cả hồ sơ</a>
+        <a href="#/co-dossier/co-2026-q1-001" class="btn-primary">+ Hồ sơ mới</a>
+    </div>
+</section>
+
+<section class="metric-strip">
+    <article class="metric-cell">
+        <span class="stat-label">Hồ sơ mở</span>
+        <strong class="stat-value">9</strong>
+        <span class="metric-note">5 C/O · 2 BCQT · 2 hậu kiểm</span>
+    </article>
+    <article class="metric-cell">
+        <span class="stat-label">Sản phẩm xuất khẩu</span>
+        <strong class="stat-value">47</strong>
+        <span class="metric-note">đang có BOM</span>
+    </article>
+    <article class="metric-cell">
+        <span class="stat-label">NVL trong danh mục</span>
+        <strong class="stat-value">238</strong>
+        <span class="metric-note">12 mã đa nhóm HQ</span>
+    </article>
+    <article class="metric-cell">
+        <span class="stat-label">Hạn gần nhất</span>
+        <strong class="stat-value">3</strong>
+        <span class="metric-note">ngày — BCQT năm 2025</span>
+    </article>
+</section>
+
+<nav class="tabs" aria-label="Tab khách hàng cuối">
+    <a href="#/end-client/dn-det-may-01" class="tab-link tab-link-active">Tổng quan</a>
+    <a href="#/dossier-list" class="tab-link">Hồ sơ đang xử lý (9)</a>
+    <a href="#/item-master" class="tab-link">Dữ liệu nền</a>
+    <a href="#/audit-trail" class="tab-link">Lịch sử dossier</a>
+    <a href="#/audit-trail" class="tab-link">Nhật ký</a>
+</nav>
+
+<div class="split-layout">
+    <section class="workspace-panel">
+        <div class="section-heading">
+            <div>
+                <h2>Hồ sơ ưu tiên</h2>
+                <p class="meta">5 hồ sơ ưu tiên cao nhất của khách hàng cuối này.</p>
+            </div>
+        </div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Hồ sơ</th>
+                    <th>Loại</th>
+                    <th>Bước</th>
+                    <th>Hạn</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a class="mono" href="#/bcqt-cycle/dn-det-may-01-2025">BCQT-DM-2025</a></td>
+                    <td>BCQT năm</td>
+                    <td><span class="badge badge-warning">Chờ end-client ký</span></td>
+                    <td class="mono">30/04/2026</td>
+                </tr>
+                <tr>
+                    <td><a class="mono" href="#/co-dossier/co-2026-q1-001">CO-2026-Q1-001</a></td>
+                    <td>C/O EUR.1</td>
+                    <td><span class="badge badge-info">Đối chiếu xuất xứ</span></td>
+                    <td class="mono">02/05/2026</td>
+                </tr>
+                <tr>
+                    <td><a class="mono" href="#/co-dossier/co-2026-q1-002">CO-2026-Q1-002</a></td>
+                    <td>C/O Form D</td>
+                    <td><span class="badge badge-info">Cấp CO</span></td>
+                    <td class="mono">10/05/2026</td>
+                </tr>
+                <tr>
+                    <td><a class="mono" href="#/co-dossier/co-2026-q1-003">CO-2026-Q1-003</a></td>
+                    <td>C/O Form CPTPP</td>
+                    <td><span class="badge badge-info">Khảo sát BOM</span></td>
+                    <td class="mono">12/05/2026</td>
+                </tr>
+                <tr>
+                    <td><a class="mono" href="#/audit-defense/co-2024-q4-022">CO-2024-Q4-022</a></td>
+                    <td>KTSTQ hồ sơ cũ</td>
+                    <td><span class="badge badge-info">Tập hợp evidence</span></td>
+                    <td class="mono">15/05/2026</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="workspace-panel workspace-panel-muted">
+        <div class="section-heading">
+            <div>
+                <h2>Dữ liệu nền</h2>
+                <p class="meta">Quản lý ngoài chu trình hồ sơ — gốc cho mọi flow.</p>
+            </div>
+        </div>
+        <div class="record-stack">
+            <a class="record-row" href="#/item-master">
+                <div>
+                    <strong>Mã hàng + dịch mã HQ↔ERP</strong>
+                    <div class="meta">285 mã (47 SP, 238 NVL) · 12 mã đa nhóm HQ</div>
+                </div>
+                <span class="badge badge-warning">3 mã chưa ánh xạ</span>
+            </a>
+            <a class="record-row" href="#/bom">
+                <div>
+                    <strong>BOM master</strong>
+                    <div class="meta">47 SP · 56 phiên bản BOM · cập nhật 12/04/2026</div>
+                </div>
+                <span class="badge badge-success">Đầy đủ</span>
+            </a>
+            <a class="record-row" href="#/inventory">
+                <div>
+                    <strong>Tồn nhiều góc nhìn</strong>
+                    <div class="meta">238 NVL · 4 view (kho · kế toán · HQ · CO)</div>
+                </div>
+                <span class="badge badge-info">17 dòng lệch &gt;5%</span>
+            </a>
+            <a class="record-row" href="#/document-control">
+                <div>
+                    <strong>Tài liệu</strong>
+                    <div class="meta">1.842 file đã phân loại · cập nhật hôm nay</div>
+                </div>
+                <span class="badge badge-neutral">42 chưa phân loại</span>
+            </a>
+        </div>
+    </section>
+</div>
+
+<section class="workspace-panel">
+    <div class="section-heading">
+        <div>
+            <h2>Vướng mắc đang mở</h2>
+            <p class="meta">Việc đang chờ ai đó hành động — staff, end-client, hoặc cơ quan ngoài.</p>
+        </div>
+    </div>
+    <div class="record-stack">
+        <div class="record-row">
+            <div>
+                <strong>Chờ end-client xác nhận BOM cập nhật cho SP-DM-1042</strong>
+                <div class="meta">Đại diện kỹ thuật end-client báo có thay đổi quy cách vải · gửi ngày 22/04/2026 · 5 ngày chưa phản hồi</div>
+            </div>
+            <span class="badge badge-warning">Chờ end-client</span>
+        </div>
+        <div class="record-row">
+            <div>
+                <strong>Hồ sơ thương nhân chưa cập nhật cơ sở SX mới (kho Bình Dương)</strong>
+                <div class="meta">Theo Điều 13 NĐ 31/2018 — cần cập nhật trước khi cấp C/O lô tiếp theo từ kho mới</div>
+            </div>
+            <span class="badge badge-error">Chặn cấp C/O</span>
+        </div>
+        <div class="record-row">
+            <div>
+                <strong>Đối chiếu định mức Mẫu 16 vs BOM kỹ thuật cho 3 SP</strong>
+                <div class="meta">Mẫu 16 năm 2025 chênh BOM kỹ thuật &gt;8% — cần làm rõ trước khi nộp BCQT</div>
+            </div>
+            <span class="badge badge-info">Đang xử lý</span>
+        </div>
+    </div>
+</section>
+
+<aside class="questions-panel">
+    <h3>Câu hỏi mở cho phiên này — Trạm 2</h3>
+    <ol>
+        <li>5 tab này có đúng cách anh chị tổ chức công việc theo khách hàng cuối, hay đang phân chia nhầm?</li>
+        <li>Trên cùng 1 khách hàng cuối, anh chị có cần phân quyền giữa staff không, hay 1 người phụ trách trọn?</li>
+        <li>"Vướng mắc đang mở" — có cần phân loại theo người chịu trách nhiệm tiếp theo (staff đại lý / end-client / cơ quan ngoài), hay chỉ một danh sách phẳng là đủ?</li>
+        <li>"Hồ sơ thương nhân chưa cập nhật cơ sở SX mới" — đây có phải là blocker thật trong vận hành của TT-HN, hay điểm hiếm gặp?</li>
+    </ol>
+</aside>
