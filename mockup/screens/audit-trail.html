@@ -1,0 +1,164 @@
+<div class="mockup-banner">
+    <strong>Mockup</strong>
+    Nhật ký kiểm tra — mọi thao tác trên hồ sơ, BOM, tài liệu, lot assignment đều được ký số tại thời điểm xảy ra. Không sửa lùi được. Đây là nguồn dữ liệu tin cậy khi có khiếu nại nội bộ hoặc KTSTQ.
+</div>
+
+<section class="page-header">
+    <div>
+        <div class="eyebrow">Nhật ký</div>
+        <h1>Nhật ký kiểm tra · 4 khách hàng cuối</h1>
+        <p class="page-subtitle">
+            Tất cả thao tác — tạo / sửa / phân lot / snapshot / ký nhận / submit — đều được ghi lại có ký số.
+            Lọc theo người, theo đối tượng, theo khoảng thời gian.
+        </p>
+    </div>
+    <div class="page-actions">
+        <a class="btn-secondary">Xuất Excel</a>
+        <a class="btn-primary">Lọc nâng cao</a>
+    </div>
+</section>
+
+<section class="metric-strip">
+    <article class="metric-cell">
+        <span class="stat-label">Sự kiện 7 ngày qua</span>
+        <strong class="stat-value">487</strong>
+        <span class="metric-note">trung bình ~70/ngày</span>
+    </article>
+    <article class="metric-cell">
+        <span class="stat-label">Người tham gia</span>
+        <strong class="stat-value">8</strong>
+        <span class="metric-note">5 staff đại lý + 3 đại diện end-client</span>
+    </article>
+    <article class="metric-cell">
+        <span class="stat-label">Sự kiện ký số</span>
+        <strong class="stat-value">100%</strong>
+        <span class="metric-note">không có event không ký</span>
+    </article>
+    <article class="metric-cell">
+        <span class="stat-label">Truy vấn evidence</span>
+        <strong class="stat-value">12</strong>
+        <span class="metric-note">trong tháng · cho KTSTQ + nội bộ</span>
+    </article>
+</section>
+
+<section class="workspace-panel">
+    <div class="section-heading">
+        <div>
+            <h2>Bộ lọc</h2>
+            <p class="meta">Click chip để áp lọc.</p>
+        </div>
+    </div>
+    <div class="hstack" style="flex-wrap: wrap; gap: 0.4rem;">
+        <span class="badge badge-neutral">Tất cả</span>
+        <span class="badge badge-info">Tạo hồ sơ</span>
+        <span class="badge badge-info">Snapshot BOM</span>
+        <span class="badge badge-info">Phân lot NVL</span>
+        <span class="badge badge-info">Ký nhận C/O</span>
+        <span class="badge badge-info">Submit BCQT</span>
+        <span class="badge badge-info">Truy vấn evidence</span>
+    </div>
+</section>
+
+<section class="workspace-panel">
+    <div class="section-heading">
+        <div>
+            <h2>Sự kiện gần nhất · 50 mới nhất</h2>
+            <p class="meta">Sắp xếp theo thời gian giảm dần. Click hash để xem nội dung snapshot.</p>
+        </div>
+    </div>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Thời điểm</th>
+                <th>Người</th>
+                <th>Thao tác</th>
+                <th>Đối tượng</th>
+                <th>Hash</th>
+                <th>Ký số</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="mono">2026-04-27 09:42</td>
+                <td>Nguyễn Quang</td>
+                <td>Cập nhật BOM v3</td>
+                <td class="mono"><a href="#/bom">SP-DM-1042</a></td>
+                <td class="mono">8e44…b2c1</td>
+                <td><span class="badge badge-success">OK</span></td>
+            </tr>
+            <tr>
+                <td class="mono">2026-04-27 08:13</td>
+                <td>Trần Quốc Anh</td>
+                <td>Truy vấn evidence KTSTQ</td>
+                <td class="mono"><a href="#/audit-defense/co-2023-q3-047">CO-2023-Q3-047</a></td>
+                <td class="mono">b2e8…c9f4</td>
+                <td><span class="badge badge-success">OK</span></td>
+            </tr>
+            <tr style="background: var(--error-soft);">
+                <td class="mono">2026-04-27 08:12</td>
+                <td>Hệ thống</td>
+                <td>Nhận quyết định KTSTQ</td>
+                <td class="mono"><a href="#/ktstq-response/case-2026-001">142/QĐ-CKTSTQ</a></td>
+                <td class="mono">f7a3…d201</td>
+                <td><span class="badge badge-success">OK</span></td>
+            </tr>
+            <tr>
+                <td class="mono">2026-04-25 14:30</td>
+                <td>Hoàng Minh Phú (end-client)</td>
+                <td>Reminder BCQT 2025</td>
+                <td class="mono"><a href="#/bcqt-cycle/dn-det-may-01-2025">BCQT-DM-2025</a></td>
+                <td class="mono">a9f1…3b7e</td>
+                <td><span class="badge badge-success">OK</span></td>
+            </tr>
+            <tr>
+                <td class="mono">2026-04-22 11:05</td>
+                <td>Nguyễn Quang</td>
+                <td>Đề xuất BOM v3</td>
+                <td class="mono"><a href="#/bom">SP-DM-1042</a></td>
+                <td class="mono">2c5d…f09a</td>
+                <td><span class="badge badge-success">OK</span></td>
+            </tr>
+            <tr>
+                <td class="mono">2026-04-22 09:30</td>
+                <td>Trần Quốc Anh</td>
+                <td>Gửi gói BCQT cho end-client</td>
+                <td class="mono"><a href="#/bcqt-cycle/dn-det-may-01-2025">BCQT-DM-2025</a></td>
+                <td class="mono">d4e7…8c11</td>
+                <td><span class="badge badge-success">OK</span></td>
+            </tr>
+            <tr>
+                <td class="mono">2026-04-20 16:08</td>
+                <td>Lê Thị Hà</td>
+                <td>Upload TKXK</td>
+                <td class="mono">TKXK 103456789</td>
+                <td class="mono">e8b2…1f44</td>
+                <td><span class="badge badge-success">OK</span></td>
+            </tr>
+            <tr>
+                <td class="mono">2026-04-19 11:42</td>
+                <td>Trần Quốc Anh</td>
+                <td>Bàn giao C/O cho end-client</td>
+                <td class="mono"><a href="#/co-dossier/co-2026-q1-005">CO-2026-Q1-005</a></td>
+                <td class="mono">7c33…9d5e</td>
+                <td><span class="badge badge-success">OK</span></td>
+            </tr>
+            <tr>
+                <td class="mono">2026-04-19 09:12</td>
+                <td>Phòng QLXNK</td>
+                <td>Cấp C/O EUR.1</td>
+                <td class="mono">VN-26-EUR-0432</td>
+                <td class="mono">3a1f…b87c</td>
+                <td><span class="badge badge-success">OK</span></td>
+            </tr>
+            <tr>
+                <td class="mono">2026-04-18 14:50</td>
+                <td>Trần Quốc Anh</td>
+                <td>Phân lot NVL</td>
+                <td class="mono"><a href="#/co-dossier/co-2026-q1-005">CO-2026-Q1-005</a></td>
+                <td class="mono">f5c8…2a31</td>
+                <td><span class="badge badge-success">OK</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="empty">+ 477 sự kiện khác trong 7 ngày qua · scroll để xem tiếp.</p>
+</section>
