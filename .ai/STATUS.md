@@ -2,121 +2,138 @@
 
 ## Current State
 
-TradeOps proposal artifacts substantially extended in 2026-04-27 session: 4 workflow flow files (domain-reviewed), Vietnamese consolidated proposal, file storage architecture (3 docs), KB platform strategy (architecture + đề án for partner). Three commits on `main` not pushed; working tree clean.
+Two major artifact streams shipped this session:
 
-Two strategic deliverables ready for next interaction:
+1. **Clickable mockup deployed** — 13 screens (12 demo + clients listing) live at https://tinsuai.github.io/tradeops-mockup/. Built on private branch `mockup` in `trade-ops-docs`, deployed via separate public repo `TinsuAI/tradeops-mockup` (private repo + Free org plan can't host Pages). 2 rounds of UX critic + domain expert review applied; 3 tracks of fixes (regulatory truth / UX bugs / terminology). Document-control screen iterated 4 times to its current Tier 1+2 form (morning action zone with 4 cards + dossier-grouped hierarchy with cross-cut tabs + BOM v3 expansion combo with version history + cross-ref BCQT + retention dates).
 
-- Vietnamese partner-facing đề án `docs/de-an-kb-platform.md` proposing Athena evolution → Customs Knowledge Platform (option A); waiting for partner alignment session
-- Vietnamese client-facing comprehensive proposal `proposal/de-xuat-tradeops-chi-tiet-vi.md` for TT-HN workshop reading
+2. **Architectural decision 2026-04-28: 4 apps standalone + sync via API** — committed to `.ai/DECISIONS.md`. Replaces implicit Path-1 (TradeOps owns master, workflow apps query it) with Path-2 (each of 4 apps standalone-capable with own data model; sync via API contracts using primary/mirror per entity type when co-deployed). Memory updated in tandem.
 
-## Recent Changes (2026-04-27 session)
+Working tree clean on `mockup` branch. Both `mockup` private and `main` public-mockup pushed to remote.
 
-Commits on `main`:
+## Recent Changes (2026-04-28 session)
 
-- `3fd7e96` Add TradeOps workflow design and domain-fact corrections (14 files)
-- `0b64f9a` Add file storage architecture for TradeOps per-broker deployment (3 files)
-- `14bc5e8` Add KB platform strategy: promote Athena to Customs Knowledge Platform (2 files)
+Commits on `mockup` branch (10 total, vs `main` unchanged):
 
-Major work:
+- `9fe248e` Decision 2026-04-28: 4 apps standalone with API sync (primary/mirror per entity)
+- `a015710` Doc-control: Tier 1+2 expansion per critic+domain consensus
+- `cbad0f5` Router: re-execute scripts on screen load (fixes view/subtab toggles)
+- `abcfa77` Document control: dossier-grouped hierarchy with cross-cut views
+- `e9c67cf` Document control: workflow-clear redesign with broker-anchored vocabulary
+- `f44c9fe` Tracks A+B+C: regulatory + UX + terminology fixes from expert reviews
+- `8a29528` Language sweep, drop BCCT view, add SP/BTP tables to item master
+- `a61c5b1` Mockup redesign: strip 6-band openers, demote KPI strips
+- `4885289` Add remaining 5 mockup screens
+- `6e7b450` Add TradeOps clickable mockup
 
-- 4 workflow flow files (`docs/workflow/`): end-client-onboarding, co-dossier, bcqt-cycle, post-clearance-audit-response — domain-reviewed against TT 121/2025, NĐ 31/2018, LHQ 2014, BLHS 2015 etc.; 22 of 26 regulatory citations verified, 4 corrected (kết luận 15 ngày ≠ biên bản 5 ngày; Điều 79 desk audit no statutory extension; Mẫu 15a "BCQT-SP/GSQL" per TT 121/2025; QĐ 1103 scope tightened to non-preferential C/O recovery)
-- Vietnamese consolidated proposal `proposal/de-xuat-tradeops-chi-tiet-vi.md` — 13 sections gộp outline + 4 workflows + open questions for workshop
-- File storage architecture (`docs/architecture/file-storage*.md`): default per-broker architecture using VN cloud object storage; 4-provider research (Viettel/VNG/FPT/CMC); POC verification checklist
-- KB platform strategy: chose option A (promote Athena → Customs Knowledge Platform) over options B and C; Barry-CO is concrete second consumer from Phase 1 grounding compound benefit; 3-layer IP model with provenance + elevation enforcement primitive; MCP demoted to Phase 3
-- Critic review applied to KB đề án; reworked to drop MCP overselling, soften compound claim, add effort bands (3-5 engineer-month Phase 1), drop unverified public Athena market claim from load-bearing argumentation, add curation operating cost section (~0.2-0.3 FTE annualized)
-- Vocabulary cleanup: "tồn hải quan" removed throughout (11 places fixed); audit claims softened to risk language; BOM CO ↔ Mẫu 16 reframed as reconciliation; TT-HN naming sync to "Trọng Tín - Hoa Nam"; voice softening in proposal §1 and §2.5; ~30+ English terms translated to Vietnamese in client-facing docs
-- Memory: new entries `project_athena_existing.md`, `project_kb_athena_strategy.md`, `feedback_question_feature_necessity.md`; updated `project_inventory_paradox.md`, `project_bom_vs_madmuc_16.md`, `project_customer_and_team_structure.md`
+Major work (this session):
+
+- **Built clickable mockup from scratch**: 12 screens initially, 13 after Track B (added `clients` listing). HTML + Tailwind via CDN + hash-routed multi-file partials, no build step. Tokens lifted from BCQT-System (Manrope + IBM Plex Mono, slate + emerald-600). Q-key presenter overlay for workshop questions. Demo script `mockup/DEMO_SCRIPT.md` with 7 stations.
+- **Deployed to GitHub Pages**: had to use separate public repo `TinsuAI/tradeops-mockup` because Free org plan blocks Pages on private repos (`gh api -X POST .../pages` returns "current plan does not support"). Workflow: edit private `mockup/`, copy to `/tmp/tradeops-mockup-deploy/`, push to public repo, Pages auto-builds.
+- **Round 1 redesign** after UX critic: stripped 6-band openers (banner+eyebrow+h1+subtitle+actions+KPI strip → slim 56px page-bar), top nav 4 items (Tổng quan / Khách hàng / Hồ sơ / Nhật ký), dashboard triage 3-zone (Cần xử lý / Chờ phản hồi / Đáng để ý), audit-defense date-contrast hero, customer stripes 4 colors, step-mini replacing phase-pill in tables, in-cell HQ drift timeline, filter chips outline/solid, BCQT collapsed done-steps, BLHS demoted to ref-panel, next-station footer auto-rendered.
+- **Round 2 fixes (3 tracks)**:
+  - **Track A regulatory** — EVFTA HS 6203.42 PSR is **fabric-forward** not CTH (entire criterion table rewritten); tolerance citation `Note 7 Phụ lục I TT 11/2020/TT-BCT, 8% giá ex-works` (not "Điều 9 Phụ lục VII <10%"); Phụ lục X is supplier declaration, not C/O dossier component (Đơn đề nghị cấp C/O is from TT 11/2020 EVFTA); HS classification fixes (SP-DM-1067 polyester not cotton → 6202.93); BCQT VNACCS framing reversed ("qua module BCQT của hệ thống Hải quan điện tử"); customs org labels post-2026-03-01 reform ("Chi cục Hải quan khu vực II (TP.HCM)"); HS 7404 → 7409.21 in audit-defense BOM.
+  - **Track B UX** — clients listing screen added; top nav `Khách hàng` link unchained from hardcoded customer; scope-aware breadcrumb via sessionStorage; item-master sub-tabs SP/NVL/BTP via inline JS; audit-defense hero shrink (drop 7/7 + 42s stat blocks); Q chip rename; lot codes normalized to `<dest>-YYYY-MM` grain.
+  - **Track C terminology** — `bằng chứng` → `hồ sơ chứng minh` (XNK lingo not criminal-investigation lingo); `lưu chụp` → `bản chụp` (natural); `Biến thể C/O` → `Loại C/O đặc biệt`; `phân lot không sửa được` → `phân lot bị khoá sau khi cấp`.
+- **Document control iteration (4 versions)**:
+  - v1 basic flat list → v2 proposed Kanban + detail panel (rejected by critic as "theatre, files don't move by humans") → v3 hierarchical groups (Theo hồ sơ default + Theo loại / Theo năm / Theo nguồn cross-cut tabs) → v4 Tier 1+2 expansion.
+  - v4 adds: morning action zone with 4 cards (📥 Vào sổ chưa ghép · 🚢 Lô đang đi cần hoàn tất · 📤 Chờ khách hàng · ⚠️ Sắp hết hạn 60 ngày), BOM v3 click-to-expand combo (version history + cross-ref BCQT Mẫu 16 dòng 47 + retention dates), Mẫu 27 in taxonomy, "Ai sửa cuối" actor column, retention "giữ đến MM/YYYY" single computed date, eCoSys provenance details.
+- **Router bug fixed**: innerHTML doesn't execute inline `<script>` (browser security) — sub-tab toggles in item-master and view-tabs in document-control were silently broken. Router now re-creates script elements after fetch + innerHTML.
+- **Architectural decision 2026-04-28** — Path-2 architecture (4 apps standalone + sync). Triggered by user pushback when walking through Barry-CO + TradeOps integrated workflow: implicit assumption was Barry-CO queries TradeOps every step, which makes Barry-CO non-standalone. Two reviews (UX critic + domain expert) on file-boundary subquestion converged on binary OUT/IN. Architectural Path 2 documented in `project_app_independence_sync.md`; existing memory softened (`project_item_master_foundation.md`, `project_three_adjacent_systems.md`); decision record added to `.ai/DECISIONS.md`.
+
+Memory file changes (in `~/.claude/projects/-home-vp-workspace-client-tradeops/memory/`):
+
+- NEW `project_app_independence_sync.md` — full decision primer
+- UPDATE `project_item_master_foundation.md` — softened "must sit in TradeOps"
+- UPDATE `project_three_adjacent_systems.md` — dropped "shared backbone" framing
+- UPDATE `MEMORY.md` — new pointer
 
 ## Next Steps
 
-- **Partner alignment session on KB platform direction** — 5 technical questions about Athena (tech stack, data model, codebase topology, multi-content retrieval support, auth) + 3 strategic questions (Phase 1 timeline alignment with Barry-CO, curation owner, public Athena rollout timing); listed in `docs/de-an-kb-platform.md` §11
-- After partner alignment: implement Phase 1 KB plan; update TradeOps proposal Phase 2-3 to reference KB integration
-- TT-HN workshop: walk through Vietnamese consolidated proposal; collect answers to open questions in §11 of that doc
-- Optional: vet high-stakes regulatory claims with senior trưởng phòng XNK collaborator before client delivery
-- Optional: pricing / effort framing for TradeOps after pilot end-client scope and document volume confirmed
-- Three commits on `main` not pushed; push when user approves
+- **Update proposal `proposal/de-xuat-tradeops-chi-tiet-vi.md`** to reflect 2026-04-28 Path-2 architecture — currently implicit Path-1; needs to clarify each app standalone-capable, sync via API. Defer until pre-workshop polish.
+- **Update workflow design docs** in `docs/workflow/co-dossier.md` etc. to reflect each app standalone — currently implicit Path-1.
+- **Update architecture-positioning doc** `docs/architecture-positioning.md` — same.
+- **Optionally add "Mode integrated" annotation** to mockup screens (`co-dossier`, `document-control`) so workshop attendees understand current demo is integrated mode.
+- **Optionally build "Mode standalone TradeOps" parallel demo** for Phase 1 pilots without Barry-CO — would show different workflow without auto-generated files, manual workflow advancement.
+- **TT-HN workshop walkthrough** (carried over from prior session) — Vietnamese consolidated proposal ready + mockup ready. Mockup demo script in `mockup/DEMO_SCRIPT.md` (7 stations, ~25 min).
+- **Partner alignment for KB platform** (carried over) — 5 technical + 3 strategic questions in `docs/de-an-kb-platform.md` §11.
+- **Pricing / effort framing** — defer until after workshop fixes pilot scope.
+- **Decide if standalone-mode parallel demo needed** for Phase 1 pilots without Barry-CO.
 
 ## Notes for Next AI Session
 
-**Repo scope:** unchanged from prior sessions; this repo is proposal/discovery workspace, separate from `/home/vp/workspace/client/barry-CO`.
+**Mockup deployment workflow:**
 
-**TradeOps positioning** — locked, do NOT drift back: broker's portfolio + operations platform; categorically distinct from 3 workflow apps; modules in 2 groups (NOT tiers); per-broker independent deployment.
+- Source of truth: private repo `trade-ops-docs` branch `mockup`, dir `mockup/`
+- Deploy mirror: public repo `TinsuAI/tradeops-mockup` (Pages-enabled, root /), live at https://tinsuai.github.io/tradeops-mockup/
+- Sync flow: edit `mockup/`, then `cp index.html assets/* screens/* /tmp/tradeops-mockup-deploy/...`, then `cd /tmp/tradeops-mockup-deploy && git add -A && git commit -m "..." && git push`. Pages auto-rebuilds in ~30-60s.
+- Verify: `until [ "$(gh api repos/TinsuAI/tradeops-mockup/pages/builds/latest --jq .status)" = "built" ]; do sleep 5; done`
+- DEMO_SCRIPT.md in private repo only — never deploy (workshop-internal)
 
-**Vocabulary to AVOID** (locked):
+**Architecture decision 2026-04-28 (load-bearing):**
 
-- "backbone", "shared backbone", "infrastructure layer", "tier", "phía trên / phía dưới", "supporting capabilities"
-- "tồn hải quan" (no such concept; use "BCCT-derived view" / "tồn theo dữ liệu hải quan")
-- "tầng nền cho 3 hệ thống"
+- Each of 4 apps (TradeOps, Barry-CO, Barry-BCQT, Siafu) is **standalone-capable** with own data model. Standalone scope is narrower (Barry-CO has no cross-customer view; TradeOps has no auto C/O workflow engine), but each fully usable.
+- When co-deployed, sync via **API contracts** with **primary/mirror per entity type**.
+- Primary designation when co-deployed: TradeOps for master data (item master, BOM, inventory baseline, hồ sơ thương nhân); each workflow app for its own state + outputs; documents primary in whichever app generated, mirrored to TradeOps.
+- This is the corrected position. Previous memory wording ("must sit in TradeOps", "the layer the 3 apps build on top of") is stale and softened.
+- See `project_app_independence_sync.md` for full primer.
 
-**Domain facts to remember:**
+**File boundary (locked from this session):**
 
-- BOM (định mức kỹ thuật, point-in-time) and Định mức Mẫu 16 (annual computed from actuals) are distinct artifacts. Mẫu 16 is NOT a flattening of BOM.
-- Multi-view inventory (physical / accounting NXT / BCCT-derived / Tồn CO) reconciled, not converged. There is no "tồn hải quan" concept — the BCCT-derived view is a balance computed from line-level declaration extracts pulled from the HQ system, not a balance the customs system itself holds. Tồn CO is "origin-rules-driven divergence" not "made submittable" (audit risk).
-- Phụ lục X is a Bộ Công Thương C/O dossier form (Thông tư 05/2018/TT-BCT), NOT a TKXK appendix.
-- BCCT is a line-level extract pulled on demand from the HQ system by date range.
-- SXXK is tax-exempt (miễn thuế), not duty deferral.
-- DNCX has heavier reporting burden, not "simplified customs".
-- Mã hàng (enterprise-controlled, on declarations) drifts; mã HS (HS classification) is more stable.
-- C/O issuance flows through Bộ Công Thương / Cục XNK via eCoSys. Preferential FTA C/Os had been issued by Cục XNK before. **QĐ 1103/QĐ-BCT (21/4/2025)** specifically recovered the **non-preferential C/O (Form B, CNM), GSP for Norway / Switzerland, and REX number** issuing authority from VCCI back to 18 regional Phòng QLXNK; VCCI ceased issuing those from 5/5/2025. EVFTA / UKVFTA outbound (VN→EU/UK): EUR.1 via eCoSys if FOB > 6.000 EUR; exporter self-cert on commercial document if ≤ 6.000 EUR. **REX is the EU-side mechanism for EU→VN imports**, not VN exporters.
-- Origin criteria: **PSR governs when present** (per Form's annex). Only when no PSR applies does the general rule apply: Form D general = WO / RVC ≥ 40% / CTH (with trader's choice between RVC40 and CTH). CPTPP / RCEP rely heavily on PSR per heading; general fallbacks are narrow.
-- Hồ sơ thương nhân registration on eCoSys (business reg + danh sách cơ sở SX + chữ ký mẫu, per Điều 13 NĐ 31/2018) is a hard prerequisite for first-time C/O per end-client. Common day-1 blocker on new-end-client onboarding.
-- Factory inspection (kiểm tra cơ sở sản xuất per Điều 28 NĐ 31/2018 + TT 39/2018/TT-BCT) is a real conditional branch in CO flow. Adds ~2 working days. Produces biên bản kiểm tra.
-- C/O variants beyond cấp mới: cấp lại (replacement), cấp sau (retroactive, Box 13), back-to-back (Form D), Movement Certificate (Form E). Each is a real workflow path, not edge case.
-- BCQT regulatory chain: Điều 60 TT 38/2015 (sửa đổi khoản 39 Điều 1 TT 39/2018, sửa đổi tiếp TT 121/2025/TT-BTC hiệu lực 01/02/2026). TT 121/2025 replaced templates: Mẫu 15/BCQT-NVL/GSQL, Mẫu 15a/BCQT-SP/GSQL, Mẫu 16/ĐMTT-GSQL. Submission to **Chi cục HQ nơi đã thông báo cơ sở sản xuất** via **Hệ thống tiếp nhận BCQT** (distinct from VNACCS / VCIS).
-- BCQT 60-day self-amendment window: end-client may resubmit corrected BCQT without penalty within 60 ngày from submission AND before any quyết định kiểm tra is issued. After either trigger this right is extinguished.
-- BCQT submission liability attaches to **doanh nghiệp (end-client)**, not the broker. End-client written sign-off (xác nhận số liệu) before submission is a liability boundary, not a formality.
-- KTSTQ initiated by **Quyết định kiểm tra sau thông quan** (administrative decision signed by Tổng cục/Cục KTSTQ/Cục HQ tỉnh/Chi cục), not công văn. 5-năm reopen window per Điều 77 Luật Hải quan 2014.
-- KTSTQ has **2 venue branches**: tại trụ sở cơ quan hải quan (Điều 79 LHQ + Điều 97 NĐ 08/2015, max 5 ngày làm việc, **no statutory extension** per Điều 79) vs tại trụ sở người khai hải quan (Điều 80 LHQ + Điều 98 NĐ 08/2015, max 10 ngày làm việc + 10 ngày extension, on-site, daily biên bản làm việc, closing biên bản kiểm tra within 5 ngày làm việc of inspection end, **Kết luận kiểm tra issued within 15 ngày** of inspection end — biên bản ≠ kết luận).
-- KTSTQ appeal: khiếu nại lần đầu within 90 ngày from receipt of quyết định xử phạt / kết luận kiểm tra (Điều 9 Luật Khiếu nại 2011); khiếu nại lần hai or khởi kiện hành chính subsequent. Criminal escalation thresholds per BLHS Điều 188 / 189 / 200 (trốn thuế VND 100 triệu, lower if prior penalty / conviction).
-- Multi-broker capability lives at deployment layer (Tinsu AI internal) — never mention in client-facing proposal.
+- Binary OUT/IN. Drive cá nhân = scratch invisible to system, by design. Tracked = explicit commit via action of staff.
+- 3 commit triggers: (a) staff button "Đính vào hồ sơ" / "Lưu bản đã gửi", (b) auto-snap on dossier event (cấp C/O / nộp BCQT), (c) eCoSys auto-pull for files cơ quan returns.
+- Outbound (email/Zalo from inside system) = LOG event only, reference committed version. NOT snapshot bytes.
+- No "Bản đang làm" tab. No Drive sync. No "lock" as file FSM state — broker says "đã chốt" (dossier closed).
 
-**Vietnamese client-facing language:**
+**Mockup positioning state (locked):**
 
-- Soft binding language: kỳ vọng / hướng tới / có thể
-- Avoid: cam kết / 100% / đồng thời / nghiệm thu / đúng hẹn
-- Frame audit-defensible reasoning (origin rules) not submittability (audit-risky framing)
+- Polished, not wireframe (user override of critic recommendation).
+- Hash routing + multi-file partials + Tailwind CDN, no build step. Per-screen inline `<script>` works because router re-executes after innerHTML.
+- BCQT-System tokens (Manrope + IBM Plex Mono, slate + emerald-600). Dark theme deferred.
+- Customer fictional names: Thiên Hà Dệt May (stripe-1 blue), Linh Kiện Điện Tử Minh Phú (stripe-2 pink), Cơ Khí Tân Hưng (stripe-3 yellow), Bao Bì Việt Long (stripe-4 violet).
+- Lot codes: `<destination>-YYYY-MM` grain (EU-2026-04, KR-2026-03, JP-2026-02, etc.). NOT sequential CO-2026-Q1-001.
+- Q-key presenter overlay for workshop questions — `Phiên hỏi đáp` chip in topnav + Q keypress + Esc close.
 
-**Tinsu AI team structure:**
+**Domain facts to keep — superseded entries:**
 
-- All 4 product codebases (Athena, Siafu, Barry-CO, Barry-BCQT) belong to Tinsu AI
-- User owns Barry-CO + Barry-BCQT; user's partner on the team builds Athena + Siafu
-- "Partner" is an internal teammate, NOT an external organization
+- EVFTA HS 6203.42 PSR is **fabric-forward** (vải dệt + cắt may tại VN/EU). NOT CTH. Tolerance is **8% giá ex-works** per **Note 7 Phụ lục I TT 11/2020/TT-BCT**.
+- C/O retention is **Điều 30 NĐ 31/2018** (5 năm từ ngày C/O cấp), NOT Điều 16. TKHQ retention is Điều 18 LHQ 2014. Chứng từ kế toán nguồn 10 năm theo Luật Kế toán 88/2015.
+- Customs org post-2026-03-01 reform: "Chi cục Hải quan khu vực II (TP.HCM)" thay "Cục KTSTQ TP.HCM"; 20 chi cục khu vực thay cho cấp tỉnh cũ.
+- BCQT submission goes through **module BCQT của Hải quan điện tử** (Cục Hải quan), NOT separate from VNACCS. Earlier "KHÔNG phải VNACCS/VCIS" framing was wrong.
+- Phụ lục X TT 05/2018 = bản khai NSX/NCC nội địa (supplier declaration), **không phải đơn đề nghị cấp C/O**. Đơn đề nghị cấp C/O cho EVFTA = TT 11/2020/TT-BCT.
+- Mẫu 27 = định mức thực tế đăng ký, đi kèm BCQT năm — first-class file type for dệt may DNCX.
 
-**Athena context (NEW this session):**
+**Vietnamese terminology (locked):**
 
-- Athena in production, fuzzy match HS Code by name, shared infra Tinsu AI host, partner-built; tech stack unknown to user (deferred to partner conversation)
-- Strategy decision: promote Athena → Customs Knowledge Platform (option A); fallback option C if Athena tech stack doesn't fit broader scope
-- Barry-CO is concrete second consumer from KB Phase 1 (FTA rules, Phụ lục templates, precedent, etc.) — grounds compound benefit in near-term demand
-- 3-layer IP model: shared (KB) / per-broker private (TradeOps) / per-end-client (TradeOps); enforced via provenance field + signed elevation record + 3 levels defense in depth (schema, API, CI)
-- MCP demoted to Phase 3 (gated on concrete LLM consumer); Phase 1 has REST/GraphQL API only
-- Phase effort bands: Phase 1 = 3-5 engineer-month; Phase 2 = 2-3 engineer-month; Phase 3 = TBD demand-driven
-- Curation operating cost: ~0.2-0.3 FTE annualized; canary TT 121/2025 just superseded TT 39/2018
+- "khách hàng" not "khách hàng cuối" (broker context)
+- "hồ sơ chứng minh" not "bằng chứng" (XNK lingo, not criminal-investigation)
+- "bản chụp" not "lưu chụp" (natural)
+- "đã chốt" not "đã khoá" (broker word for closed dossier)
+- "vào sổ" / "ghép vào hồ sơ" (broker verbs for intake / linking)
+- "Loại C/O đặc biệt" not "Biến thể C/O"
+- "phân lot bị khoá sau khi cấp" not "phân lot không sửa được"
 
-**Doc voice conventions:**
+**Critic + domain review pattern (validated this session):**
 
-- Internal English docs (`docs/`, `.ai/`) — English with Vietnamese domain terms preserved
-- Client-facing Vietnamese proposal (`proposal/`) — Vietnamese with English only for irreplaceable terminology, parenthetical Vietnamese annotation on first use of English terms
-- Pronouns: objective voice (no "tôi/anh/mình") in client / partner-facing docs
-- Audit claim language: risk framing not assertion of fact
+- Spawn UX critic + domain expert in **parallel** when designing complex domain UI. They diverge usefully — each catches issues the other misses.
+- Domain expert (general-purpose subagent with WebSearch on thuvienphapluat.vn etc.) for regulatory + Vietnamese broker practice verification.
+- UX critic (critic subagent) for UX heuristics, navigation correctness, hierarchy.
+- Apply consensus picks first; explore disagreements with user before deciding.
 
-**User communication preferences (observed this session):**
+**User communication preferences (locked):**
 
 - Short Vietnamese commands; "tao - mày" pronoun pattern
-- Iterative direction: deliver substantive work, expect to be redirected
-- Questions feature necessity actively (e.g., pushed back on OCR over-engineering); apply rule per `feedback_question_feature_necessity` memory
-- Distinguishes between advocacy doc (recommend a path) and alignment doc (present options open) — both are legitimate, intent matters
-- Wants English mixed with Vietnamese only for terminology that genuinely can't translate, with parenthetical Vietnamese on first use
+- Pushes back on over-engineering (rejected Kanban for files, rejected Drive sync, rejected hash on every read)
+- Asks to call critics + experts before commit to direction — "gọi review" pattern is welcomed
+- Iterative: deliver substantive work, expect to be redirected
+- Distinguishes binary boundary from gradient — when proposing 3-layer model, user said "vẫn chưa hình dung được" until simplified
 
-**Critic review pattern established:**
+**Pending external dependencies (carried over):**
 
-- Spawn `critic` subagent for substantive review of strategic docs before sending to others
-- Spawn `general-purpose` subagent with WebSearch for regulatory citation verification
-- Apply findings selectively; advocacy framing can stay if intentional, but factual / structural concerns must be addressed
+- TT-HN workshop pending (Vietnamese consolidated proposal ready)
+- Partner alignment for KB platform pending (5+3 questions in `docs/de-an-kb-platform.md` §11)
 
-**Pending external dependency:**
+**Repo / branch state:**
 
-- Partner alignment for KB platform direction (option A vs C); specifically need partner's input on Athena tech stack to confirm Phase 1 effort band
-
-**Remaining structural concern (per critic, deferred):**
-
-4 of 6 TradeOps modules are consumed by the 3 workflow apps via API. A sharp CIO may still ask "isn't that backbone in different costume?" The proposal answers: API contracts not shared-DB; standalone-usable before Barry-CO integration; specific list of work the apps don't do. If this doesn't hold up in real customer conversation, the next reframe option (deferred) is critic's alternative: per-end-client onboarding-and-defensibility product priced per onboarded client.
+- Branch `mockup` ahead of `main` by 10 commits. `main` last touched in 2026-04-27 session (3 commits not pushed).
+- Public mirror: `TinsuAI/tradeops-mockup` ahead 6+ commits since first deploy.
+- Private repo `TinsuAI/trade-ops-docs` Free plan — no Pages possible there.
