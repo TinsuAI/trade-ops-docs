@@ -33,11 +33,11 @@ What none of the three apps owns:
 
 - **The broker's portfolio of end-clients** — which clients are on the books, their state, who is assigned to each. Each app sees only its own subset of clients and only the work in its own domain.
 - **Documents arriving outside any compliance trigger** — Zalo files, scanned documents on email, internal-routing copies that have not yet entered any workflow.
-- **Cross-workflow data continuity** — the BOM Barry-CO uses to support a CO must reconcile against the BOM Barry-BCQT uses for year-end settlement; without a shared master-data store, those apps drift independently.
+- **Cross-workflow data continuity** — the technical BOM Barry-CO uses to support a CO at the moment of export and the actual-consumption Định mức Mẫu 16 Barry-BCQT produces for year-end settlement must remain reconcilable against the same SP–NVL flow; without a shared master-data store and shared period-flow data, those reconciliations cannot be performed.
 - **Operational work that does not fire any compliance app** — document intake and classification, dossier opening, staff assignment, ownership reassignment when staff leave, handover.
 - **Cross-year reconstruction of an entire dossier's processing chain** — the chain runs across all three apps plus the parts that lived outside any app, and no single app can reconstruct it.
 
-For **kiểm tra sau thông quan (post-clearance audit)** specifically: each of the three apps must retain its own dossiers for the regulatory 5-year window for its own scope of work. But a real audit query typically asks the broker to reconstruct the complete processing chain of a dossier — including documents that never entered any app, classification decisions, ownership history, internal exchanges. That reconstruction work lives outside the three apps' scope by design and cannot be added to them without rebuilding each into a portfolio system.
+For **kiểm tra sau thông quan (post-clearance audit)** specifically: each of the three apps must retain its own dossiers for the regulatory 5-year window for its own scope of work. But if an audit query requires reconstructing the complete processing chain of a dossier — including documents that never entered any app, classification decisions, ownership history, internal exchanges — that reconstruction work lives outside the three apps' scope by design and cannot be added to them without rebuilding each into a portfolio system.
 
 This is the work TradeOps is for.
 
@@ -91,14 +91,14 @@ This is the primary use of TradeOps and represents most ops-team activity, regar
 1. Siafu reads item master from TradeOps (via API) to identify NVL on the import.
 2. Siafu reads existing supporting docs from TradeOps' document control if any have been ingested.
 3. Siafu produces the declaration record and writes it back to TradeOps as part of the dossier history with linked supporting documents.
-4. TradeOps' multi-view inventory updates the HQ-declared balance and the physical-arrival working set.
+4. TradeOps' multi-view inventory updates the BCCT-derived balance view and the physical-arrival working set.
 5. Audit trail captures the change.
 
 **Workflow accelerator: New CO request for an export shipment (handled by Barry-CO when triggered).**
 
 1. Barry-CO reads item master + BOM + tồn CO + relevant supporting documents (TKXK, Invoice, B/L, NVL C/Os, định mức, production process description, plus Phụ lục X if a domestic-Vietnam-supplier upstream input is used) from TradeOps via API.
-2. Barry-CO assembles the CO dossier; staff complete origin working data using the criteria appropriate to the form and rule (RVC / CTC / PSR — typical Form D uses RVC ≥ 40% **OR** CTC; Form CPTPP and Form RCEP rely heavily on PSR; EVFTA self-cert applies RVC / CTC / list rules per HS code).
-3. Dossier is submitted via the appropriate issuance channel — for preferential and non-preferential C/Os this is **eCoSys** (Bộ Công Thương) since 5/5/2025; for EVFTA / UKVFTA shipments above 6,000 EUR it is self-cert via the REX number on the commercial invoice (no government-issued C/O).
+2. Barry-CO assembles the CO dossier; staff complete origin working data using the criteria appropriate to the form and rule. **PSR governs when present** (per Form's annex); only when no PSR applies does the general rule apply (Form D general = WO / RVC ≥ 40% / CTH, trader's choice between RVC40 and CTH where both are offered). CPTPP and RCEP rely heavily on PSR per heading. For EVFTA / UKVFTA outbound (VN → EU / UK): EUR.1 issued by Bộ Công Thương if FOB > 6.000 EUR, exporter self-cert on commercial document if ≤ 6.000 EUR.
+3. Dossier is submitted via the appropriate issuance channel — for preferential Forms, non-preferential Form B / CNM, and EVFTA EUR.1 above the 6.000 EUR threshold, this is **eCoSys** (Bộ Công Thương / Cục XNK). Non-preferential / Form B / CNM / REX issuance returned to MOIT under QĐ 1103/QĐ-BCT (21/4/2025), with VCCI ceasing issuance of those from 5/5/2025. For EVFTA / UKVFTA shipments at FOB ≤ 6.000 EUR, the exporter self-certifies on the commercial document with no eCoSys submission.
 4. The completed dossier — with issuance reference and final C/O (or self-cert document) — is written back to TradeOps as part of the dossier history with status and links to all supporting artifacts.
 5. Tồn CO updates in TradeOps' multi-view inventory.
 6. Audit trail captures the change.

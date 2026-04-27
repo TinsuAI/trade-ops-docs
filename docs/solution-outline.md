@@ -44,7 +44,7 @@ Versioned, multi-level relations between items in Module 4 (SP ↔ BTP ↔ NVL).
 BOM here is the **technical norm (định mức kỹ thuật)** at a specific point in time — for example, the recipe that supports a C/O dossier at the moment of export. It can change over time and may not include actual tiêu hao. The BCQT-facing **Định mức Mẫu 16** is a distinct artifact: the annual weighted-average NVL consumption per SP, **computed from actual data** at year-end (total SP exported, total NVL imported, actual consumption including tiêu hao). Mẫu 16 is NOT a copy or flattening of BOM. TradeOps holds BOM with versioning AND captures the period-flow data (production aggregates, actual consumption per period, tiêu hao) needed by Barry-BCQT to compute Mẫu 16 at year-end.
 
 **Module 6 — Multi-view inventory.**
-Holds simultaneously: physical warehouse stock, accounting NXT, HQ-declared balance (BCCT), and CO inventory (consumption mapping per export shipment). All views reference the same item master from Module 4. Cross-view reconciliation and divergence audit are first-class features. Convergence is not enforced.
+Holds simultaneously: physical warehouse stock, accounting NXT, balance derived from BCCT extracts, and CO inventory (consumption mapping per export shipment). All views reference the same item master from Module 4. Cross-view reconciliation and divergence audit are first-class features. Convergence is not enforced.
 
 ## Module Consumption Map
 
@@ -57,7 +57,7 @@ The table below describes how the three workflow apps interact with TradeOps whe
 | 3. Audit trail                    | W     | W              | W                                           |
 | 4. Item master + code translation | R     | R              | R                                           |
 | 5. BOM master                     |       | R              | R                                           |
-| 6. Multi-view inventory           |       | R/W (CO view)  | R/W (HQ view, reconciliation working set)   |
+| 6. Multi-view inventory           |       | R/W (CO view)  | R/W (BCCT-derived view, reconciliation working set) |
 
 R = read, W = write.
 
@@ -86,7 +86,7 @@ Phase 1 goal: the pilot end-client has a complete portfolio in TradeOps — clie
 
 ### Phase 2 — Multi-view inventory, declarations, and BCQT reconciliation
 
-- Multi-view inventory module live (physical, accounting, HQ, CO)
+- Multi-view inventory module live (physical, accounting NXT, BCCT-derived, Tồn CO)
 - Cross-view reconciliation views live
 - Siafu integrated to read item master / documents from TradeOps and write back declarations into the dossier history
 - Barry-BCQT integrated to read all TradeOps modules and produce annual reconciliation working sets
@@ -107,5 +107,5 @@ Phase 2 goal: an annual BCQT can be assembled from the standardized portfolio in
 - End-to-end procurement execution
 - ERP replacement
 - Automatic submission to the VNACCS / VCIS national customs system (TradeOps holds the operational data; the actual submission goes through Siafu, which itself interfaces with VNACCS via standard ECUS-class clients rather than reimplementing the protocol)
-- Direct submission of C/O dossiers to eCoSys (Bộ Công Thương) — TradeOps holds the dossier data and links; the actual submission to eCoSys (or REX self-cert for EVFTA / UKVFTA) is performed by Barry-CO, not by TradeOps itself
+- Direct submission of C/O dossiers to eCoSys (Bộ Công Thương) — TradeOps holds the dossier data and links; the actual submission to eCoSys (or, for EVFTA / UKVFTA shipments at FOB ≤ 6.000 EUR, exporter self-cert on the commercial document) is performed by Barry-CO together with the team's người ký số, not by TradeOps itself
 - End-client-facing portal

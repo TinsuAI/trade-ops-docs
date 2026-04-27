@@ -21,7 +21,7 @@ Code-translation table mapping internal ERP codes to one or more customs (HQ) co
 Báo cáo chi tiết — a line-level extract pulled on demand from the customs (HQ) system for a user-requested date range. Example: requesting BCCT from 1/1/2025 to 31/12/2025 returns a file aggregating every line item from every declaration in that period. In Barry-CO, BCCT is the basis for building the CO inventory ledger. In Barry-BCQT, BCCT HQ is a key reconciliation input alongside DS NVL HQ and DS SP HQ.
 
 ## BCQT
-Báo cáo quyết toán hải quan — annual customs settlement reporting per Điều 60 of Thông tư 39/2018/TT-BTC. The output of Barry-BCQT. Reconciles imports, exports, BOM-derived consumption, and stock against customs declarations. Core mẫu (regime-agnostic across gia công, SXXK, and DNCX): **Mẫu 15** (BCQT NVL nhập khẩu), **Mẫu 15a** (BCQT thành phẩm sản xuất từ NVL nhập khẩu), **Mẫu 16** (Định mức thực tế — see Định mức Mẫu 16). Specialty mẫu **Mẫu 15b** and **Mẫu 15c** are filed only when outward processing (gia công lại ở nước ngoài) is involved, most commonly under the gia công regime.
+Báo cáo quyết toán hải quan — annual customs settlement reporting per **Điều 60 TT 38/2015/TT-BTC (sửa đổi bởi khoản 39 Điều 1 TT 39/2018/TT-BTC, sửa đổi tiếp bởi TT 121/2025/TT-BTC hiệu lực 01/02/2026)**. The output of Barry-BCQT. Reconciles imports, exports, BOM-derived consumption, and stock against customs declarations. Filed within **90 ngày** of fiscal year-end. Core mẫu per TT 121/2025 Phụ lục V (regime-agnostic across gia công, SXXK, DNCX): **Mẫu 15/BCQT-NVL/GSQL** (BCQT NVL nhập khẩu), **Mẫu 15a/BCQT-SP/GSQL** (BCQT thành phẩm sản xuất từ NVL nhập khẩu), **Mẫu 16/ĐMTT-GSQL** (Định mức thực tế — see Định mức Mẫu 16). Specialty mẫu **15b** and **15c** apply only when outward processing (gia công lại ở nước ngoài) is involved, most commonly under the gia công regime. **Submission channel:** to Chi cục Hải quan nơi đã thông báo cơ sở sản xuất via the **Hệ thống tiếp nhận BCQT** of cơ quan hải quan — distinct from VNACCS / VCIS, which is the declaration channel. **60-day self-amendment window:** within 60 ngày from submission AND before any quyết định kiểm tra is issued, the end-client may resubmit a corrected BCQT without penalty.
 
 ## BOM
 Bill of materials, equivalent to **định mức kỹ thuật** in Vietnamese trade-compliance practice. The technical engineering norm describing components required per finished product **at a specific point in time**. May change over time as production methods evolve. May not include actual tiêu hao (waste/loss) in production. Used at C/O dossier time to declare component consumption per export shipment. In TradeOps, BOM is multi-level (SP ↔ BTP ↔ NVL), versioned with effective dates, and references items via stable internal IDs from the item master. **Distinct from Định mức Mẫu 16** — see that entry. Mẫu 16 is computed from actual data at year-end and is NOT a flattening of BOM.
@@ -51,7 +51,7 @@ Vietnamese term for BOM in the trade-compliance context — see BOM. The technic
 Annual weighted-average NVL consumption norm per finished product, **computed from actual data at year-end** for BCQT settlement (per Mẫu 16 of Thông tư 39/2018/TT-BTC). Inputs needed to compute it: total SP quantity exported in the year, total NVL imported in the year, and actual NVL consumption in production (including tiêu hao). **Distinct from BOM / định mức kỹ thuật** — Mẫu 16 is NOT a copy or flattening of BOM; it is computed from real production flows. The BOM may evolve over the year and may not include tiêu hao, while Mẫu 16 captures actual aggregate consumption regardless of how BOM looked at any point in time.
 
 ## eCoSys
-Hệ thống quản lý và cấp chứng nhận xuất xứ điện tử (https://ecosys.gov.vn). Run by Cục Xuất nhập khẩu — Bộ Công Thương. Single platform through which essentially all Vietnamese C/Os are processed since 5/5/2025: Form D, E, AK, AJ, AANZ, VK, VJ, RCEP, CPTPP, Form B (non-preferential), CNM, GSTP, plus REX number registration. Submission and issuance both flow through eCoSys; data is piped to the National Single Window where applicable. (Quyết định 1103/QĐ-BCT dated 21/4/2025 transferred all C/O issuance authority from VCCI to 18 regional Phòng QLXNK under Bộ Công Thương, effective 5/5/2025.)
+Hệ thống quản lý và cấp chứng nhận xuất xứ điện tử (https://ecosys.gov.vn). Run by Cục Xuất nhập khẩu — Bộ Công Thương. Platform through which Vietnamese C/Os are processed: preferential Forms (D, E, AK, AJ, AANZ, AHK, AI, VK, VJ, RCEP, CPTPP), EUR.1 for EVFTA / UKVFTA outbound at FOB > 6.000 EUR, non-preferential Form B and CNM, GSTP. Submission and issuance both flow through eCoSys; data is piped to the National Single Window where applicable. **Quyết định 1103/QĐ-BCT (21/4/2025)** specifically recovered the **non-preferential C/O (Form B, CNM)**, **GSP for Norway / Switzerland**, and **REX number** issuing authority from VCCI back to 18 regional Phòng QLXNK under Cục XNK / Bộ Công Thương; VCCI ceased issuing those from 5/5/2025. Preferential FTA C/Os had already been issued by Bộ Công Thương / Cục XNK before QĐ 1103.
 
 ## End-client
 A doanh nghiệp customer of the customs broker (typically a DN chế xuất or SXXK enterprise). End-clients are the entities whose declarations, CO dossiers, and BCQT reports flow through the broker.
@@ -60,7 +60,7 @@ A doanh nghiệp customer of the customs broker (typically a DN chế xuất or 
 Per-end-client catalog of SP, NVL, and BTP with stable internal IDs, internal ERP codes, and one or more HQ codes per item. Module 4 of the TradeOps platform (per-end-client master-data modules group) — foundational for everything else that references items.
 
 ## Kiểm tra sau thông quan
-Post-clearance customs audit. Customs (Hải Quan) can reopen and query a customs dossier (TKNK, TKXK, BCQT, CO) within roughly 5 years of clearance, typically conducted at the enterprise's premises (kiểm tra tại trụ sở doanh nghiệp) or via document request. The most common real-world audit trigger and the primary reason brokers need defensible audit trails years after the fact. Per Luật Hải quan 2014 (Articles 77–82) and Thông tư 38/2015 + 39/2018.
+Post-clearance customs audit. Customs may reopen and query a customs dossier (TKNK, TKXK, BCQT, CO) within **5 năm kể từ ngày đăng ký tờ khai hải quan** per Điều 77 Luật Hải quan 2014. **Initiated by a Quyết định kiểm tra sau thông quan** (administrative decision signed by Tổng cục trưởng / Cục trưởng Cục KTSTQ / Cục trưởng Cục HQ tỉnh / Chi cục trưởng depending on scope; sent to declarant within 3 working days of signing, at least 5 working days before inspection). A preceding công văn yêu cầu cung cấp hồ sơ / giải trình may arrive in lighter cases. **Two venue branches:** (i) **tại trụ sở cơ quan hải quan** (Điều 79 LHQ + Điều 97 NĐ 08/2015 sửa đổi NĐ 59/2018) — desk audit, max 5 ngày làm việc per Điều 79 (no statutory extension); (ii) **tại trụ sở người khai hải quan** (Điều 80 LHQ + Điều 98 NĐ 08/2015) — on-site at end-client premises, max 10 ngày làm việc + 10 ngày extension, daily biên bản làm việc, closing biên bản kiểm tra within 5 ngày làm việc of inspection end, **Kết luận kiểm tra issued within 15 ngày** of inspection end. **Appeal:** khiếu nại lần đầu within 90 ngày from receipt of quyết định xử phạt / kết luận kiểm tra (Điều 9 Luật Khiếu nại 2011); khiếu nại lần hai or khởi kiện hành chính subsequent. **Criminal escalation thresholds** per BLHS 2015 (sửa đổi 2017): Điều 188 (buôn lậu), Điều 189 (vận chuyển trái phép), Điều 200 (trốn thuế — VND 100 triệu, lower if prior penalty / conviction). The most common real-world audit trigger and the primary reason brokers need defensible audit trails years after the fact.
 
 ## Mã ERP nội bộ
 The end-client's internal item code as used in their ERP, accounting, or factory systems. Stable across time. The canonical identifier on the internal-operations side of the code-translation table.
@@ -72,7 +72,7 @@ Mã hàng khai báo — the customs declaration item code as appearing on the li
 The international harmonized classification code for a goods item, used to determine duty rate and origin treatment. More stable than mã hàng across time, although periodic revisions occur. Tổng cục Hải quan is currently pushing "one mã hàng → one mã HS" via Quyết định 117/QĐ-CHQ (effective Feb 2026).
 
 ## Multi-view inventory
-Module 6 of the TradeOps platform (per-end-client master-data modules group). Holds physical, accounting (NXT), customs-declared (BCCT), and CO views of the same NVL side by side, with cross-view reconciliation and divergence audit trail. Convergence is not enforced.
+Module 6 of the TradeOps platform (per-end-client master-data modules group). Holds physical, accounting (NXT), BCCT-derived, and Tồn CO views of the same NVL side by side, with cross-view reconciliation and divergence audit trail. Convergence is not enforced. (No "tồn hải quan" view — the BCCT-derived view is a balance computed from line-level declaration extracts pulled from the HQ system, not a balance customs itself holds.)
 
 ## NVL
 Nguyên vật liệu. Raw materials.
@@ -81,7 +81,7 @@ Nguyên vật liệu. Raw materials.
 Bản khai báo xuất xứ của nhà sản xuất / nhà cung cấp nguyên liệu trong nước, theo Thông tư 05/2018/TT-BCT (Bộ Công Thương). Submitted as part of the C/O dossier when an export uses a Vietnam-origin input from a domestic supplier. Not attached to TKXK and not a Tổng cục Hải quan form. One of the supporting inputs into Barry-CO when applicable.
 
 ## REX
-Registered Exporter — the EU-origin self-certification scheme used for EVFTA / UKVFTA shipments. Vietnamese exporters register a REX number and self-declare origin on the commercial invoice instead of obtaining a stamped C/O. Mandatory for shipments above 6,000 EUR; below that threshold any exporter can self-declare without REX. Registration moved from VCCI to Bộ Công Thương via eCoSys from 5/5/2025.
+Registered Exporter — an EU-origin self-certification scheme. **For EVFTA / UKVFTA, REX is the EU-side mechanism used by EU exporters when exporting into VN; it does NOT apply to VN exporters going outbound to EU / UK.** For Vietnamese exports to EU / UK under EVFTA / UKVFTA the mechanism is: **EUR.1 issued by Bộ Công Thương via eCoSys when FOB > 6.000 EUR; exporter self-cert on the commercial document (no REX needed) when FOB ≤ 6.000 EUR** (Điều 19 TT 11/2020/TT-BCT). Earlier guidance that conflated REX with VN-side outbound self-cert was incorrect and has been removed from project memory.
 
 ## Siafu
 In-house app for preparing customs declarations (TKXK / TKNK). Owned by Tinsu AI; built by the user's partner on the team. One of the three workflow accelerators that integrate with the TradeOps platform when triggered.
@@ -108,13 +108,13 @@ Origin criteria used to qualify goods for preferential or non-preferential C/O. 
 - **RVC** (Regional Value Content): origin established by minimum regional value share — typical threshold ≥40% for ASEAN forms
 - **PSR** (Product-Specific Rule): origin rule specific to a product or HS code, often combining RVC and CTC
 
-Form D (ATIGA) typically allows RVC ≥ 40% **OR** CTC. Form CPTPP and Form RCEP rely heavily on PSR. EVFTA self-cert applies RVC, CTC, or specific list rules depending on the HS code.
+**PSR governs when present.** If the HS heading has a Product-Specific Rule in the Form's annex, the PSR applies and trader cannot freely substitute a general criterion. When no PSR applies, general rules apply: Form D (ATIGA) general = WO / RVC ≥ 40% / CTH (with trader's choice between RVC40 and CTH where both are offered). CPTPP and RCEP rely heavily on PSR per heading; general fallbacks are narrow. EVFTA / UKVFTA outbound: EUR.1 via eCoSys if FOB > 6.000 EUR, exporter self-cert on commercial document if ≤ 6.000 EUR (no REX involved on the VN side).
 
 ## Tồn CO
 CO inventory: a working ledger of NVL consumption mapped to export shipments to support CO origin dossiers. Intentionally divergent from physical inventory because CO origin rules constrain which import lots can notionally feed which export shipments.
 
 ## Tồn thực tế
-Physical warehouse stock — the "real" view of what is on hand. Diverges from accounting NXT, BCCT HQ, and Tồn CO views; these divergences are themselves data.
+Physical warehouse stock — the "real" view of what is on hand. Diverges from accounting NXT, the BCCT-derived view, and Tồn CO; these divergences are themselves data. (Note: there is no "tồn hải quan" concept — the customs system does not hold a balance. What people sometimes call "tồn hải quan" is in fact a balance derived from BCCT line-level declaration extracts.)
 
 ## Tiêu hao
 NVL waste, loss, or scrap in production — material that is consumed but does not appear in the finished product, or that is part of input but lost via cutting, defects, evaporation, rework, etc. Often not captured in the technical BOM (định mức kỹ thuật) but appears in actual consumption flows. Must be accounted for when computing Định mức Mẫu 16, since Mẫu 16 reflects actual aggregate consumption. Tracking tiêu hao per period is essential for BCQT reconciliation.
@@ -122,7 +122,7 @@ NVL waste, loss, or scrap in production — material that is consumed but does n
 ## Trade-Compliance Operations Platform
 Working term for the proposed system that manages client dossiers, documents, item master data, BOM, multi-view inventory, declarations, and related operational data without claiming full ERP scope.
 
-## Trọng Tín
+## Trọng Tín - Hoa Nam
 The first customs broker pilot customer of TradeOps.
 
 ## XNK tại chỗ

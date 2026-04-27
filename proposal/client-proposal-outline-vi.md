@@ -2,13 +2,13 @@
 
 ## 1. Bối cảnh
 
-Trọng Tín là đại lý hải quan phục vụ nhiều doanh nghiệp chế xuất và doanh nghiệp sản xuất xuất khẩu. **Mỗi khách hàng cuối là một thế giới riêng**: nhà máy riêng, sản phẩm riêng, mã hoá nội bộ riêng, nhân sự đầu mối riêng, lịch sử nghiệp vụ riêng kéo dài qua nhiều năm.
+Trọng Tín - Hoa Nam là đại lý hải quan phục vụ nhiều doanh nghiệp chế xuất và doanh nghiệp sản xuất xuất khẩu. **Mỗi khách hàng cuối là một thế giới riêng**: nhà máy riêng, sản phẩm riêng, mã hoá nội bộ riêng, nhân sự đầu mối riêng, lịch sử nghiệp vụ riêng kéo dài qua nhiều năm.
 
-Giá trị của đại lý đến từ khả năng **quản lý cả danh mục khách hàng cùng lúc**:
+Vận hành cả danh mục khách hàng cuối qua nhiều năm gắn với một số phần việc xuyên suốt:
 
 - nhận thêm khách hàng mới mà không cần xây lại nền vận hành mỗi lần
 - giữ tri thức xử lý ở tay đại lý, không phải ở đầu từng nhân viên
-- bảo vệ hồ sơ khi hải quan kiểm tra sau thông quan một đến hai năm sau
+- bảo vệ hồ sơ khi có yêu cầu kiểm tra sau thông quan một đến hai năm sau
 - liên thông dữ liệu nghiệp vụ giữa các kỳ báo cáo qua nhiều năm
 
 Trên thực tế, công việc quản lý danh mục này hiện nay vận hành chủ yếu trên Excel, thư mục cá nhân, email và Zalo. Không có hệ thống nào đứng tên giữ:
@@ -18,43 +18,43 @@ Trên thực tế, công việc quản lý danh mục này hiện nay vận hàn
 - danh mục SP / NVL / BTP, BOM và tài liệu nguồn gắn với từng khách hàng cuối
 - nhật ký xử lý xuyên thời gian phục vụ giải trình khi kiểm tra sau thông quan
 
-Hiện nay Trọng Tín đang triển khai ba hệ thống nghiệp vụ chuyên dụng:
+Hiện nay, Tinsu AI và Trọng Tín - Hoa Nam đang triển khai ba hệ thống nghiệp vụ chuyên dụng:
 
 - **Siafu** — lập tờ khai xuất nhập khẩu
 - **Barry-CO** — lập hồ sơ CO cho lô hàng xuất khẩu
 - **Barry-BCQT** — báo cáo quyết toán hải quan hàng năm
 
-Mỗi hệ thống tăng tốc một đầu nghiệp vụ chuyên môn, bật khi có trigger cụ thể (có tờ khai cần lập, có lô hàng cần xin CO, đến kỳ báo cáo quyết toán). Nhưng **không hệ thống nào trong số đó quản lý danh mục khách hàng cuối của đại lý**, không hệ thống nào lưu trữ lịch sử portfolio xuyên năm, không hệ thống nào trả lời được câu hỏi "hồ sơ này hai năm trước được dựng thế nào và ai đã làm". Đó là phần đại lý đang tự lo, và là khoảng trống mà đề xuất này hướng đến.
+Mỗi hệ thống tăng tốc một đầu nghiệp vụ chuyên môn, bật khi có điểm phát động cụ thể (có tờ khai cần lập, có lô hàng cần xin CO, đến kỳ báo cáo quyết toán). Nhưng **không hệ thống nào trong số đó quản lý danh mục khách hàng cuối của đại lý**, không hệ thống nào lưu trữ lịch sử danh mục xuyên năm, không hệ thống nào trả lời được câu hỏi "hồ sơ này hai năm trước được dựng thế nào và ai đã làm". Đó là phần đại lý đang tự lo, và là khoảng trống mà đề xuất này hướng đến.
 
 ## 2. Vấn đề cốt lõi ở mức đại lý
 
-Vấn đề hiện nay không nằm ở việc thiếu phần mềm cho từng nghiệp vụ riêng lẻ — ba hệ thống nêu trên đang giải quyết phần đó. Vấn đề nằm ở **tầng vận hành portfolio và lịch sử của đại lý** — phần ba hệ thống nghiệp vụ không được thiết kế để xử lý:
+Vấn đề hiện nay không nằm ở việc thiếu phần mềm cho từng nghiệp vụ riêng lẻ — ba hệ thống nêu trên đang giải quyết phần đó. Vấn đề nằm ở **tầng vận hành danh mục và lịch sử của đại lý** — phần ba hệ thống nghiệp vụ không được thiết kế để xử lý:
 
 1. **Thêm khách hàng cuối không tận dụng được công sức đã bỏ cho khách trước.** Mỗi doanh nghiệp mới là một tập dữ liệu, định dạng và mã hoá riêng. Đội nghiệp vụ phải làm quen từ đầu mỗi lần.
 2. **Tri thức xử lý nằm chủ yếu trong đầu nhân viên.** Khi có thay đổi nhân sự, chuỗi xử lý của từng bộ hồ sơ dễ đứt gãy; thời gian đào tạo người mới kéo dài.
-3. **Hồ sơ liên thông qua nhiều năm.** Tờ khai nhập khẩu năm trước làm cơ sở cho báo cáo quyết toán năm sau; BOM dùng trong hồ sơ CO cần khớp với BOM dùng trong quyết toán; chỉ một mắt xích lệch là cả chuỗi sai.
-4. **Việc giải trình và đối chiếu khi hải quan kiểm tra tốn nhiều thời gian.** Dựng lại chuỗi chứng từ cho một bộ hồ sơ một đến hai năm trước có khi mất nhiều ngày, đôi khi không dựng lại đầy đủ được vì người xử lý không còn ở đơn vị.
-5. **Mặt bằng hệ thống giữa các đại lý hiện nay đang khá tương đồng.** Phần lớn vẫn vận hành trên Excel và thư mục cá nhân. Đại lý nào sớm có nền dữ liệu và quy trình chuẩn hoá sẽ có lợi thế vận hành rõ rệt và bền vững hơn.
+3. **Hồ sơ liên thông qua nhiều năm.** Tờ khai nhập khẩu năm trước làm cơ sở cho báo cáo quyết toán năm sau; định mức kỹ thuật khai trên hồ sơ CO và định mức thực tế dùng cho quyết toán cuối năm là hai số liệu khác nhau nhưng phải đối chiếu được với nhau theo cùng một dòng SP–NVL; chỉ một mắt xích lệch không giải trình được là cả chuỗi gặp rủi ro.
+4. **Khả năng giải trình và đối chiếu khi có yêu cầu kiểm tra là một rủi ro thường trực.** Khi cần dựng lại chuỗi chứng từ cho một bộ hồ sơ một đến hai năm trước, công sức bỏ ra có thể rất lớn; nếu người xử lý không còn ở đơn vị, có khả năng chuỗi không dựng lại được đầy đủ.
+5. **Mặt bằng hệ thống giữa các đại lý hiện nay đang khá tương đồng.** Phần lớn vẫn vận hành trên Excel và thư mục cá nhân. Khi danh mục khách hàng tăng dần, các phần việc ở trên trở nên khó kiểm soát theo cách vận hành hiện tại.
 
-Đằng sau năm vấn đề ở mức nghiệp vụ là một số nguyên nhân cấu trúc — đều thuộc tầng vận hành portfolio mà chưa có hệ thống nào giải quyết:
+Đằng sau năm vấn đề ở mức nghiệp vụ là một số nguyên nhân cấu trúc — đều thuộc tầng vận hành danh mục mà chưa có hệ thống nào giải quyết:
 
-- chưa có nơi đứng tên quản lý danh mục end-client và trạng thái hồ sơ qua thời gian
+- chưa có nơi đứng tên quản lý danh mục khách hàng cuối và trạng thái hồ sơ qua thời gian
 - chưa có **danh mục SP / NVL / BTP** chuẩn cho từng khách hàng cuối, có quy đổi giữa mã hải quan và mã nội bộ
 - chưa có nơi tập trung tài liệu với phiên bản và liên kết rõ ràng
 - BOM và lịch sử thay đổi BOM thường được giữ phi chính thức
-- nhiều loại tồn (thực tế, kế toán, hải quan, CO) song song tồn tại nhưng không có chỗ đối chiếu
+- nhiều loại tồn hợp lệ song song (thực tế, kế toán, theo dữ liệu hải quan, CO) nhưng không có chỗ đối chiếu
 - chưa có nhật ký kiểm tra thống nhất xuyên các hệ thống
 
 ## 3. Hướng đề xuất — TradeOps là hệ thống quản lý danh mục khách hàng và hồ sơ xuyên năm của đại lý
 
-Đề xuất là xây dựng **TradeOps** — hệ thống mà đại lý dùng để **quản lý toàn bộ danh mục khách hàng cuối qua thời gian**: ai là khách, đang làm gì, hồ sơ nào, ai phụ trách, lịch sử ra sao, có defend được khi kiểm tra không.
+Đề xuất là xây dựng **TradeOps** — hệ thống mà đại lý dùng để **quản lý toàn bộ danh mục khách hàng cuối qua thời gian**: ai là khách, đang làm gì, hồ sơ nào, ai phụ trách, lịch sử ra sao, có bảo vệ được khi kiểm tra không.
 
 TradeOps là nơi:
 
-- **portfolio**: danh sách end-client, trạng thái từng khách, người phụ trách, mức độ phức tạp
-- **hồ sơ và tiến độ**: hồ sơ nào đang mở, ai làm, deadline, blocker, trạng thái xử lý
+- **danh mục**: danh sách khách hàng cuối, trạng thái từng khách, người phụ trách, mức độ phức tạp
+- **hồ sơ và tiến độ**: hồ sơ nào đang mở, ai làm, hạn, vướng mắc, trạng thái xử lý
 - **lịch sử xuyên năm**: mọi hồ sơ, mọi phiên bản BOM, mọi tài liệu, mọi thao tác — truy xuất được nhiều năm sau
-- **master data của từng khách**: danh mục SP / NVL / BTP, BOM phiên bản, bảng quy đổi mã, các view tồn — giữ nhất quán để mọi nghiệp vụ phía sau dùng được
+- **dữ liệu nền của từng khách**: danh mục SP / NVL / BTP, BOM phiên bản, bảng quy đổi mã, các view tồn — giữ nhất quán để mọi nghiệp vụ phía sau dùng được
 - **nhật ký kiểm tra xuyên suốt** — đáp ứng yêu cầu giải trình khi hải quan kiểm tra sau thông quan
 
 ### Vì sao Siafu, Barry-CO, Barry-BCQT không thể tự đảm nhận phần này
@@ -67,35 +67,35 @@ Mỗi hệ thống chuyên dụng giữ phần dữ liệu cần cho **một đ�
 
 Nhưng:
 
-- Không hệ thống nào đứng tên giữ **danh mục end-client đại lý đang phục vụ** — mỗi app chỉ thấy dữ liệu của khách trong phạm vi nghiệp vụ của app đó
+- Không hệ thống nào đứng tên giữ **danh mục khách hàng cuối đại lý đang phục vụ** — mỗi app chỉ thấy dữ liệu của khách trong phạm vi nghiệp vụ của app đó
 - Không hệ thống nào ghi nhận **tài liệu khách gửi qua các kênh không qua app** (Zalo, email rời rạc, file đính kèm trao đổi nội bộ)
-- Không hệ thống nào **liên thông giữa các nghiệp vụ**: BOM dùng cho CO của Barry-CO phải khớp với BOM trong quyết toán của Barry-BCQT, nhưng hai app không cùng một nguồn dữ liệu nếu không có TradeOps giữ master data
-- Không hệ thống nào ghi nhận **các thao tác vận hành ngoài phạm vi nghiệp vụ chuyên môn**: intake tài liệu, gán việc, thay đổi nhân sự phụ trách, bàn giao
+- Không hệ thống nào **liên thông giữa các nghiệp vụ**: định mức kỹ thuật mà Barry-CO dùng cho CO và định mức thực tế mà Barry-BCQT dùng cho quyết toán phải đối chiếu được với nhau theo cùng một dòng SP–NVL, nhưng hai app không cùng một nguồn dữ liệu nền nếu không có TradeOps đứng tên giữ
+- Không hệ thống nào ghi nhận **các thao tác vận hành ngoài phạm vi nghiệp vụ chuyên môn**: tiếp nhận tài liệu, gán việc, thay đổi nhân sự phụ trách, bàn giao
 - Không hệ thống nào **dựng lại được toàn bộ chuỗi xử lý của một bộ hồ sơ qua nhiều năm** vì chuỗi đó đi qua cả ba hệ thống cộng phần ngoài hệ thống
 
-Đặc biệt với **kiểm tra sau thông quan**: ba hệ thống đều phải lưu hồ sơ 5 năm theo quy định cho phạm vi nghiệp vụ của mình. Nhưng kiểm tra sau thông quan thường yêu cầu dựng lại **toàn bộ chuỗi xử lý** của một bộ hồ sơ — bao gồm tài liệu chưa qua app nào, các quyết định phân loại, lịch sử người phụ trách, các trao đổi nội bộ. Phần này không nằm trong phạm vi của bất kỳ hệ thống chuyên dụng nào.
+Đặc biệt với **kiểm tra sau thông quan**: ba hệ thống đều phải lưu hồ sơ 5 năm theo quy định cho phạm vi nghiệp vụ của mình. Nhưng nếu yêu cầu kiểm tra phát sinh và cần dựng lại **toàn bộ chuỗi xử lý** của một bộ hồ sơ — bao gồm tài liệu chưa qua app nào, các quyết định phân loại, lịch sử người phụ trách, các trao đổi nội bộ — phần việc này có thể vượt ra ngoài phạm vi của bất kỳ hệ thống chuyên dụng nào.
 
 Đây là phần TradeOps đứng tên xử lý.
 
 ### Quan hệ giữa TradeOps và ba hệ thống nghiệp vụ
 
-TradeOps quản lý phần liên tục: khách, hồ sơ, master data, lịch sử. Ba hệ thống nghiệp vụ chuyên xử lý các trigger cụ thể trong vòng đời mỗi hồ sơ.
+TradeOps quản lý phần liên tục: khách, hồ sơ, dữ liệu nền, lịch sử. Ba hệ thống nghiệp vụ chuyên xử lý các điểm phát động cụ thể trong vòng đời mỗi hồ sơ.
 
-Khi tích hợp, ba hệ thống đọc master data của end-client từ TradeOps (danh mục, BOM, chứng từ) và ghi tờ khai / hồ sơ CO / báo cáo quyết toán trở lại như một phần của lịch sử portfolio. Đây là **lợi ích cộng thêm** khi cả TradeOps và ba công cụ cùng có — không phải lý do TradeOps tồn tại.
+Khi tích hợp, ba hệ thống đọc dữ liệu nền của khách hàng cuối từ TradeOps (danh mục, BOM, chứng từ) và ghi tờ khai / hồ sơ CO / báo cáo quyết toán trở lại như một phần của lịch sử danh mục. Đây là **lợi ích cộng thêm** khi cả TradeOps và ba công cụ cùng có — không phải lý do TradeOps tồn tại.
 
 ### TradeOps cho phép
 
 - **mở rộng phục vụ thêm khách hàng cuối** mà không cần xây lại nền vận hành mỗi lần
-- **defend hồ sơ khi kiểm tra sau thông quan** thành thao tác trên hệ thống thay vì dựng lại bằng tay từ nhiều nguồn
+- **bảo vệ hồ sơ khi kiểm tra sau thông quan** thành thao tác trên hệ thống thay vì dựng lại bằng tay từ nhiều nguồn
 - **bàn giao và mở rộng đội ngũ** mà không phụ thuộc tri thức nằm trong đầu nhân viên
-- **chuẩn hoá master data** để mọi nghiệp vụ phía sau (CO, quyết toán, tờ khai) dùng được nhất quán — lợi ích cộng thêm khi tích hợp với các công cụ chuyên dụng
+- **chuẩn hoá dữ liệu nền** để mọi nghiệp vụ phía sau (CO, quyết toán, tờ khai) dùng được nhất quán — lợi ích cộng thêm khi tích hợp với các công cụ chuyên dụng
 
 ## 4. Các nhóm chức năng chính của TradeOps
 
 TradeOps gồm sáu module được chia thành hai nhóm:
 
-- **Module sử dụng hàng ngày** (không phụ thuộc trigger nghiệp vụ): chỗ đội ngũ vận hành làm việc liên tục
-- **Module chuẩn hoá dữ liệu theo từng khách hàng cuối**: master data — danh mục, BOM, các view tồn — dùng nhất quán cho cả vận hành hàng ngày và tích hợp với các công cụ nghiệp vụ chuyên dụng
+- **Module sử dụng hàng ngày** (không phụ thuộc điểm phát động nghiệp vụ): chỗ đội ngũ vận hành làm việc liên tục
+- **Module chuẩn hoá dữ liệu theo từng khách hàng cuối**: dữ liệu nền — danh mục, BOM, các view tồn — dùng nhất quán cho cả vận hành hàng ngày và tích hợp với các công cụ nghiệp vụ chuyên dụng
 
 ### Module sử dụng hàng ngày
 
@@ -104,8 +104,8 @@ TradeOps gồm sáu module được chia thành hai nhóm:
 - danh sách khách hàng cuối đang phục vụ, trạng thái xử lý của từng khách
 - không gian làm việc theo từng khách hàng
 - gom hồ sơ theo lô hàng, kỳ báo cáo hoặc bộ việc
-- gán người phụ trách, theo dõi trạng thái xử lý, deadline, blocker
-- tái sử dụng hồ sơ cũ làm template cho hồ sơ tương tự
+- gán người phụ trách, theo dõi trạng thái xử lý, hạn, vướng mắc
+- tái sử dụng hồ sơ cũ làm mẫu cho hồ sơ tương tự
 - truy xuất hồ sơ qua nhiều năm
 
 #### 4.2. Quản lý tài liệu và phiên bản
@@ -114,12 +114,12 @@ TradeOps gồm sáu module được chia thành hai nhóm:
 - gắn nguồn (kênh đến), phiên bản, trạng thái hiệu lực
 - liên kết tài liệu với khách hàng cuối, hồ sơ, mã vật tư và tờ khai để truy vết
 
-#### 4.3. Nhật ký kiểm tra (audit trail)
+#### 4.3. Nhật ký kiểm tra (nhật ký kiểm tra)
 
 - ghi nhận ai đã thay đổi gì, khi nào, ở module nào
 - truy vết được trạng thái của hồ sơ ở một thời điểm trong quá khứ
 - xuyên suốt cả các thao tác do Siafu, Barry-CO, Barry-BCQT thực hiện trên dữ liệu của TradeOps
-- là cơ sở chính để defend hồ sơ khi hải quan kiểm tra sau thông quan
+- là cơ sở chính để bảo vệ hồ sơ khi hải quan kiểm tra sau thông quan
 
 ### Module chuẩn hoá dữ liệu theo từng khách hàng cuối
 
@@ -159,11 +159,11 @@ TradeOps quản lý đồng thời các view này trên cùng một danh mục m
 
 Phần tích hợp dưới đây là **lợi ích cộng thêm** khi cả TradeOps và ba công cụ chuyên dụng cùng có mặt.
 
-- Siafu đọc danh mục mã và tài liệu từ TradeOps để hỗ trợ lập tờ khai; ghi tờ khai và các chứng từ kèm theo trở lại TradeOps như một phần của lịch sử portfolio.
+- Siafu đọc danh mục mã và tài liệu từ TradeOps để hỗ trợ lập tờ khai; ghi tờ khai và các chứng từ kèm theo trở lại TradeOps như một phần của lịch sử danh mục.
 - Barry-CO đọc danh mục mã, BOM, tồn CO và tài liệu từ TradeOps để dựng hồ sơ CO; ghi trạng thái hồ sơ và các liên kết tài liệu trở lại.
-- Barry-BCQT đọc các module chuẩn hoá (danh mục, BOM, tồn) cùng lịch sử portfolio để chuẩn bị báo cáo quyết toán; ghi kết quả đối chiếu và bộ hồ sơ quyết toán trở lại.
+- Barry-BCQT đọc các module chuẩn hoá (danh mục, BOM, tồn) cùng lịch sử danh mục để chuẩn bị báo cáo quyết toán; ghi kết quả đối chiếu và bộ hồ sơ quyết toán trở lại.
 
-Tích hợp giữa TradeOps và ba hệ thống được thực hiện qua **API contract công bố** — không phải truy vấn database trực tiếp. Mỗi hệ thống có codebase và data store riêng; TradeOps đứng tên giữ master data và lịch sử portfolio, các công cụ nghiệp vụ đọc/ghi qua API.
+Tích hợp giữa TradeOps và ba hệ thống được thực hiện qua **hợp đồng API công bố** — không phải truy vấn cơ sở dữ liệu trực tiếp. Mỗi hệ thống có mã nguồn và kho dữ liệu riêng; TradeOps đứng tên giữ dữ liệu nền và lịch sử danh mục, các công cụ nghiệp vụ đọc/ghi qua API.
 
 ## 5. Lợi ích kỳ vọng và chỉ số đo lường
 
@@ -191,28 +191,28 @@ Các nội dung trên là kỳ vọng định hướng. Mức độ cải thiệ
 
 Đề xuất triển khai theo từng giai đoạn, bắt đầu từ phần có tác động rõ nhất.
 
-### Giai đoạn 1 — Portfolio + hồ sơ + audit trail cho khách hàng pilot
+### Giai đoạn 1 — danh mục + hồ sơ + nhật ký kiểm tra cho khách hàng thí điểm
 
 Phạm vi:
 
-- thiết lập không gian làm việc cho khách hàng cuối pilot trong TradeOps: danh sách hồ sơ, người phụ trách, trạng thái xử lý
+- thiết lập không gian làm việc cho khách hàng cuối thí điểm trong TradeOps: danh sách hồ sơ, người phụ trách, trạng thái xử lý
 - nhận tài liệu khách qua các kênh hiện hữu (Zalo, email, file share) vào TradeOps; quản lý phiên bản tập trung
 - thiết lập danh mục SP / NVL / BTP và bảng quy đổi mã, rút từ tờ khai lịch sử, BOM nhà máy và xuất kế toán
 - quản lý BOM phiên bản và hiệu lực
 - nhật ký kiểm tra xuyên suốt phục vụ giải trình khi kiểm tra sau thông quan
-- kết nối Barry-CO với TradeOps để minh hoạ một bộ hồ sơ CO end-to-end chạy trên không gian làm việc đã thiết lập
+- kết nối Barry-CO với TradeOps để minh hoạ một bộ hồ sơ CO đầu cuối chạy trên không gian làm việc đã thiết lập
 
-Trước khi tích hợp Barry-CO, đội vận hành của đại lý đã có thể: quản lý hồ sơ khách hàng cuối pilot trên TradeOps; intake tài liệu khách qua các kênh hiện hữu vào hệ thống; tra lại hồ sơ cũ và lịch sử thao tác; bàn giao công việc giữa nhân viên qua không gian làm việc chung. Tích hợp với Barry-CO bổ sung khả năng dựng và submit hồ sơ CO end-to-end ngay trên không gian đó.
+Trước khi tích hợp Barry-CO, đội vận hành của đại lý đã có thể: quản lý hồ sơ khách hàng cuối thí điểm trên TradeOps; tiếp nhận tài liệu khách qua các kênh hiện hữu vào hệ thống; tra lại hồ sơ cũ và lịch sử thao tác; bàn giao công việc giữa nhân viên qua không gian làm việc chung. Tích hợp với Barry-CO bổ sung khả năng dựng và nộp hồ sơ CO đầu cuối ngay trên không gian đó.
 
-Mục tiêu giai đoạn: với khách hàng cuối pilot, đại lý có **một không gian làm việc đầy đủ trong TradeOps** — danh sách khách, hồ sơ, master data sạch, lịch sử có audit trail. Để minh hoạ tính tích hợp, một bộ hồ sơ CO thực tế chạy đầu cuối trên không gian đó qua Barry-CO.
+Mục tiêu giai đoạn: với khách hàng cuối thí điểm, đại lý có **một không gian làm việc đầy đủ trong TradeOps** — danh sách khách, hồ sơ, dữ liệu nền sạch, lịch sử có nhật ký kiểm tra. Để minh hoạ tính tích hợp, một bộ hồ sơ CO thực tế chạy đầu cuối trên không gian đó qua Barry-CO.
 
 ### Giai đoạn 2 — Tồn nhiều view, tờ khai và quyết toán hải quan
 
 Phạm vi:
 
 - module tồn nhiều view và đối chiếu chênh lệch
-- kết nối Siafu với TradeOps để khai thác danh mục và lưu tờ khai vào lịch sử portfolio
-- kết nối Barry-BCQT với TradeOps để chạy báo cáo quyết toán dựa trên các module chuẩn hoá và lịch sử portfolio
+- kết nối Siafu với TradeOps để khai thác danh mục và lưu tờ khai vào lịch sử danh mục
+- kết nối Barry-BCQT với TradeOps để chạy báo cáo quyết toán dựa trên các module chuẩn hoá và lịch sử danh mục
 
 Mục tiêu giai đoạn: một bộ báo cáo quyết toán năm có thể được chuẩn bị mà không cần rời khỏi không gian đã chuẩn hoá; chênh lệch giữa các view tồn được phơi bày và truy vết rõ ràng.
 
@@ -246,11 +246,11 @@ Các hạng mục này có thể được xem xét ở giai đoạn 2 hoặc gia
 
 Các kết quả mong đợi sau khi giai đoạn 1 được triển khai:
 
-- không gian làm việc cho khách hàng cuối pilot được dựng đầy đủ trên TradeOps: danh sách hồ sơ, người phụ trách, trạng thái xử lý, lịch sử thao tác
-- mỗi khách hàng cuối thuộc phạm vi pilot có không gian làm việc riêng với quyền truy cập được kiểm soát theo người dùng và theo vai trò
+- không gian làm việc cho khách hàng cuối thí điểm được dựng đầy đủ trên TradeOps: danh sách hồ sơ, người phụ trách, trạng thái xử lý, lịch sử thao tác
+- mỗi khách hàng cuối thuộc phạm vi thí điểm có không gian làm việc riêng với quyền truy cập được kiểm soát theo người dùng và theo vai trò
 - tài liệu trong phạm vi triển khai được đưa vào hệ thống và có lịch sử phiên bản rõ ràng
 - nhật ký kiểm tra ghi nhận các thao tác trọng yếu, đủ để rà soát và giải trình khi cần (đặc biệt cho kiểm tra sau thông quan)
-- danh mục SP / NVL / BTP và bảng quy đổi mã được dựng cho khách hàng cuối pilot và đưa vào sử dụng thực tế
+- danh mục SP / NVL / BTP và bảng quy đổi mã được dựng cho khách hàng cuối thí điểm và đưa vào sử dụng thực tế
 - BOM có thể được tạo, chỉnh sửa, đánh dấu hiệu lực, ghi nhận lịch sử thay đổi và liên kết tới mã thành phẩm
 - có thể tìm kiếm tài liệu theo khách hàng cuối, mã sản phẩm, mã vật tư, số chứng từ và số hồ sơ
 - một bộ hồ sơ CO thực tế được dựng đầu cuối trên TradeOps + Barry-CO để minh hoạ tính tích hợp với công cụ nghiệp vụ chuyên dụng
