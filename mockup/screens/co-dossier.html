@@ -2,7 +2,7 @@
     <h1>EU-2026-04 · C/O EUR.1</h1>
     <span class="page-tagline">Thiên Hà Dệt May · Áo sơ mi nam SP-DM-1043 · FOB EUR 24.500 · sang Pháp</span>
     <div class="page-actions">
-        <a class="btn-secondary">Biến thể</a>
+        <a class="btn-secondary">Loại C/O</a>
         <a class="btn-cta">Hành động kế tiếp</a>
     </div>
 </div>
@@ -11,11 +11,11 @@
     <div class="zone-head">
         <div>
             <h2>Tiến độ workflow · 8+1 bước</h2>
-            <p class="meta">EVFTA · EUR.1 (FOB &gt; 6.000 EUR) · cấp qua eCoSys (Phòng QLXNK). PSR governs cho HS 6203.42 — tiêu chí CTH.</p>
+            <p class="meta">EVFTA · EUR.1 (FOB &gt; 6.000 EUR) · cấp qua eCoSys (Phòng QLXNK Bộ Công Thương). PSR EVFTA cho HS 6203.42: vải dệt + cắt may tại VN/EU (fabric-forward).</p>
         </div>
         <div class="vstack" style="gap: 0.2rem; align-items: flex-end; font-size: 0.84rem;">
             <span class="muted">Hành động kế tiếp</span>
-            <strong>Xác minh HS gốc cho NVL-001712</strong>
+            <strong>Xử lý NVL-001246 vải polyester nhập từ TQ</strong>
             <span class="muted tiny">Trần Quốc Anh · hạn nội bộ 28/04</span>
         </div>
     </div>
@@ -41,7 +41,7 @@
             <div class="stepper-marker">3</div>
             <div>
                 <div class="stepper-title">Khảo sát BOM + Tồn CO</div>
-                <div class="stepper-meta">Lưu chụp BOM SP-DM-1043 v2 tại 19/04 · 18 NVL · Tồn CO khả dụng OK</div>
+                <div class="stepper-meta">Bản chụp BOM SP-DM-1043 v2 tại 19/04 · 18 NVL · Tồn CO khả dụng OK</div>
             </div>
             <div class="stepper-side">19/04 · 1h20</div>
         </li>
@@ -56,8 +56,8 @@
         <li class="stepper-step stepper-current">
             <div class="stepper-marker">5</div>
             <div>
-                <div class="stepper-title">Đối chiếu tiêu chí xuất xứ · PSR governs</div>
-                <div class="stepper-meta">HS 6203.42 PSR EVFTA: <strong>CTH</strong> chuyển nhóm 4 chữ · đang xác minh từng NVL</div>
+                <div class="stepper-title">Đối chiếu tiêu chí xuất xứ · fabric-forward</div>
+                <div class="stepper-meta">HS 6203.42 PSR EVFTA: <strong>vải dệt + cắt may tại VN/EU</strong> · đang xác minh xuất xứ từng vải NVL</div>
             </div>
             <div class="stepper-side">22/04 · đang xử lý</div>
         </li>
@@ -65,7 +65,7 @@
             <div class="stepper-marker">6</div>
             <div>
                 <div class="stepper-title">Soạn hồ sơ + nhập eCoSys</div>
-                <div class="stepper-meta">Phụ lục X (BCT) · TKXK · hoá đơn · packing list · BL · ký số</div>
+                <div class="stepper-meta">Đơn đề nghị cấp C/O (TT 11/2020) · TKXK đã thông quan · hoá đơn thương mại · packing list · BL · bản kê khai NVL · ký số</div>
             </div>
             <div class="stepper-side muted">—</div>
         </li>
@@ -88,8 +88,8 @@
         <li class="stepper-step">
             <div class="stepper-marker">+</div>
             <div>
-                <div class="stepper-title">Lưu bằng chứng phục vụ KTSTQ về sau</div>
-                <div class="stepper-meta">Lưu chụp BOM · phân lot không sửa được · phục vụ KTSTQ trong 5 năm</div>
+                <div class="stepper-title">Lưu hồ sơ chứng minh phục vụ KTSTQ về sau</div>
+                <div class="stepper-meta">Bản chụp BOM · phân lot bị khoá sau khi cấp · phục vụ KTSTQ trong 5 năm</div>
             </div>
             <div class="stepper-side muted">—</div>
         </li>
@@ -100,63 +100,78 @@
     <section class="zone">
         <div class="zone-head">
             <div>
-                <h2>Đối chiếu CTH · bước 5</h2>
-                <p class="meta">PSR cho HS 6203.42: HS gốc và HS gia công phải khác 4 chữ số đầu.</p>
+                <h2>Đối chiếu xuất xứ EVFTA · bước 5</h2>
+                <p class="meta">PSR EVFTA HS 6203.42 (Chương 62): vải dệt phải dệt tại VN/EU + cắt may tại VN/EU. Phụ liệu non-textile theo tolerance 8% giá ex-works (Note 7 PL I TT 11/2020).</p>
             </div>
         </div>
         <table class="table">
             <thead>
                 <tr>
                     <th>NVL</th>
-                    <th>HS gốc</th>
-                    <th>HS SP</th>
-                    <th>Khác?</th>
+                    <th>Loại</th>
+                    <th>Yêu cầu EVFTA</th>
+                    <th>Xuất xứ thực tế</th>
                     <th>Kết quả</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="mono">NVL-001245 vải</td>
-                    <td class="mono">5208.22</td>
-                    <td class="mono">6203.42</td>
-                    <td class="mono">5208 ≠ 6203</td>
-                    <td><span class="badge badge-success">CTH OK</span></td>
+                    <td class="mono">NVL-001245</td>
+                    <td>Vải chính (cotton)</td>
+                    <td>Dệt tại VN/EU + cắt may tại VN/EU</td>
+                    <td>Dệt tại VN · cắt may tại Thiên Hà</td>
+                    <td><span class="badge badge-success">Đạt</span></td>
+                </tr>
+                <tr style="background: var(--error-soft);">
+                    <td class="mono">NVL-001246</td>
+                    <td>Vải lót (polyester pha)</td>
+                    <td>Dệt tại VN/EU</td>
+                    <td>Nhập từ Trung Quốc · cắt may tại Thiên Hà</td>
+                    <td><span class="badge badge-error">Vướng vải nhập</span></td>
                 </tr>
                 <tr>
-                    <td class="mono">NVL-001302 chỉ</td>
-                    <td class="mono">5402.33</td>
-                    <td class="mono">6203.42</td>
-                    <td class="mono">5402 ≠ 6203</td>
-                    <td><span class="badge badge-success">CTH OK</span></td>
+                    <td class="mono">NVL-001302</td>
+                    <td>Chỉ may (phụ liệu)</td>
+                    <td>Tolerance 8% giá ex-works</td>
+                    <td>Nhập từ TQ · 0,42% giá ex-works</td>
+                    <td><span class="badge badge-success">Trong tolerance</span></td>
                 </tr>
                 <tr>
-                    <td class="mono">NVL-001478 khoá kéo</td>
-                    <td class="mono">9607.11</td>
-                    <td class="mono">6203.42</td>
-                    <td class="mono">9607 ≠ 6203</td>
-                    <td><span class="badge badge-success">CTH OK</span></td>
+                    <td class="mono">NVL-001478</td>
+                    <td>Khoá kéo (phụ liệu)</td>
+                    <td>Tolerance 8% giá ex-works</td>
+                    <td>Nhập từ TQ · 1,8% giá ex-works</td>
+                    <td><span class="badge badge-success">Trong tolerance</span></td>
                 </tr>
                 <tr>
-                    <td class="mono">NVL-001501 cúc nhựa</td>
-                    <td class="mono">9606.22</td>
-                    <td class="mono">6203.42</td>
-                    <td class="mono">9606 ≠ 6203</td>
-                    <td><span class="badge badge-success">CTH OK</span></td>
+                    <td class="mono">NVL-001501</td>
+                    <td>Cúc nhựa (phụ liệu)</td>
+                    <td>Tolerance 8% giá ex-works</td>
+                    <td>Nhập từ TQ · 0,8% giá ex-works</td>
+                    <td><span class="badge badge-success">Trong tolerance</span></td>
                 </tr>
                 <tr>
-                    <td class="mono">NVL-001712 nhãn</td>
-                    <td class="mono"><span class="muted">— chưa có</span></td>
-                    <td class="mono">6203.42</td>
-                    <td class="muted">—</td>
-                    <td><span class="badge badge-warning">Cần xử lý</span></td>
+                    <td class="mono">NVL-001712</td>
+                    <td>Nhãn cotton (phụ liệu)</td>
+                    <td>Tolerance 8% giá ex-works</td>
+                    <td>Chưa rõ nguồn cung</td>
+                    <td><span class="badge badge-warning">Xác minh tỷ trọng</span></td>
+                </tr>
+                <tr>
+                    <td class="mono">Cộng phụ liệu nhập</td>
+                    <td colspan="2"><span class="muted">Tổng tỷ trọng phụ liệu non-VN/EU theo giá ex-works</span></td>
+                    <td><strong>3,02%</strong> / 8% trần</td>
+                    <td><span class="badge badge-success">Đạt tolerance</span></td>
                 </tr>
             </tbody>
         </table>
-        <div class="callout callout-warning" style="margin-top: 0.7rem;">
+        <div class="callout callout-error" style="margin-top: 0.7rem;">
             <span class="callout-icon">!</span>
             <div>
-                <div class="callout-title">NVL-001712 thiếu HS gốc</div>
-                Lựa chọn: (a) yêu cầu khách hàng cung cấp HS từ TKNK gốc, (b) nếu xuất xứ VN (de minimis &lt;10%) có thể bỏ qua, (c) áp dụng tolerance Điều 9 Phụ lục VII EVFTA.
+                <div class="callout-title">NVL-001246 vải polyester nhập từ TQ chặn fabric-forward</div>
+                Vải lót polyester không được dệt tại VN/EU — không đạt PSR fabric-forward, và vải KHÔNG nằm trong tolerance non-textile.
+                Lựa chọn: (a) đổi sang vải lót dệt tại VN, (b) verify cumulation với KR (chỉ áp dụng nếu khách hàng có notification kèm), (c) bỏ vải lót khỏi BOM nếu kỹ thuật cho phép, (d) chuyển sang Form B non-preferential (mất ưu đãi thuế).
+                Căn cứ: <span class="mono">Phụ lục II TT 11/2020/TT-BCT</span> + Note 7 Phụ lục I (tolerance 8% giá ex-works cho dệt may).
             </div>
         </div>
     </section>
@@ -164,7 +179,7 @@
     <section class="zone zone-muted">
         <div class="zone-head">
             <div>
-                <h2>Biến thể C/O</h2>
+                <h2>Loại C/O đặc biệt</h2>
                 <p class="meta">Hồ sơ này có thể chuyển sang biến thể nào.</p>
             </div>
         </div>

@@ -16,6 +16,16 @@ const CUSTOMERS = {
     "dn-bao-bi-04": { name: "Bao Bì Việt Long", stripe: 4 },
 };
 
+function crumbForCurrentCustomer(leafLabel) {
+    const id = (typeof window !== "undefined" && sessionStorage.getItem("currentCustomer")) || "dn-det-may-01";
+    const c = CUSTOMERS[id] || CUSTOMERS["dn-det-may-01"];
+    return [
+        { text: "Khách hàng", href: "#/clients" },
+        { customer: c.name, href: "#/end-client/" + id },
+        { text: leafLabel },
+    ];
+}
+
 const ROUTES = {
     dashboard: {
         file: "dashboard",
@@ -23,55 +33,46 @@ const ROUTES = {
         crumb: () => [{ text: "Tổng quan" }],
         next: { route: "end-client/dn-det-may-01", label: "Trạm 2 · Vào một khách hàng" },
     },
+    clients: {
+        file: "clients",
+        nav: "clients",
+        crumb: () => [{ text: "Khách hàng" }],
+    },
     "end-client": {
         file: "end-client",
         nav: "clients",
         crumb: (id) => {
             const c = CUSTOMERS[id];
-            return c
-                ? [{ text: "Khách hàng", href: "#/dossier-list" }, { customer: c.name }]
-                : [{ text: "Khách hàng" }];
+            if (c) {
+                if (typeof window !== "undefined") sessionStorage.setItem("currentCustomer", id);
+                return [{ text: "Khách hàng", href: "#/clients" }, { customer: c.name }];
+            }
+            return [{ text: "Khách hàng" }];
         },
         next: { route: "item-master", label: "Trạm 3 · Dữ liệu nền" },
     },
     "item-master": {
         file: "item-master",
         nav: "clients",
-        crumb: () => [
-            { text: "Khách hàng", href: "#/dossier-list" },
-            { customer: "Thiên Hà Dệt May", href: "#/end-client/dn-det-may-01" },
-            { text: "Dữ liệu nền · Mã hàng" },
-        ],
+        crumb: () => crumbForCurrentCustomer("Dữ liệu nền · Mã hàng"),
         next: { route: "bom", label: "BOM →" },
     },
     bom: {
         file: "bom",
         nav: "clients",
-        crumb: () => [
-            { text: "Khách hàng", href: "#/dossier-list" },
-            { customer: "Thiên Hà Dệt May", href: "#/end-client/dn-det-may-01" },
-            { text: "Dữ liệu nền · BOM" },
-        ],
-        next: { route: "inventory", label: "Tồn 4 view →" },
+        crumb: () => crumbForCurrentCustomer("Dữ liệu nền · BOM"),
+        next: { route: "inventory", label: "Tồn 3 góc nhìn →" },
     },
     inventory: {
         file: "inventory",
         nav: "clients",
-        crumb: () => [
-            { text: "Khách hàng", href: "#/dossier-list" },
-            { customer: "Thiên Hà Dệt May", href: "#/end-client/dn-det-may-01" },
-            { text: "Dữ liệu nền · Tồn 4 view" },
-        ],
+        crumb: () => crumbForCurrentCustomer("Dữ liệu nền · Tồn 3 góc nhìn"),
         next: { route: "co-dossier/eu-2026-04", label: "Trạm 5 · Hồ sơ C/O" },
     },
     "document-control": {
         file: "document-control",
         nav: "clients",
-        crumb: () => [
-            { text: "Khách hàng", href: "#/dossier-list" },
-            { customer: "Thiên Hà Dệt May", href: "#/end-client/dn-det-may-01" },
-            { text: "Tài liệu" },
-        ],
+        crumb: () => crumbForCurrentCustomer("Tài liệu"),
     },
     "dossier-list": {
         file: "dossier-list",

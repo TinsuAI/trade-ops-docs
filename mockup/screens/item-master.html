@@ -12,10 +12,16 @@
     <a href="#/inventory" class="tab-link">Tồn 3 góc nhìn</a>
 </nav>
 
-<section class="zone">
+<div class="chip-row" style="margin-bottom: 0.7rem;" id="im-subtabs">
+    <button class="chip" data-subtab="sp">Sản phẩm xuất khẩu (47)</button>
+    <button class="chip chip-active" data-subtab="nvl">Nguyên vật liệu (238)</button>
+    <button class="chip" data-subtab="btp">Bán thành phẩm (12)</button>
+</div>
+
+<section class="zone" data-subpane="sp" hidden>
     <div class="zone-head">
         <div>
-            <h2>Sản phẩm xuất khẩu (SP) · 47 mã</h2>
+            <h2>Sản phẩm xuất khẩu (SP)</h2>
             <p class="meta">SP có HS xuất khẩu cố định và liên kết BOM kỹ thuật phiên bản hoá.</p>
         </div>
     </div>
@@ -49,7 +55,7 @@
             </tr>
             <tr>
                 <td class="mono">SP-DM-1051</td>
-                <td>Quần kaki nam slim fit</td>
+                <td>Quần kaki nam slim fit · 100% cotton</td>
                 <td class="mono">6203.4200</td>
                 <td><a class="mono" href="#/bom">v1</a></td>
                 <td class="mono">15/04/2026</td>
@@ -57,8 +63,8 @@
             </tr>
             <tr>
                 <td class="mono">SP-DM-1067</td>
-                <td>Áo khoác gió nữ light weight</td>
-                <td class="mono">6202.9200</td>
+                <td>Áo khoác gió nữ polyester light weight</td>
+                <td class="mono">6202.9300</td>
                 <td><a class="mono" href="#/bom">v2</a></td>
                 <td class="mono">10/04/2026</td>
                 <td><span class="badge badge-success">Hoạt động</span></td>
@@ -73,7 +79,7 @@
             </tr>
             <tr>
                 <td class="mono">SP-DM-1124</td>
-                <td>Áo gile nam trifit</td>
+                <td>Áo gile nam trifit · 100% cotton</td>
                 <td class="mono">6211.3200</td>
                 <td><a class="mono" href="#/bom">v2</a></td>
                 <td class="mono">28/03/2026</td>
@@ -84,10 +90,10 @@
     <p class="empty">+ 41 SP khác · scroll hoặc lọc.</p>
 </section>
 
-<section class="zone">
+<section class="zone" data-subpane="nvl">
     <div class="zone-head">
         <div>
-            <h2>Nguyên vật liệu (NVL) · 238 mã</h2>
+            <h2>Nguyên vật liệu (NVL)</h2>
             <p class="meta">Cột "Mã HQ" thể hiện lịch sử khai báo qua nhiều năm. Mã thay đổi giữa các năm là dữ liệu, không phải lỗi.</p>
         </div>
     </div>
@@ -183,10 +189,63 @@
     <p class="empty">+ 230 NVL khác · scroll hoặc lọc.</p>
 </section>
 
-<section class="zone">
+<section class="zone zone-muted" data-subpane="nvl">
     <div class="zone-head">
         <div>
-            <h2>Bán thành phẩm (BTP) · 12 mã</h2>
+            <h2>Khoá kéo nylon 18cm · 3 mã HQ qua 4 năm</h2>
+            <p class="meta">Cùng một NVL nhưng phân loại lại 2 lần — đây là dữ liệu, không phải lỗi.</p>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Năm khai</th>
+                <th>Mã HQ</th>
+                <th>Mô tả trên tờ khai</th>
+                <th>Số TKNK</th>
+                <th>Tổng lượng</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="mono">2022-2023</td>
+                <td class="mono">9607.2000</td>
+                <td>Khoá kéo nguyên cuộn</td>
+                <td class="num">8</td>
+                <td class="num">14.200 cái</td>
+            </tr>
+            <tr>
+                <td class="mono">2024-2025</td>
+                <td class="mono">9607.1900</td>
+                <td>Khoá kéo cài, có răng nylon</td>
+                <td class="num">22</td>
+                <td class="num">28.500 cái</td>
+            </tr>
+            <tr>
+                <td class="mono">2026</td>
+                <td class="mono">9607.1100</td>
+                <td>Khoá kéo cài, có răng nhựa</td>
+                <td class="num">3</td>
+                <td class="num">3.800 cái</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout callout-warning" style="margin-top: 0.7rem;">
+        <span class="callout-icon">!</span>
+        <div>
+            <div class="callout-title">Khi đối chiếu BCQT năm 2024 với năm 2025</div>
+            Hệ thống dùng <strong>lịch sử mã HQ này</strong> để tính tồn đầu kỳ — không lấy mã HQ hiện hành áp dụng cho năm cũ.
+            Đây là cơ chế bảo vệ tránh sai số khi mã HQ thay đổi qua năm.
+        </div>
+    </div>
+</section>
+
+<section class="zone" data-subpane="btp" hidden>
+    <div class="zone-head">
+        <div>
+            <h2>Bán thành phẩm (BTP)</h2>
             <p class="meta">Sản phẩm trung gian trong dây chuyền — đầu vào là NVL, đầu ra là SP hoặc BTP khác.</p>
         </div>
     </div>
@@ -247,59 +306,6 @@
     <p class="empty">+ 7 BTP khác · scroll hoặc lọc.</p>
 </section>
 
-<section class="zone zone-muted">
-    <div class="zone-head">
-        <div>
-            <h2>Khoá kéo nylon 18cm · 3 mã HQ qua 4 năm</h2>
-            <p class="meta">Cùng NVL nhưng phân loại lại 2 lần — đây là dữ liệu, không phải lỗi.</p>
-        </div>
-    </div>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Năm khai</th>
-                <th>Mã HQ</th>
-                <th>Mô tả trên tờ khai</th>
-                <th>Số TKNK</th>
-                <th>Tổng lượng</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="mono">2022-2023</td>
-                <td class="mono">9607.2000</td>
-                <td>Khoá kéo nguyên cuộn</td>
-                <td class="num">8</td>
-                <td class="num">14.200 cái</td>
-            </tr>
-            <tr>
-                <td class="mono">2024-2025</td>
-                <td class="mono">9607.1900</td>
-                <td>Khoá kéo cài, có răng nylon</td>
-                <td class="num">22</td>
-                <td class="num">28.500 cái</td>
-            </tr>
-            <tr>
-                <td class="mono">2026</td>
-                <td class="mono">9607.1100</td>
-                <td>Khoá kéo cài, có răng nhựa</td>
-                <td class="num">3</td>
-                <td class="num">3.800 cái</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div class="callout callout-warning" style="margin-top: 0.7rem;">
-        <span class="callout-icon">!</span>
-        <div>
-            <div class="callout-title">Khi đối chiếu BCQT năm 2024 với năm 2025</div>
-            Hệ thống dùng <strong>lịch sử mã HQ này</strong> để tính tồn đầu kỳ — không lấy mã HQ hiện hành áp dụng cho năm cũ.
-            Đây là cơ chế bảo vệ tránh sai số khi mã HQ thay đổi qua năm.
-        </div>
-    </div>
-</section>
-
 <aside class="questions-panel">
     <h3>Trạm 3a · Mã hàng</h3>
     <ol>
@@ -310,3 +316,15 @@
         <li>Khi đặt mã ERP nội bộ — đại lý đặt, khách hàng đặt, hay đại lý lấy nguyên mã ERP của khách hàng?</li>
     </ol>
 </aside>
+
+<script>
+(function() {
+    const subtabs = document.querySelectorAll("#im-subtabs .chip");
+    const panes = document.querySelectorAll('[data-subpane]');
+    function show(key) {
+        subtabs.forEach(t => t.classList.toggle("chip-active", t.dataset.subtab === key));
+        panes.forEach(p => p.hidden = (p.dataset.subpane !== key));
+    }
+    subtabs.forEach(t => t.addEventListener("click", () => show(t.dataset.subtab)));
+})();
+</script>
