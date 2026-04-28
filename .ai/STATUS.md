@@ -8,12 +8,16 @@ Two major artifact streams shipped this session:
 
 2. **Architectural decision 2026-04-28: 4 apps standalone + sync via API** — committed to `.ai/DECISIONS.md`. Replaces implicit Path-1 (TradeOps owns master, workflow apps query it) with Path-2 (each of 4 apps standalone-capable with own data model; sync via API contracts using primary/mirror per entity type when co-deployed). Memory updated in tandem.
 
+3. **Doc-control scope tightening (post-second-handoff)** — user raised "TradeOps có quá tham không?" Document-control v4 had drifted into 4-card morning-action grid mixing file concerns (Vào sổ) with dossier-level concerns (Lô đang đi, Chờ KH, Sắp hết hạn). Pulled 3 dossier-level cards back to dashboard; doc-control now scoped to file-thuần. Dashboard gained 2 new zones (Lô đang đi với completeness checklist + Sắp hết hạn 60 ngày) and "Chờ phản hồi" zone enriched. Boundary now: file concern ở doc-control, portfolio/dossier concern ở dashboard.
+
 Working tree clean on `mockup` branch. Both `mockup` private and `main` public-mockup pushed to remote.
 
 ## Recent Changes (2026-04-28 session)
 
-Commits on `mockup` branch (10 total, vs `main` unchanged):
+Commits on `mockup` branch (12 total, vs `main` unchanged):
 
+- `212cdfd` Doc-control: scope back to file-thuần; dashboard gains Lô đang đi + Sắp hết hạn zones, Chờ phản hồi enriched
+- `f6fcf4d` Handoff 2026-04-28: mockup build + redesigns + Path-2 architecture decision
 - `9fe248e` Decision 2026-04-28: 4 apps standalone with API sync (primary/mirror per entity)
 - `a015710` Doc-control: Tier 1+2 expansion per critic+domain consensus
 - `cbad0f5` Router: re-execute scripts on screen load (fixes view/subtab toggles)
